@@ -17,7 +17,7 @@
         home = "/home/bag";
         isNormalUser = true;
         uid = 1000;
-        extraGroups = ["wheel" "networkmanager" "input" "video"];
+        extraGroups = ["wheel" "networkmanager" "input" "video" "sway"];
       };
     };
   };
