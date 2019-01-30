@@ -7,7 +7,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    wrapped
+#    wrapped
     emacs
     ledger
   ];

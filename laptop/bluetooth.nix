@@ -15,9 +15,4 @@
     Enable=Source,Sink,Media,Socket
     '';
   };
-
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
-  };
 }

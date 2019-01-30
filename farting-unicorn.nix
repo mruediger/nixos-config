@@ -7,45 +7,39 @@ in
 {
   imports = [
     (hardwareTarball + "/lenovo/thinkpad/x1/6th-gen")
-    ./modules/base.nix
-    ./modules/bash.nix
-    ./modules/xorg.nix
-    ./modules/emacs.nix
-    ./modules/networking.nix
-    ./modules/bluetooth.nix
-    ./modules/devops.nix
-    ./modules/yubikey.nix
+    ./base
+    ./desktop
+    ./laptop
     xdg-dotfiles
   ];
 
   networking.hostName = "farting-unicorn";
 
-  services.xserver = {
-    videoDrivers = [ "intel" ];
+  swapDevices = [
+    { device = "/swapfile";
+      size = 32768;
+    }
+  ];
+
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    resumeDevice = config.fileSystems."/".device;
+    kernelParams = [
+      "resume_offset=2048000"
+      "i915.enable_fbc=1" #frambuffer compression
+      "i915.enable_guc=2" #GuC/HuC firmware
+      "i915.enable_psr=2" #panel self refresh
+    ];
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  services.xserver.dpi = 135;
-  fonts.fontconfig.dpi = 135;
-
-  services.tlp = {
-    enable = true;
+  services.logind = {
     extraConfig = ''
-      START_CHARGE_THRESH_BAT0=75
-      STOP_CHARGE_THRESH_BAT0=90
-      START_CHARGE_THRESH_BAT1=75
-      STOP_CHARGE_THRESH_BAT1=90
+      HandleSuspendKey=hibernate
     '';
   };
 
-  nixpkgs.config.allowUnfree = true;
+  time.hardwareClockInLocalTime = true;
 
-  hardware = {
-    enableAllFirmware = true;
-    enableKSM = true;
-    cpu = {
-      intel.updateMicrocode = true;
-    };
-  };
+  services.xserver.dpi = 135;
+  fonts.fontconfig.dpi = 135;
 }
