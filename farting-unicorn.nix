@@ -38,8 +38,6 @@ in
     '';
   };
 
-  time.hardwareClockInLocalTime = true;
-
   services.xserver.dpi = 135;
   fonts.fontconfig.dpi = 135;
 }
