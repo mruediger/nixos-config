@@ -7,6 +7,7 @@
     ./java.nix
     ./rust.nix
     ./voip.nix
+    ./windows.nix
     ./yubikey.nix
   ];
 
