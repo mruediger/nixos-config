@@ -23,11 +23,6 @@
     '';
   };
 
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "ondemand";
-  };
-
   services.tlp = {
     enable = true;
     extraConfig = ''
