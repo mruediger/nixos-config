@@ -9,6 +9,7 @@
     ./phone.nix
     ./rust.nix
     ./voip.nix
+    ./wine.nix
     ./windows.nix
     ./yubikey.nix
   ];
