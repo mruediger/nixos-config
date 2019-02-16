@@ -17,6 +17,7 @@
     file
     pigz
     psmisc
+    ncdu
   ];
 
 
