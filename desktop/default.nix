@@ -23,8 +23,13 @@
     scrot
     hexchat
     xclip
+    font-manager
   ];
 
+  fonts = {
+    enableDefaultFonts = true;
+    enableCoreFonts = true;
+  };
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
