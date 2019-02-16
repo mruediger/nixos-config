@@ -22,7 +22,7 @@ in
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = with pkgs; unstable.linuxPackages_latest;
     resumeDevice = config.fileSystems."/".device;
     kernelParams = [
       "resume_offset=2048000"
