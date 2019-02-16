@@ -24,6 +24,7 @@
     hexchat
     xclip
     font-manager
+    skypeforlinux
   ];
 
   fonts = {
