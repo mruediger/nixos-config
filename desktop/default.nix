@@ -6,6 +6,7 @@
     ./go.nix
     ./java.nix
     ./mozilla-overlay.nix
+    ./phone.nix
     ./rust.nix
     ./voip.nix
     ./windows.nix
