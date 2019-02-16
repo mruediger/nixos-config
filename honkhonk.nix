@@ -10,17 +10,6 @@
 
   networking.hostName = "honkhonk";
 
-  services.xserver = {
-    videoDrivers = [ "intel" ];
-  };
+  time.hardwareClockInLocalTime = true;
 
-
-  nixpkgs.config.allowUnfree = true;
-  hardware = {
-    enableAllFirmware = true;
-    enableKSM = true;
-    cpu = {
-      intel.updateMicrocode = true;
-    };
-  };
 }
