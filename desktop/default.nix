@@ -5,6 +5,7 @@
     ./emacs.nix
     ./go.nix
     ./java.nix
+    ./mozilla-overlay.nix
     ./rust.nix
     ./voip.nix
     ./windows.nix
