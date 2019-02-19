@@ -17,8 +17,12 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-#    wrapped
     emacs
     ledger
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
+    aspellDicts.de
   ];
 }
