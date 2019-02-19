@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     go
     gcc # cgo dependency
+    godef
   ];
 
   environment.variables = {
