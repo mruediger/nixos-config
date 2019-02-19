@@ -6,6 +6,16 @@ let
   '';
 in
 {
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      emacs = pkgs.emacs.override {
+        withGTK2 = false;
+        withGTK3 = false;
+        withXwidgets = false;
+      };
+    };
+  };
+
   environment.systemPackages = with pkgs; [
 #    wrapped
     emacs
