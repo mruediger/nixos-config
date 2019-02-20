@@ -6,23 +6,15 @@ let
   '';
 in
 {
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      emacs = pkgs.emacs.override {
-        withGTK2 = false;
-        withGTK3 = false;
-        withXwidgets = false;
-      };
-    };
-  };
 
   environment.systemPackages = with pkgs; [
-    emacs
+    (emacs.override { withGTK3 = true; })
     ledger
     aspell
     aspellDicts.en
     aspellDicts.en-computers
     aspellDicts.en-science
     aspellDicts.de
+    multimarkdown
   ];
 }
