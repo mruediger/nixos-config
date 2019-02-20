@@ -25,10 +25,10 @@ in
     kernelPackages = with pkgs; unstable.linuxPackages_latest;
     resumeDevice = config.fileSystems."/".device;
     kernelParams = [
-      "resume_offset=2048000"
-      "i915.enable_fbc=1" #frambuffer compression
-      "i915.enable_guc=2" #GuC/HuC firmware
-      "i915.enable_psr=2" #panel self refresh
+      "resume_offset=1679360" #offset by filefrag -v /swapfile
+      "i915.enable_guc=2"     #GuC/HuC firmware
+      "i915.enable_fbc=0"     #frambuffer compression for powersaving
+      "i915.enable_psr=0"     #panel self refresh for powersaving
     ];
   };
 
@@ -40,4 +40,15 @@ in
 
   services.xserver.dpi = 135;
   fonts.fontconfig.dpi = 135;
+
+  systemd.services."i3lock" = {
+    enable = true;
+    wantedBy = [ "sleep.target" "suspend.target" ];
+    serviceConfig = {
+      Type = "forking";
+      User = "bag";
+      Environment = "DISPLAY=:0";
+      ExecStart = "${pkgs.i3lock}/bin/i3lock -i /home/bag/src/dotfiles/templates/w95lock.png";
+    };
+  };
 }
