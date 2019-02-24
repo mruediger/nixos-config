@@ -23,11 +23,13 @@
     '';
   };
 
-  services.tlp = {
+  powerManagement = {
     enable = true;
-    extraConfig = ''
-      START_CHARGE_THRESH_BAT0=75
-      STOP_CHARGE_THRESH_BAT0=90
+    cpuFreqGovernor = "powersave";
+    powerUpCommands = ''
+      echo '1500' > '/proc/sys/vm/dirty_writeback_centisecs';
     '';
   };
+
+
 }
