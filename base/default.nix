@@ -18,6 +18,7 @@
     pigz
     psmisc
     ncdu
+    mc
   ];
 
 
