@@ -8,17 +8,18 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    file
+    iotop
     jq
+    mc
+    ncdu
+    pigz
+    psmisc
     psutils
     sysfsutils
     unzip
     usbutils
     wget
-    file
-    pigz
-    psmisc
-    ncdu
-    mc
   ];
 
 
