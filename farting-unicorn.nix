@@ -2,7 +2,7 @@
 
 let
   hardwareTarball = fetchTarball https://github.com/NixOS/nixos-hardware/archive/master.tar.gz;
-  xdg-dotfiles = (fetchGit https://github.com/mruediger/xdg-dotfiles.git).outPath;
+  xdg-dotfiles = fetchTarball https://github.com/mruediger/xdg-dotfiles/archive/master.tar.gz;
 in
 {
   imports = [
