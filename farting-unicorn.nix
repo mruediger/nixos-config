@@ -25,7 +25,7 @@ in
     kernelPackages = with pkgs; unstable.linuxPackages_latest;
     resumeDevice = config.fileSystems."/".device;
     kernelParams = [
-      "resume_offset=1679360" #offset by filefrag -v /swapfile
+      "resume_offset=96256"   #offset by filefrag -v /swapfile
       "i915.enable_guc=2"     #GuC/HuC firmware
       "i915.enable_fbc=0"     #frambuffer compression for powersaving
       "i915.enable_psr=0"     #panel self refresh for powersaving
