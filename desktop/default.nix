@@ -24,6 +24,7 @@
     xclip
     font-manager
     skypeforlinux
+    pass
   ];
 
   fonts = {
