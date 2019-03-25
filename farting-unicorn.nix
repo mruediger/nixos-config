@@ -43,6 +43,7 @@ in
 
   systemd.services."i3lock" = {
     enable = true;
+    before = [ "sleep.target" "suspend.target" ];
     wantedBy = [ "sleep.target" "suspend.target" ];
     serviceConfig = {
       Type = "forking";
