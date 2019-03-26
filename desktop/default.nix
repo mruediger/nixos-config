@@ -25,6 +25,7 @@
     font-manager
     skypeforlinux
     pass
+    zoom-us
   ];
 
   fonts = {
