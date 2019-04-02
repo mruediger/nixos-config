@@ -23,6 +23,8 @@
     '';
   };
 
+  services.tlp.enable = false;
+
   powerManagement = {
     enable = true;
     cpuFreqGovernor = "powersave";
