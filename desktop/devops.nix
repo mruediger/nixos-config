@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     git
-    aws
+    awscli
     kubernetes-helm
     unstable.terraform
     unstable.google-cloud-sdk
