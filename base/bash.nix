@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.bash = {
     enableCompletion = true;
@@ -10,6 +10,7 @@
       PS1="$orange\u$normal@\h:\w
       $orange>$normal "
     '';
+
     interactiveShellInit = ''
       # Update window size after every command
       shopt -s checkwinsize
@@ -68,12 +69,17 @@
       HISTTIMEFORMAT='%F %T '
 
       set bell-style none
+
+      if [[ $TERM == xterm-termite ]]; then
+        . ${pkgs.gnome3.vte-ng}/etc/profile.d/vte.sh
+      fi
       '';
       shellAliases = {
         nix-search = "nix-env -qaP";
         nix-list   = "nix-env -qaP \"*\" --description";
         glog       = "git log --graph --pretty=format:\"%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset\" --abbrev-commit --date=relative";
         gst        = "git status";
+        ssh        = "TERM=xterm-color ssh";
       };
   };
 }
