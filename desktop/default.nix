@@ -4,6 +4,7 @@
     ./devops.nix
     ./emacs.nix
     ./go.nix
+    ./latex.nix
     ./mozilla-overlay.nix
     ./phone.nix
     ./rust.nix
