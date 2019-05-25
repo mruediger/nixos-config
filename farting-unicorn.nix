@@ -27,6 +27,7 @@ in
     kernelParams = [
       "resume_offset=96256"   #offset by filefrag -v /swapfile
     ];
+    blacklistedKernelModules = [ "amdgpu" ];
   };
 
   services.logind = {
