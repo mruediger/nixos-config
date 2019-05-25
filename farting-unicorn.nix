@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    (hardwareTarball + "/lenovo/thinkpad/x1/6th-gen")
+    (hardwareTarball + "/common/pc/laptop/cpu-throttling-bug.nix")
     ./base
     ./desktop
     ./laptop
@@ -22,10 +22,11 @@ in
   ];
 
   boot = {
-    kernelPackages = with pkgs; unstable.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
     resumeDevice = config.fileSystems."/".device;
     kernelParams = [
       "resume_offset=96256"   #offset by filefrag -v /swapfile
+      "i915.enable_guc=2"     #GuC/HuC firmware
     ];
     blacklistedKernelModules = [ "amdgpu" ];
   };
