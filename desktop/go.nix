@@ -9,6 +9,6 @@
   environment.variables = {
     GOROOT = [ "${pkgs.go.out}/share/go" ];
     GOPATH = "$HOME/src/go";
-    PATH   = "$PATH:$GOPATH/bin";
+    PATH   = ["$GOPATH/bin"];
   };
 }
