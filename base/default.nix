@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./unstable.nix
@@ -57,4 +57,7 @@
       enable = true;
     };
   };
+
+  nix.buildCores = lib.mkDefault 0;
+  nix.autoOptimiseStore = true;
 }
