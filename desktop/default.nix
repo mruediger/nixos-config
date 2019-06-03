@@ -25,7 +25,6 @@
     scrot
     hexchat
     xclip
-    font-manager
     skypeforlinux
     pass
     zoom-us
