@@ -28,6 +28,7 @@
     skypeforlinux
     pass
     zoom-us
+    calibre
   ];
 
   fonts = {
