@@ -10,6 +10,7 @@
     ./rust.nix
     ./voip.nix
     ./wine.nix
+    ./virtualbox.nix
     ./windows.nix
     ./yubikey.nix
   ];
