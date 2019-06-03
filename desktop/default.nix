@@ -5,6 +5,7 @@
     ./emacs.nix
     ./go.nix
     ./latex.nix
+    ./gparted.nix
     ./mozilla-overlay.nix
     ./phone.nix
     ./rust.nix
