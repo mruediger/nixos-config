@@ -9,7 +9,7 @@
 
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = true;
+    powerOnBoot = false;
     extraConfig = ''
     [General]
     Enable=Source,Sink,Media,Socket
