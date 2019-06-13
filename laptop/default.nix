@@ -14,8 +14,8 @@
       SUBSYSTEM=="pci", ATTR{power/control}="auto"
       SUBSYSTEM=="i2c", ATTR{power/control}="auto"
       SUBSYSTEM=="usb", ATTR{power/control}="auto"
-      SUBSYSTEM=="usb", ATTR{power/wakeup}=disabled"
-      SUBSYSTEM=="net", ATTR{power/wakeup}=disabled"
+      SUBSYSTEM=="usb", ATTR{power/wakeup}="disabled"
+      SUBSYSTEM=="net", ATTR{power/wakeup}="disabled"
     '';
   };
 
