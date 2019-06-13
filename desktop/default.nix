@@ -4,31 +4,32 @@
     ./devops.nix
     ./emacs.nix
     ./go.nix
-    ./latex.nix
-    ./gparted.nix
     ./mozilla-overlay.nix
     ./phone.nix
     ./rust.nix
-    ./voip.nix
-    ./wine.nix
     ./virtualbox.nix
     ./windows.nix
     ./yubikey.nix
   ];
 
   environment.systemPackages = with pkgs; [
-    firefox
-    mpv
-    pavucontrol
+    calibre
     chromium
     feh
-    scrot
+    firefox
+    gparted
     hexchat
-    xclip
-    skypeforlinux
+    linphone
+    mpv
     pass
+    pavucontrol
+    rambox
+    scrot
+    skypeforlinux
+    texlive.combined.scheme-medium
+    wine
+    xclip
     zoom-us
-    calibre
   ];
 
   fonts = {
