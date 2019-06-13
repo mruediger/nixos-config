@@ -29,6 +29,7 @@ in
       "i915.enable_guc=2"     #GuC/HuC firmware
     ];
     blacklistedKernelModules = [ "amdgpu" ];
+    extraModulePackages = [ config.boot.kernelPackages.wireguard ];
   };
 
   services.logind = {
@@ -49,6 +50,19 @@ in
       User = "bag";
       Environment = "DISPLAY=:0";
       ExecStart = "${pkgs.i3lock}/bin/i3lock -i /home/bag/src/dotfiles/templates/w95lock.png";
+    };
+  };
+
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = [ "10.42.42.2/32" ];
+      privateKeyFile = "${toString ./.}" + "/wireguard-blueboot.key";
+      peers = [{
+        publicKey = "uk0WkHHW02ExU/TYXbCRHJQX+R7mXhcCygz/1DTxOmI=";
+        allowedIPs = [ "10.42.42.0/24" ];
+        endpoint = "blueboot.org:51820";
+        persistentKeepalive = 25;
+      }];
     };
   };
 }
