@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     opensc
     pcsctools
+    gnupg
     libu2f-host
     yubikey-personalization
   ];
@@ -12,4 +13,10 @@
     yubikey-personalization
   ];
   hardware.u2f.enable = true;
+
+  programs.ssh.startAgent = false;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 }
