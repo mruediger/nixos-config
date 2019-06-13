@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    (hardwareTarball + "/common/pc/laptop/cpu-throttling-bug.nix")
+     (hardwareTarball + "/lenovo/thinkpad/x1/6th-gen")
     ./base
     ./desktop
     ./laptop
@@ -27,6 +27,8 @@ in
     kernelParams = [
       "resume_offset=96256"   #offset by filefrag -v /swapfile
       "i915.enable_guc=2"     #GuC/HuC firmware
+      "i915.enable_fbc=0"     #frambuffer compression for powersaving
+      "i915.enable_psr=0"     #panel self refresh for powersaving
     ];
     blacklistedKernelModules = [ "amdgpu" ];
     extraModulePackages = [ config.boot.kernelPackages.wireguard ];
