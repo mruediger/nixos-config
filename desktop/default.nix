@@ -6,6 +6,7 @@
     ./go.nix
     ./mozilla-overlay.nix
     ./phone.nix
+    ./printer.nix
     ./rust.nix
     ./virtualbox.nix
     ./windows.nix
