@@ -55,6 +55,8 @@ in
     };
   };
 
+  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
+
   networking.wireguard.interfaces = {
     wg0 = {
       ips = [ "10.42.42.2/32" ];
