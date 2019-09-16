@@ -26,7 +26,7 @@
     rambox
     scrot
     skypeforlinux
-    texlive.combined.scheme-medium
+    texlive.combined.scheme-full
     wine
     xclip
     zoom-us
