@@ -26,7 +26,7 @@
   nixpkgs.config.allowUnfree = true;
   hardware = {
     enableAllFirmware = true;
-    enableKSM = true;
+    ksm.enable = true;
     cpu = {
       intel.updateMicrocode = true;
       amd.updateMicrocode = true;
