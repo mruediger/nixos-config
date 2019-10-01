@@ -16,7 +16,7 @@
     calibre
     chromium
     feh
-    firefox
+    firefox-wayland
     gparted
     hexchat
     linphone
@@ -45,6 +45,8 @@
     enable = true;
     autorun = true;
 
+    exportConfiguration = true;
+
     layout = "de";
     xkbVariant = "neo";
 
@@ -53,12 +55,13 @@
       tapping = false;
     };
 
-    desktopManager = {
-      default = "none";
-      xterm.enable = false;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
     };
 
-    videoDrivers = [ "intel" ];
+    desktopManager.gnome3.enable = true;
+
     serverFlagsSection = ''
       Option "BlankTime"   "0"
       Option "StandbyTime" "0"

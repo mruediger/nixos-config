@@ -40,9 +40,6 @@ in
     '';
   };
 
-  services.xserver.dpi = 135;
-  fonts.fontconfig.dpi = 135;
-
   systemd.services."i3lock" = {
     enable = true;
     before = [ "sleep.target" "suspend.target" ];
