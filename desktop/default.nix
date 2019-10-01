@@ -8,7 +8,7 @@
     ./phone.nix
     ./printer.nix
     ./rust.nix
-    ./virtualbox.nix
+    ./virtualisation.nix
     ./windows.nix
     ./yubikey.nix
   ];
