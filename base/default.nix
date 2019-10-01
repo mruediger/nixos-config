@@ -8,6 +8,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    bc
     file
     iotop
     jq
@@ -16,11 +17,14 @@
     pigz
     psmisc
     psutils
+    pv
+    screen
     sysfsutils
     unzip
     usbutils
     wget
   ];
+
 
 
   nixpkgs.config.allowUnfree = true;

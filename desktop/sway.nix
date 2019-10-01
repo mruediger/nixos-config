@@ -23,7 +23,6 @@ in
     ];
   };
 
-
   users.extraUsers.bag.extraGroups = ["sway"];
 
   environment.systemPackages = with pkgs; [

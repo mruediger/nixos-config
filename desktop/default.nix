@@ -7,25 +7,28 @@
     ./phone.nix
     ./printer.nix
     ./rust.nix
+    ./sway.nix
     ./virtualisation.nix
     ./windows.nix
     ./yubikey.nix
-    ./sway.nix
   ];
 
   environment.systemPackages = with pkgs; [
     calibre
+    cheese
     chromium
+    eog
+    evince
     feh
     firefox-wayland
+    gimp
     gparted
     hexchat
     linphone
     mpv
+    nautilus
     pass
     pavucontrol
-    rambox
-    scrot
     skypeforlinux
     texlive.combined.scheme-full
     wine
@@ -37,6 +40,7 @@
     enableDefaultFonts = true;
     enableCoreFonts = true;
   };
+
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
