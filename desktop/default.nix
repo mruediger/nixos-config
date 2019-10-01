@@ -10,6 +10,7 @@
     ./virtualisation.nix
     ./windows.nix
     ./yubikey.nix
+    ./sway.nix
   ];
 
   environment.systemPackages = with pkgs; [

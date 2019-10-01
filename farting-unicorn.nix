@@ -2,15 +2,13 @@
 
 let
   hardwareTarball = fetchTarball https://github.com/NixOS/nixos-hardware/archive/master.tar.gz;
-  xdg-dotfiles = fetchTarball https://github.com/mruediger/xdg-dotfiles/archive/master.tar.gz;
 in
 {
   imports = [
-     (hardwareTarball + "/lenovo/thinkpad/x1/6th-gen")
+    (hardwareTarball + "/lenovo/thinkpad/x1/6th-gen")
     ./base
     ./desktop
     ./laptop
-    xdg-dotfiles
   ];
 
   networking.hostName = "farting-unicorn";
@@ -30,7 +28,6 @@ in
       "i915.enable_fbc=0"     #frambuffer compression for powersaving
       "i915.enable_psr=0"     #panel self refresh for powersaving
     ];
-    blacklistedKernelModules = [ "amdgpu" ];
     extraModulePackages = [ config.boot.kernelPackages.wireguard ];
   };
 
@@ -40,7 +37,9 @@ in
     '';
   };
 
-  systemd.services."i3lock" = {
+
+
+  systemd.services.swaylock = {
     enable = true;
     before = [ "sleep.target" "suspend.target" ];
     wantedBy = [ "sleep.target" "suspend.target" ];
@@ -48,7 +47,7 @@ in
       Type = "forking";
       User = "bag";
       Environment = "DISPLAY=:0";
-      ExecStart = "${pkgs.i3lock}/bin/i3lock -i /home/bag/src/dotfiles/templates/w95lock.png";
+      ExecStart = "${pkgs.swaylock}/bin/swaylock -i /home/bag/src/dotfiles/templates/w95lock.png";
     };
   };
 
