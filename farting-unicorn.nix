@@ -29,6 +29,7 @@ in
       "i915.enable_psr=0"     #panel self refresh for powersaving
     ];
     extraModulePackages = [ config.boot.kernelPackages.wireguard ];
+    blacklistedKernelModules = [ "amdgpu" ];
   };
 
   services.logind = {
