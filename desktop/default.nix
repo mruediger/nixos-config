@@ -45,33 +45,4 @@
     enable = true;
     package = pkgs.pulseaudioFull;
   };
-
-  services.xserver = {
-    enable = true;
-    autorun = true;
-
-    exportConfiguration = true;
-
-    layout = "de";
-    xkbVariant = "neo";
-
-    libinput = {
-      enable = true;
-      tapping = false;
-    };
-
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
-
-    desktopManager.gnome3.enable = true;
-
-    serverFlagsSection = ''
-      Option "BlankTime"   "0"
-      Option "StandbyTime" "0"
-      Option "SuspendTime" "0"
-      Option "OffTime"     "0"
-      '';
-  };
 }
