@@ -20,6 +20,7 @@ in
       slurp
       waybar
       mako
+      wl-clipboard
     ];
   };
 
