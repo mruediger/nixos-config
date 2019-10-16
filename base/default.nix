@@ -23,6 +23,7 @@
     unzip
     usbutils
     wget
+    sshfs
   ];
 
 
