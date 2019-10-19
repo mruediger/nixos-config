@@ -15,9 +15,7 @@
 
   environment.systemPackages = with pkgs; [
     calibre
-    cheese
     chromium
-    eog
     evince
     feh
     firefox-wayland
@@ -26,8 +24,7 @@
     hexchat
     linphone
     mpv
-    nautilus
-    pass
+    (unstable.pass.override { waylandSupport = true; })
     pavucontrol
     skypeforlinux
     texlive.combined.scheme-full
