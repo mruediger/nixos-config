@@ -2,15 +2,15 @@
 
 {
   environment.systemPackages = with pkgs; [
-    git
-    awscli
-    kubernetes-helm
     ansible
-    unstable.terraform
+    awscli
+    git
+    kubernetes-helm
+    minikube
     unstable.google-cloud-sdk
-    unstable.kubectl
-    unstable.minikube
     unstable.kops
+    unstable.kubectl
+    unstable.terraform
   ];
 
   programs.bash.shellAliases = {
