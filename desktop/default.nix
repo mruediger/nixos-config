@@ -31,6 +31,7 @@
     wine
     xclip
     zoom-us
+    libreoffice
   ];
 
   fonts = {
