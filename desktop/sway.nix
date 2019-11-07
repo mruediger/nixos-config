@@ -28,5 +28,6 @@ in
 
   environment.systemPackages = with pkgs; [
     fzf
+    xorg.xrdb
   ];
 }
