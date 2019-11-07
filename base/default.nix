@@ -24,6 +24,7 @@
     usbutils
     wget
     sshfs
+    perf
   ];
 
 
