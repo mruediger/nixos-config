@@ -18,7 +18,7 @@
     chromium
     evince
     feh
-    firefox-wayland
+    unstable.firefox-wayland
     gimp
     gparted
     hexchat
