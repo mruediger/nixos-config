@@ -47,7 +47,7 @@ in
     serviceConfig = {
       Type = "forking";
       User = "bag";
-      Environment = "DISPLAY=:0";
+      Environment = "WAYLAND_DISPLAY=wayland-0 XDG_RUNTIME_DIR=/run/user/1000";
       ExecStart = "${pkgs.swaylock}/bin/swaylock -i /home/bag/src/dotfiles/templates/w95lock.png";
     };
   };
