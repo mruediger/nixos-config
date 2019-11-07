@@ -31,7 +31,7 @@
 
   nixpkgs.config.allowUnfree = true;
   hardware = {
-    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
     ksm.enable = true;
     cpu = {
       intel.updateMicrocode = true;
