@@ -66,4 +66,6 @@ in
       }];
     };
   };
+
+  nixpkgs.overlays = [ (import ./overlays/libinput.nix) ];
 }
