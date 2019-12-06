@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+  unstable = import <unstable> {};
+in
 {
   imports = [
     ./devops.nix

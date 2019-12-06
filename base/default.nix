@@ -1,7 +1,6 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    ./unstable.nix
     ./bash.nix
     ./networking.nix
     ./docker.nix
