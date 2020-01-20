@@ -76,4 +76,18 @@ AttrTrackpointMultiplier=1.2
       };
     };
   };
+
+
+  systemd.services.i3lock = {
+    enable = true;
+    before = [ "sleep.target" "suspend.target" ];
+    wantedBy = [ "sleep.target" "suspend.target" ];
+    serviceConfig = {
+      Type = "forking";
+      User = "bag";
+      Environment = "DISPLAY=:0";
+      ExecStart = "${pkgs.i3lock}/bin/i3lock -i /home/bag/src/dotfiles/templates/w95lock.png";
+    };
+  };
+
 }

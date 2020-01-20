@@ -30,4 +30,17 @@ in
     fzf
     xorg.xrdb
   ];
+
+
+  systemd.services.swaylock = {
+    enable = true;
+    before = [ "sleep.target" "suspend.target" ];
+    wantedBy = [ "sleep.target" "suspend.target" ];
+    serviceConfig = {
+      Type = "forking";
+      User = "bag";
+      Environment = "WAYLAND_DISPLAY=wayland-0 XDG_RUNTIME_DIR=/run/user/1000";
+      ExecStart = "${pkgs.swaylock}/bin/swaylock -i /home/bag/src/dotfiles/templates/w95lock.png";
+    };
+  };
 }
