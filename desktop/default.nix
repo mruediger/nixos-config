@@ -12,6 +12,7 @@ in
     ./rust.nix
     ./i3.nix
     ./virtualisation.nix
+    ./minecraft.nix
     ./windows.nix
     ./yubikey.nix
   ];

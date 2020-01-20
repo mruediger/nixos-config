@@ -1,12 +1,14 @@
 { pkgs, config, ... }:
-
+let
+  unstable = import <unstable> {};
+in
 {
   environment.systemPackages = with pkgs; [
     ansible
     awscli
     git
-    kubernetes-helm
     minikube
+    unstable.kubernetes-helm
     unstable.google-cloud-sdk
     unstable.kops
     unstable.kubectl
