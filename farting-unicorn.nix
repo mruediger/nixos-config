@@ -34,7 +34,7 @@ in
 
   services.logind = {
     extraConfig = ''
-      HandleSuspendKey=hibernate
+      HandlePowerKey=hibernate
     '';
   };
 
