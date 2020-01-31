@@ -29,7 +29,6 @@ in
     mpv
     (unstable.pass.override { waylandSupport = true; })
     pavucontrol
-    skypeforlinux
     texlive.combined.scheme-full
     wine
     xclip
