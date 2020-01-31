@@ -21,4 +21,7 @@
     ip46tables -I INPUT 1 -i vboxnet+ -p tcp -m tcp --dport 2049 -j ACCEPT
   '';
 
+
+  networking.firewall.checkReversePath = false;
+  networking.firewall.trustedInterfaces = [ "virbr0" ];
 }
