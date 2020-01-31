@@ -11,6 +11,7 @@
     virtviewer
     virtmanager
     vagrant
+    spice-vdagent
   ];
 
   services.nfs.server.enable = true;
