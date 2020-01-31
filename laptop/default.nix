@@ -26,6 +26,8 @@
 
   services.tlp.enable = false;
 
+  services.upower.enable = true;
+
   powerManagement = {
     enable = true;
     cpuFreqGovernor = "powersave";
