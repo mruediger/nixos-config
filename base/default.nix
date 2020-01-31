@@ -23,7 +23,9 @@
     usbutils
     wget
     sshfs
-    perf
+    nmon
+    sysstat
+    mtr
   ];
 
 
