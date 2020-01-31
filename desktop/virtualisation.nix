@@ -6,11 +6,11 @@
 
   users.extraUsers.bag.extraGroups = [ "libvirtd" ];
 
-  environment.systemPackages = with pkgs; [ virtviewer virtmanager ];
   environment.systemPackages = with pkgs; [
     virtviewer
     virtmanager
     vagrant
+    bridge-utils
     spice-vdagent
   ];
 
