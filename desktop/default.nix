@@ -26,7 +26,6 @@ in
     gimp
     gparted
     hexchat
-    linphone
     mpv
     (unstable.pass.override { waylandSupport = true; })
     pavucontrol
