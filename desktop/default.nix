@@ -41,11 +41,12 @@ in
     enableCoreFonts = true;
   };
 
+  nixpkgs.config.pulseaudio = true;
+
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
-  };
 
-
-  };
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+ };
 }
