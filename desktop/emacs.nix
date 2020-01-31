@@ -10,5 +10,6 @@
     aspellDicts.en-science
     aspellDicts.de
     multimarkdown
+    imagemagick # for image-dired
   ];
 }
