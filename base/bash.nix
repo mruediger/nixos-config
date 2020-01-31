@@ -26,7 +26,7 @@
       shopt -s globstar 2> /dev/null
 
       # Case-insensitive globbing (used in pathname expansion)
-      shopt -s nocaseglob;
+      shopt -s nocaseglob
 
       ## SMARTER TAB-COMPLETION (Readline bindings) ##
 
