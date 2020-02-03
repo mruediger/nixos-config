@@ -1,10 +1,7 @@
-{ pkgs, ... }:
-let
-  unstable = import <unstable> {};
-in
+{ pkgs, unstable, ... } @ args:
 {
   imports = [
-    ./devops.nix
+    (import ./devops.nix ({unstable = unstable;} // args ))
     ./emacs.nix
     ./go.nix
     ./phone.nix

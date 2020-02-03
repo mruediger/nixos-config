@@ -2,12 +2,13 @@
 
 let
   hardwareTarball = fetchTarball https://github.com/NixOS/nixos-hardware/archive/master.tar.gz;
+  unstable = import (fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz) { config.allowUnfree = true; };
 in
 {
   imports = [
     (hardwareTarball + "/lenovo/thinkpad/x1/6th-gen")
     ./base
-    ./desktop
+    (import ./desktop ({unstable = unstable;} // args ))
     ./laptop
   ];
 

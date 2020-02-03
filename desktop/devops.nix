@@ -1,7 +1,4 @@
-{ pkgs, config, ... }:
-let
-  unstable = import <unstable> {};
-in
+{ pkgs, config, unstable, ... }:
 {
   environment.systemPackages = with pkgs; [
     ansible
