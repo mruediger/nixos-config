@@ -54,5 +54,5 @@ in
     };
   };
 
-  nixpkgs.overlays = [ (import ./overlays/libinput.nix) ];
+  nixpkgs.overlays = [ (import ./overlays/libinput-unstable.nix ) ];
 }

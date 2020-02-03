@@ -15,11 +15,10 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    calibre
+    unstable.calibre
     chromium
     evince
     feh
-    #unstable.firefox-wayland
     unstable.firefox
     gimp
     gparted
