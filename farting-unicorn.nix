@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... } @ args:
 
 let
   hardwareTarball = fetchTarball https://github.com/NixOS/nixos-hardware/archive/master.tar.gz;
