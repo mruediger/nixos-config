@@ -4,6 +4,7 @@
     go
     gcc # cgo dependency
     godef
+    goimports
   ];
 
   environment.variables = {
