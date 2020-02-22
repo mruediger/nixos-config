@@ -9,7 +9,7 @@
     ./rust.nix
     ./i3.nix
     ./virtualisation.nix
-    ./minecraft.nix
+    (import ./minecraft.nix ({unstable = unstable;} // args ))
     ./windows.nix
     ./yubikey.nix
   ];
