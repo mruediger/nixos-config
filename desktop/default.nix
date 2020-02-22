@@ -17,7 +17,7 @@
   environment.systemPackages = with pkgs; [
     unstable.calibre
     chromium
-    evince
+    unstable.evince
     feh
     unstable.firefox
     gimp
@@ -29,7 +29,7 @@
     texlive.combined.scheme-full
     wine
     xclip
-    zoom-us
+    unstable.zoom-us
     libreoffice
   ];
 
