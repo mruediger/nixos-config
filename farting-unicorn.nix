@@ -54,5 +54,8 @@ in
     };
   };
 
-  nixpkgs.overlays = [ (import ./overlays/libinput-unstable.nix ) ];
+  nixpkgs.overlays = [
+    (import ./overlays/libinput-unstable.nix )
+    (import ./overlays/google-cloud-sdk.nix )
+  ];
 }

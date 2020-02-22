@@ -6,7 +6,7 @@
     git
     minikube
     unstable.kubernetes-helm
-    unstable.google-cloud-sdk
+    google-cloud-sdk
     unstable.kops
     unstable.kubectl
     unstable.terraform
