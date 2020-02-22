@@ -31,6 +31,7 @@
     xclip
     unstable.zoom-us
     libreoffice
+    slack
   ];
 
   fonts = {
