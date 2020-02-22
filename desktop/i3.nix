@@ -10,7 +10,7 @@
     text = ''
 [Trackpoint Override]
 MatchName=*TPPS/2 Elan TrackPoint*
-AttrTrackpointMultiplier=1.2
+AttrTrackpointMultiplier=1.8
 '';
   };
 
