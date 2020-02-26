@@ -81,7 +81,7 @@ AttrTrackpointMultiplier=1.8
       Type = "forking";
       User = "bag";
       Environment = "DISPLAY=:0";
-      ExecStart = "${pkgs.i3lock}/bin/i3lock -i /home/bag/src/dotfiles/templates/w95lock.png";
+      ExecStart = "${pkgs.i3lock}/bin/i3lock -c 000000";
     };
   };
 
