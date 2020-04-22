@@ -34,6 +34,8 @@
     slack
   ];
 
+  nixpkgs.config.chromium.enableWideVine = true;
+
   fonts = {
     enableDefaultFonts = true;
     fonts = with pkgs; [
