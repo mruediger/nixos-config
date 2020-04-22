@@ -70,9 +70,6 @@
 
       set bell-style none
 
-      if [[ $TERM == xterm-termite ]]; then
-        . ${pkgs.gnome3.vte-ng}/etc/profile.d/vte.sh
-      fi
       '';
       shellAliases = {
         nix-search = "nix-env -qaP";

@@ -36,7 +36,12 @@
 
   fonts = {
     enableDefaultFonts = true;
-    enableCoreFonts = true;
+    fonts = with pkgs; [
+      corefonts
+      iosevka
+      fira-code
+      monoid
+    ];
   };
 
   nixpkgs.config.pulseaudio = true;
