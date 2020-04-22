@@ -59,5 +59,6 @@ in
   nixpkgs.overlays = [
     (import ./overlays/libinput.nix )
     (import ./overlays/google-cloud-sdk.nix )
+    (import ./overlays/gotools.nix )
   ];
 }

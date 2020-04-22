@@ -3,7 +3,6 @@
   environment.systemPackages = with pkgs; [
     libinput
     termite
-
   ];
 
   environment.etc."libinput/local-overrides.quirks" = {
