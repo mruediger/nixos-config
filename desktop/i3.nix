@@ -5,14 +5,6 @@
     termite
   ];
 
-  environment.etc."libinput/local-overrides.quirks" = {
-    text = ''
-[Trackpoint Override]
-MatchName=*TPPS/2 Elan TrackPoint*
-AttrTrackpointMultiplier=1.8
-'';
-  };
-
   services.xserver = {
     enable = true;
 

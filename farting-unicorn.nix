@@ -61,4 +61,12 @@ in
     (import ./overlays/google-cloud-sdk.nix )
     (import ./overlays/gotools.nix )
   ];
+
+  environment.etc."libinput/local-overrides.quirks" = {
+    text = ''
+[Trackpoint Override]
+MatchName=*TPPS/2 Elan TrackPoint*
+AttrTrackpointMultiplier=1.8
+'';
+  };
 }
