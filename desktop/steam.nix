@@ -1,5 +1,7 @@
 {  pkgs, unstable, ... } @ args:
 {
+  nixpkgs.config.allowBroken = true;
+
   environment.systemPackages = with pkgs; [
     #(unstable.steam.override { extraLibraries =  with pkgs; pkgs: [ libGLU libuuid libbsd alsaLib ]; })
     (steam.override { nativeOnly = true; })
