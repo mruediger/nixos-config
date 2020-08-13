@@ -20,6 +20,7 @@
     unstable.calibre
     chromium
     unstable.evince
+    unstable.google-chrome
     feh
     unstable.firefox
     gimp
@@ -34,6 +35,12 @@
     unstable.zoom-us
     libreoffice
     slack
+    teams
+    unstable.skypeforlinux
+    google-musicmanager
+    unstable.AusweisApp2
+    libreoffice
+    linphone
   ];
 
   nixpkgs.config.chromium.enableWideVine = true;
