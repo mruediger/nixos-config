@@ -36,6 +36,7 @@ in
     kernelPackages = pkgs.linuxPackages_latest;
     extraModulePackages = [ config.boot.kernelPackages.wireguard ];
     loader = {
+      timeout = 120;
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
