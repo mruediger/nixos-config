@@ -43,8 +43,9 @@
   time.timeZone = "Europe/Berlin";
   services.timesyncd.enable = true;
 
+  console.keyMap = "neo";
+
   i18n = {
-    consoleKeyMap = "neo";
     defaultLocale = "en_US.UTF-8";
   };
 
