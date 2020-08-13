@@ -72,6 +72,9 @@ AttrTrackpointMultiplier=1.8
   };
 
 
+  # save windowsize of file selector
+  programs.dconf.enable = true;
+
   systemd.services.i3lock = {
     enable = true;
     before = [ "sleep.target" "suspend.target" ];
