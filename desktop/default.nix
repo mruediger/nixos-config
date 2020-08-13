@@ -13,6 +13,7 @@
     (import ./minecraft.nix ({unstable = unstable;} // args ))
     ./windows.nix
     ./yubikey.nix
+    (import ./steam.nix ({unstable = unstable;} // args ))
   ];
 
   environment.systemPackages = with pkgs; [
