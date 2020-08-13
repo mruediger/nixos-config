@@ -7,6 +7,7 @@
     ./phone.nix
     ./printer.nix
     ./rust.nix
+    ./scala.nix
     ./i3.nix
     ./virtualisation.nix
     (import ./minecraft.nix ({unstable = unstable;} // args ))
