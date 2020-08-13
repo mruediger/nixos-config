@@ -43,7 +43,6 @@
       corefonts
       iosevka
       fira-code
-      monoid
     ];
   };
 
