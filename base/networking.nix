@@ -15,6 +15,5 @@
   services.openssh = {
     enable = true;
     passwordAuthentication = true;
-    startAgent = true;
   };
 }
