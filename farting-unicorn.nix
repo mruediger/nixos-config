@@ -29,7 +29,7 @@ in
       "i915.enable_fbc=0"     #frambuffer compression for powersaving
       "i915.enable_psr=0"     #panel self refresh for powersaving
     ];
-    extraModulePackages = [ config.boot.kernelPackages.wireguard ];
+    extraModulePackages = with config.boot.kernelPackages; [ wireguard ];
     blacklistedKernelModules = [ "amdgpu" ];
   };
 

@@ -34,7 +34,7 @@ in
     };
     kernelModules = [ "kvm-amd" ];
     kernelPackages = pkgs.linuxPackages_latest;
-    extraModulePackages = [ config.boot.kernelPackages.wireguard ];
+    extraModulePackages = with pkgs; [ wireguard ];
     loader = {
       timeout = 120;
       systemd-boot.enable = true;
