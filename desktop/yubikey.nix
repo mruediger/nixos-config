@@ -20,8 +20,6 @@ environment.shellInit = ''
   export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
 '';
 
-
-  programs.ssh.startAgent = false;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
