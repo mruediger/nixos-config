@@ -78,8 +78,4 @@ in
     };
   };
 
-#  nixpkgs.overlays = [
-#    (import ./overlays/google-cloud-sdk.nix )
-#    (import ./overlays/gotools.nix )
-#  ];
 }
