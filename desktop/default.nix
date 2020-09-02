@@ -12,7 +12,7 @@
     ./virtualisation.nix
     (import ./minecraft.nix ({unstable = unstable;} // args ))
     ./windows.nix
-    ./yubikey.nix
+    (import ./yubikey.nix ({unstable = unstable;} // args ))
     (import ./steam.nix ({unstable = unstable;} // args ))
   ];
 
@@ -27,7 +27,6 @@
     gparted
     hexchat
     mpv
-    (unstable.pass.override { waylandSupport = true; })
     pavucontrol
     texlive.combined.scheme-full
     wine
