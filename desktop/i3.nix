@@ -32,12 +32,6 @@
     layout = "de";
     xkbVariant = "neo";
 
-    libinput = {
-      enable = true;
-      tapping = false;
-      accelSpeed = "1";
-    };
-
     displayManager = {
       lightdm = {
         enable = true;
