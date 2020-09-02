@@ -17,12 +17,11 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    unstable.calibre
     chromium
-    unstable.evince
-    unstable.google-chrome
+    evince
+    google-chrome
     feh
-    unstable.firefox
+    firefox
     gimp
     gparted
     hexchat
@@ -31,12 +30,11 @@
     texlive.combined.scheme-full
     wine
     xclip
-    unstable.zoom-us
+    zoom-us
     libreoffice
     slack
     teams
-    unstable.skypeforlinux
-    google-musicmanager
+    skypeforlinux
     unstable.AusweisApp2
     libreoffice
     linphone
