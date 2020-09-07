@@ -65,6 +65,19 @@ in
   hardware.trackpoint.enable = true;
   hardware.trackpoint.emulateWheel = true;
 
+  environment.systemPackages = with pkgs; [
+    hd-idle
+  ];
+
+  systemd.services.hd-idle = {
+    description = "External HD spin down daemon";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "forking";
+      ExecStart = "${pkgs.hd-idle}/bin/hd-idle -i 0 -a sdb -i 60";
+    };
+  };
+
 
 
   # This value determines the NixOS release from which the default
