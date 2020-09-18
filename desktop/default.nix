@@ -10,6 +10,7 @@
     ./scala.nix
     ./i3.nix
     ./virtualisation.nix
+    ./allianz.nix
     (import ./minecraft.nix ({unstable = unstable;} // args ))
     ./windows.nix
     (import ./yubikey.nix ({unstable = unstable;} // args ))
