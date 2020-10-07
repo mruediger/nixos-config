@@ -22,7 +22,10 @@
     ip46tables -I INPUT 1 -i vboxbr+ -p tcp -m tcp --dport 2049 -j ACCEPT
   '';
 
-
   networking.firewall.checkReversePath = false;
   networking.firewall.trustedInterfaces = [ "virbr0" ];
+
+  # virtualbox
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = ["bag"];
 }
