@@ -11,6 +11,7 @@
     ./i3.nix
     ./virtualisation.nix
     ./allianz.nix
+    ./python.nix
     (import ./minecraft.nix ({unstable = unstable;} // args ))
     ./windows.nix
     (import ./yubikey.nix ({unstable = unstable;} // args ))
