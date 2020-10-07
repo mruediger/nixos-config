@@ -55,7 +55,15 @@ in
     [ { device = "/dev/disk/by-uuid/e717f901-6c5b-4aac-94a2-691cee2f6b72"; }
     ];
 
-  nix.maxJobs = lib.mkDefault 12;
+  nix = {
+    maxJobs = lib.mkDefault 12;
+
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
+  };
+
   # High-DPI console
   console.font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
 
