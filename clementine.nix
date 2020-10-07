@@ -1,7 +1,7 @@
 { config, pkgs, lib,... } @ args:
 let
   hardwareTarball = fetchTarball https://github.com/NixOS/nixos-hardware/archive/master.tar.gz;
-  unstable = import (fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz) { config.allowUnfree = true; };
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in
 {
   imports =

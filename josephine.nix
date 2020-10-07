@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... } @ args:
 
 let
-  unstable = import (fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz) { config.allowUnfree = true; };
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in
 {
   imports = [
