@@ -19,13 +19,8 @@ in
       availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
       kernelModules = [ "dm-snapshot" ];
       luks.devices = {
-        sda = {
-          device = "/dev/disk/by-uuid/e580b6e7-0df5-4de1-aeb8-1f7ff626e246";
-          preLVM = true;
-          allowDiscards = true;
-        };
-        sdb = {
-          device = "/dev/disk/by-uuid/439add8b-3b3e-4aed-8045-b99951db177c";
+        nvme1n1p1 = {
+          device = "/dev/nvme1n1p1";
           preLVM = true;
           allowDiscards = true;
         };
