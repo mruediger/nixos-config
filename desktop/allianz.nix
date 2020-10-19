@@ -9,6 +9,8 @@ in
   ];
 
   security.pki.certificateFiles = [
-    "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt" ../certificates/jira.gda.allianz
+    "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
+    ../certificates/jira.gda.allianz.crt
+    ../certificates/internal.docker.gda.allianz.crt
   ];
 }
