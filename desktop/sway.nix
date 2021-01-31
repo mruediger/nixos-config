@@ -1,11 +1,6 @@
 # see https://github.com/colemickens/nixpkgs-wayland
 { pkgs, ... }:
-let
-  url = "https://github.com/colemickens/nixpkgs-wayland/archive/master.tar.gz";
-  waylandOverlay = (import (builtins.fetchTarball url));
-in
 {
-  nixpkgs.overlays = [ waylandOverlay ];
 
   programs.sway = {
     enable = true;
@@ -28,9 +23,19 @@ in
 
   environment.systemPackages = with pkgs; [
     fzf
-    xorg.xrdb
+    i3status
+    ( firefox.override { forceWayland = true; })
+    alacritty
   ];
 
+  services.xserver = {
+    enable = true;
+    displayManager = {
+      defaultSession = "sway";
+      gdm.enable = true;
+    };
+    libinput.enable = true;
+  };
 
   systemd.services.swaylock = {
     enable = true;
@@ -40,7 +45,7 @@ in
       Type = "forking";
       User = "bag";
       Environment = "WAYLAND_DISPLAY=wayland-0 XDG_RUNTIME_DIR=/run/user/1000";
-      ExecStart = "${pkgs.swaylock}/bin/swaylock -i /home/bag/src/dotfiles/templates/w95lock.png";
+      ExecStart = "${pkgs.swaylock}/bin/swaylock"; # -i ${toString ../.}/templates/w95lock.png";
     };
   };
 }

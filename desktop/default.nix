@@ -8,9 +8,7 @@
     ./printer.nix
     ./rust.nix
     ./scala.nix
-    ./i3.nix
     ./virtualisation.nix
-    ./allianz.nix
     ./python.nix
     (import ./minecraft.nix ({unstable = unstable;} // args ))
     ./windows.nix
@@ -19,12 +17,10 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    alacritty
     chromium
     evince
     google-chrome
     feh
-    firefox
     gimp
     gparted
     hexchat

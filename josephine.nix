@@ -7,6 +7,7 @@ in
   imports = [
     ./base
     (import ./desktop ({unstable = unstable;} // args ))
+    ./desktop/i3.nix
   ];
 
   networking = {

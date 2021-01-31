@@ -8,6 +8,7 @@ in
     [
       ./base
       (import ./desktop ({ unstable = unstable;} // args ))
+      ./desktop/sway.nix
       ./laptop
     ];
 
@@ -68,7 +69,7 @@ in
     };
   };
 
-  
+
   networking.firewall  ={
     enable = true;
     allowedTCPPorts = [ 22 4713 7680 ];
