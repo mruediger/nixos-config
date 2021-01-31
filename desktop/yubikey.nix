@@ -14,7 +14,7 @@
     libu2f-host
     yubikey-personalization
   ];
-  hardware.u2f.enable = true;
+#  hardware.u2f.enable = true;
 
   environment.shellInit = ''
     export GPG_TTY="$(tty)"
