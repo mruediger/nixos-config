@@ -30,7 +30,7 @@
     texlive.combined.scheme-full
     wine
     xclip
-    zoom-us
+    unstable.zoom-us
     libreoffice
     slack
     teams
