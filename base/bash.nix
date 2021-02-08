@@ -1,14 +1,20 @@
 { pkgs, ... }:
 {
+
+  environment.variables = {
+    PATH = ["$HOME/bin"];
+  };
+
   programs.bash = {
     enableCompletion = true;
 
     promptInit = ''
-      normal="\[\e[0m\]"
-      orange="\[\e[38;5;166m\]"
+      if [ "$TERM" != "dumb" -o -n "$INSIDE_EMACS" ]; then
+        normal="\[\e[0m\]"
+        orange="\[\e[38;5;166m\]"
 
-      PS1="$orange\u$normal@\h:\w
-      $orange>$normal "
+        PS1="$orange\u$normal@\h:\w\n$orange>$normal "
+      fi
     '';
 
     interactiveShellInit = ''
