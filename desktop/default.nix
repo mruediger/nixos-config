@@ -9,6 +9,7 @@
     ./rust.nix
     ./scala.nix
     ./virtualisation.nix
+    ./justwatch.nix
     ./python.nix
     (import ./minecraft.nix ({unstable = unstable;} // args ))
     ./windows.nix
