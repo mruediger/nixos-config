@@ -40,6 +40,7 @@ in
     fzf
     i3status
     unstable.firefox-wayland
+    firefox-wayland
     alacritty
     xss-lock
     startsway

@@ -2,7 +2,7 @@
 {
 
   environment.systemPackages = with pkgs; [
-    (emacs.override { withGTK3 = true; })
+    emacsPgtk
     ledger
     hledger
     aspell
@@ -12,5 +12,10 @@
     aspellDicts.de
     multimarkdown
     imagemagick # for image-dired
+  ];
+
+
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball { url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz; }))
   ];
 }
