@@ -8,6 +8,7 @@
     unstable.kubernetes-helm
     google-cloud-sdk
     gnumake
+    yq-go
     unstable.kops
     unstable.kubectl
     unstable.terraform
