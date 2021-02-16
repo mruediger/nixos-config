@@ -26,6 +26,6 @@
   networking.firewall.trustedInterfaces = [ "virbr0" ];
 
   # virtualbox
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = ["bag"];
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.members = ["bag"];
 }
