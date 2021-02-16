@@ -87,6 +87,7 @@ in
     allowedTCPPorts = [ 22 4713 7680 ];
   };
 
+
   services.resolved = {
     enable = true;
     domains = [
@@ -103,4 +104,5 @@ in
     cpuFreqGovernor = "schedutil";
   };
 
+  system.stateVersion = "20.09";
 }
