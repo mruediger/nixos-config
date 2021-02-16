@@ -97,4 +97,10 @@ in
       "2606:4700:4700::1111"
     ];
   };
+
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "schedutil";
+  };
+
 }
