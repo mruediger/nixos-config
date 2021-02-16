@@ -8,7 +8,7 @@ in
     [
       ./base
       (import ./desktop ({ unstable = unstable;} // args ))
-      ./desktop/sway.nix
+      (import ./desktop/sway.nix ({unstable = unstable;} // args))
       ./laptop
     ];
 

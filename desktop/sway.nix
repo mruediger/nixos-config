@@ -24,7 +24,7 @@
   environment.systemPackages = with pkgs; [
     fzf
     i3status
-    ( firefox.override { forceWayland = true; })
+    unstable.firefox-wayland
     alacritty
   ];
 
