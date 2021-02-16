@@ -60,13 +60,33 @@ in
        allowedTCPPorts = [ 22 4713 7680 ];
      };
   };
+
+  hardware = {
+    video.hidpi.enable = true;
+    trackpoint.enable = true;
+    trackpoint.emulateWheel = true;
+    trackpoint.device = "TPPS/2 Elan TrackPoint";
+    cpu.intel.updateMicrocode = true;
   };
 
-  hardware.video.hidpi.enable = true;
-  hardware.trackpoint.enable = true;
-  hardware.trackpoint.emulateWheel = true;
-  hardware.trackpoint.device = "TPPS/2 Elan TrackPoint";
-  hardware.cpu.intel.updateMicrocode = true;
+  services.fwupd = {
+    enable = true;
+  };
+
+
+
+  environment.systemPackages = with pkgs; [
+    libwacom
+    xf86_input_wacom
+  ];
+
+  services.xserver.libinput.enable = true;
+  services.xserver.libinput.naturalScrolling = false;
+  services.xserver.libinput.tapping = true;
+  services.xserver.libinput.disableWhileTyping = true;
+  services.xserver.libinput.horizontalScrolling = false;
+  services.xserver.modules = [ pkgs.xf86_input_wacom ];
+  services.xserver.wacom.enable = true;
 
   services.tlp = {
     enable = true;
@@ -79,12 +99,11 @@ in
     };
   };
 
-
-  networking.firewall  ={
-    enable = true;
-    allowedTCPPorts = [ 22 4713 7680 ];
+  services.logind = {
+    extraConfig = ''
+      HandlePowerKey=hibernate
+    '';
   };
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -93,5 +112,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
-
 }
