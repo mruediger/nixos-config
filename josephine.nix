@@ -87,4 +87,14 @@ in
     allowedTCPPorts = [ 22 4713 7680 ];
   };
 
+  services.resolved = {
+    enable = true;
+    domains = [
+      "local"
+    ];
+    fallbackDns = [
+      "1.1.1.1"
+      "2606:4700:4700::1111"
+    ];
+  };
 }
