@@ -27,6 +27,7 @@
     gparted
     hexchat
     mpv
+    gitg
     pavucontrol
     texlive.combined.scheme-full
     wine
