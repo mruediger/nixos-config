@@ -55,6 +55,11 @@ in
        enp0s31f6.useDHCP = true;
        wlp0s20f3.useDHCP = true;
      };
+     firewall  ={
+       enable = true;
+       allowedTCPPorts = [ 22 4713 7680 ];
+     };
+  };
   };
 
   hardware.video.hidpi.enable = true;
