@@ -58,12 +58,11 @@ in
   environment.systemPackages = with pkgs; [
     fzf
     i3status
-    unstable.firefox-wayland
+    firefox-wayland
     alacritty
     xss-lock
     startsway
   ];
-
 
   systemd.user.targets.sway-session = {
     description = "Sway compositor session";
@@ -85,16 +84,13 @@ in
     serviceConfig = {
       Type = "simple";
       ExecStart = ''
-        ${pkgs.dbus}/bin/dbus-run-session ${pkgs.sway}/bin/sway --debug
+        ${pkgs.dbus}/bin/dbus-run-session ${pkgs.sway}/bin/sway
       '';
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;
     };
   };
-
-  # startup
-  # https://github.com/sworne/sway
 
   # screen sharing
   # https://github.com/NixOS/nixpkgs/issues/91218
