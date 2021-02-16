@@ -8,6 +8,7 @@
     ./printer.nix
     ./rust.nix
     ./scala.nix
+    ./java.nix
     ./virtualisation.nix
     ./justwatch.nix
     ./python.nix
