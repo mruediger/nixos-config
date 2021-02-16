@@ -32,19 +32,38 @@ in
       mako
       wl-clipboard
     ];
+    wrapperFeatures = {
+      base = true;
+      gtk = true;
+    };
+    extraSessionCommands =
+      ''
+        export MOZ_ENABLE_WAYLAND=1
+        export XDG_SESSION_TYPE=wayland
+        export XDG_CURRENT_DESKTOP=sway
+      '';
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      pkgs.xdg-desktop-portal-wlr
+    ];
   };
 
   programs.waybar.enable = true;
+
+  services.pipewire.enable = true;
 
   environment.systemPackages = with pkgs; [
     fzf
     i3status
     unstable.firefox-wayland
-    firefox-wayland
     alacritty
     xss-lock
     startsway
   ];
+
 
   systemd.user.targets.sway-session = {
     description = "Sway compositor session";
@@ -74,4 +93,11 @@ in
     };
   };
 
+  # startup
+  # https://github.com/sworne/sway
+
+  # screen sharing
+  # https://github.com/NixOS/nixpkgs/issues/91218
+  # https://github.com/calbrecht/nixpkgs-overlays
+  # https://soyuka.me/make-screen-sharing-wayland-sway-work/
 }
