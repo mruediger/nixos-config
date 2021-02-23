@@ -50,6 +50,7 @@
       corefonts
       iosevka
       fira-code
+      noto-fonts
     ];
   };
 
