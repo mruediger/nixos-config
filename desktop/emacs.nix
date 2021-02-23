@@ -1,8 +1,12 @@
 { pkgs, lib, config, ... }:
 {
+  nixpkgs.overlays = [
+    (import (fetchTarball { url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz; }))
+  ];
 
   environment.systemPackages = with pkgs; [
-    emacsPgtk
+    #    emacsPgtk
+    emacs
     ledger
     hledger
     aspell
@@ -11,11 +15,10 @@
     aspellDicts.en-science
     aspellDicts.de
     multimarkdown
+    (rWrapper.override { packages = with rPackages; [ ggplot2 ]; })
+
     imagemagick # for image-dired
   ];
 
 
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball { url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz; }))
-  ];
 }
