@@ -31,6 +31,7 @@ in
       waybar
       mako
       wl-clipboard
+      xdg-user-dirs
     ];
     wrapperFeatures = {
       base = true;
