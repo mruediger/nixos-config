@@ -48,6 +48,10 @@ in
       fsType = "vfat";
     };
 
+  swapDevices = [{
+    device = "/swapfile";
+  }];
+
   networking = {
     hostName = "butterfly";
      useDHCP = false;
