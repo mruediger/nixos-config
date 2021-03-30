@@ -1,3 +1,4 @@
+
 # see https://github.com/colemickens/nixpkgs-wayland
 { pkgs, lib, unstable, ... } @ args:
 let
@@ -16,6 +17,8 @@ let
   };
 in
 {
+
+#  services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
 
   programs.sway = {
     enable = true;
@@ -63,6 +66,7 @@ in
     alacritty
     xss-lock
     startsway
+    gnome3.adwaita-icon-theme
   ];
 
   systemd.user.targets.sway-session = {
