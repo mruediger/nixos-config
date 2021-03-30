@@ -5,8 +5,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    #    emacsPgtk
-    emacs
+    emacsPgtk
     ledger
     hledger
     aspell
