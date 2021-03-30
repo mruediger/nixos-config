@@ -115,6 +115,17 @@ in
     };
   };
 
+  services.resolved = {
+    enable = true;
+    domains = [
+      "local"
+    ];
+    fallbackDns = [
+      "1.1.1.1"
+      "2606:4700:4700::1111"
+    ];
+  };
+
   services.logind = {
     extraConfig = ''
       HandlePowerKey=hibernate
