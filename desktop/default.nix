@@ -15,6 +15,7 @@
     ./python.nix
     (import ./minecraft.nix ({unstable = unstable;} // args ))
     ./windows.nix
+    ./tpm.nix
     (import ./yubikey.nix ({unstable = unstable;} // args ))
     (import ./gaming.nix ({unstable = unstable;} // args ))
   ];
