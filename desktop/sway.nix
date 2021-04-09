@@ -101,4 +101,10 @@ in
   # https://github.com/NixOS/nixpkgs/issues/91218
   # https://github.com/calbrecht/nixpkgs-overlays
   # https://soyuka.me/make-screen-sharing-wayland-sway-work/
+
+  # obs-studio: add wayland to buildInputs
+  # obs-studio (git master) has native wayland support.
+  # To build further releases of obs-studio this adds wayland to buildInputs
+  # https://github.com/obsproject/obs-studio/wiki/Install-Instructions#linux-build-directions
+  # https://github.com/obsproject/obs-studio/pull/2484
 }
