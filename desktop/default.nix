@@ -32,7 +32,6 @@
     gitg
     pavucontrol
     texlive.combined.scheme-full
-    wine
     xclip
     unstable.zoom-us
     libreoffice
