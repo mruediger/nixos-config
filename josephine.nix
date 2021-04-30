@@ -104,5 +104,10 @@ in
     cpuFreqGovernor = "schedutil";
   };
 
+  hardware.pulseaudio.zeroconf = {
+    publish.enable = true;
+    discovery.enable = false;
+  };
+ 
   system.stateVersion = "20.09";
 }
