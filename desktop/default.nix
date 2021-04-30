@@ -41,6 +41,7 @@
     unstable.AusweisApp2
     libreoffice
     linphone
+    vscode
   ];
 
   nixpkgs.config.chromium.enableWideVine = true;
