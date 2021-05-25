@@ -16,6 +16,7 @@
     unstable.terraform_0_14
     unstable.vault
     unstable.packer
+    unstable.terraformer
   ];
 
   programs.bash.shellAliases = {
