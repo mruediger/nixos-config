@@ -13,7 +13,7 @@
     pwgen
     unstable.kops
     unstable.kubectl
-    unstable.terraform_0_14
+    unstable.terraform_0_15
     unstable.vault
     unstable.packer
     unstable.terraformer
