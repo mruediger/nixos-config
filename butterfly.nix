@@ -32,6 +32,9 @@ in
       pkgs.wireguard
       config.boot.kernelPackages.acpi_call
     ];
+    kernel.sysctl = {
+      "vm.swappiness" = 90;
+    };
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
