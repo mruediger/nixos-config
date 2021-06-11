@@ -1,23 +1,20 @@
 {  pkgs, unstable, ... } @ args:
-#let
-#  steam = pkgs.steam.override {
-#    extraLibraries = pkgs: [
-#      pkgs.openssl
-#      pkgs.nss
-#    ];
-#  };
-#in
+let
+  steam = pkgs.steam.override {
+    extraLibraries = pkgs: [
+      pkgs.pipewire
+    ];
+  };
+in
 {
 
   environment.systemPackages = with pkgs; [
     snes9x-gtk
     unstable.lutris-free
     gnome3.adwaita-icon-theme
-    unstable.legendary-gl
+    legendary-gl
     wineWowPackages.stable
-    unstable.winetricks
-    unstable.steam
-    unstable.steam-run
+    steam
   ];
 
   hardware = {
