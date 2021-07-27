@@ -22,5 +22,4 @@
   programs.bash.shellAliases = {
     k = "kubectl";
   };
-
 }
