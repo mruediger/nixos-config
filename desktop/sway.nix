@@ -18,8 +18,6 @@ let
 in
 {
 
-#  services.udev.packages = with pkgs; [ gnome3.gnome-settings-daemon ];
-
   programs.sway = {
     enable = true;
     extraPackages = with pkgs; [
@@ -58,6 +56,9 @@ in
 
   services.pipewire.enable = true;
 
+  programs.qt5ct.enable = true;
+
+
   environment.systemPackages = with pkgs; [
     fzf
     i3status
@@ -66,6 +67,10 @@ in
     xss-lock
     startsway
     gnome3.adwaita-icon-theme
+    gtk-engine-murrine
+    gtk_engines
+    gsettings-desktop-schemas
+    lxappearance
   ];
 
   systemd.user.targets.sway-session = {
