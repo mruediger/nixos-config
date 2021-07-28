@@ -17,6 +17,12 @@
     kp="kubectl --context gke_justwatch-compute_europe-west1-d_jw-k8s-prod-eu-1";
   };
 
+  programs.bash.shellInit = ''
+    complete -F __start_kubectl kp
+    complete -F __start_kubectl ks
+  '';
+
+
   services.openvpn.servers = {
     justwatch-gcp = {
       config = '' config /home/bag/src/nixos/nixos-config/openvpn/jw-mathias.ruediger-gcp.ovpn '';

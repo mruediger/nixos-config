@@ -22,4 +22,8 @@
   programs.bash.shellAliases = {
     k = "kubectl";
   };
+
+  programs.bash.shellInit = ''
+    complete -F __start_kubectl k
+  '';
 }
