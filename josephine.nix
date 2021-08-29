@@ -28,7 +28,7 @@ in
       };
     };
     kernelModules = [ "kvm-amd" ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
     extraModulePackages = with pkgs; [ wireguard ];
     loader = {
       timeout = 120;
@@ -108,6 +108,6 @@ in
     publish.enable = true;
     discovery.enable = false;
   };
- 
+
   system.stateVersion = "20.09";
 }
