@@ -10,7 +10,6 @@
     ./scala.nix
     ./java.nix
     ./virtualisation.nix
-    ./justwatch.nix
     ./rclone.nix
     ./python.nix
     (import ./minecraft.nix ({unstable = unstable;} // args ))
