@@ -10,6 +10,6 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;
-    config.General.Enable="Source,Sink,Media,Socket";
+    settings.General.Enable="Source,Sink,Media,Socket";
   };
 }
