@@ -6,7 +6,7 @@
     gnupg
     libu2f-host
     yubikey-personalization
-    pass.override { waylandSupport = true; }
+    (pass.override { waylandSupport = true; })
   ];
 
   services.pcscd.enable = true;

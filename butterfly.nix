@@ -40,7 +40,7 @@ in
       efi.canTouchEfiVariables = true;
     };
     kernel.sysctl = {
-      net.ipv4.conf.enp0s31f6.forwarding = 1;
+      "net.ipv4.conf.enp0s31f6.forwarding" = 1;
     };
   };
 
