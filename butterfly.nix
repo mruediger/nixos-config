@@ -39,6 +39,9 @@ in
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+    kernel.sysctl = {
+      net.ipv4.conf.enp0s31f6.forwarding = 1;
+    };
   };
 
   fileSystems."/" =
@@ -63,27 +66,34 @@ in
 
   networking = {
     hostName = "butterfly";
-     useDHCP = false;
-     interfaces = {
-       enp0s31f6.useDHCP = true;
-       wlp0s20f3.useDHCP = true;
-     };
-     firewall  ={
-       enable = true;
-       allowedTCPPorts = [ 22 4713 7680 ];
-     };
-     wireguard.interfaces = {
-       wg0 = {
-         ips = [ "10.42.42.2/32" ];
-         privateKeyFile = "${toString ./.}" + "/wireguard-blueboot.key";
-         peers = [{
-           publicKey = "uk0WkHHW02ExU/TYXbCRHJQX+R7mXhcCygz/1DTxOmI=";
-           allowedIPs = [ "10.42.42.0/24" ];
-           endpoint = "blueboot.org:51820";
-           persistentKeepalive = 25;
-         }];
-       };
-     };
+    useDHCP = false;
+    interfaces = {
+      wlp0s20f3.useDHCP = true;
+      enp0s31f6 = {
+        useDHCP = false;
+        ipv4.addresses = [
+          {
+            address = "192.168.1.1";
+            prefixLength = 24;
+          }];
+      };
+    };
+    firewall  ={
+      enable = true;
+      allowedTCPPorts = [ 22 4713 7680 ];
+    };
+    wireguard.interfaces = {
+      wg0 = {
+        ips = [ "10.42.42.2/32" ];
+        privateKeyFile = "${toString ./.}" + "/wireguard-blueboot.key";
+        peers = [{
+          publicKey = "uk0WkHHW02ExU/TYXbCRHJQX+R7mXhcCygz/1DTxOmI=";
+          allowedIPs = [ "10.42.42.0/24" ];
+          endpoint = "blueboot.org:51820";
+          persistentKeepalive = 25;
+        }];
+      };
+    };
   };
 
   hardware = {
