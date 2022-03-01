@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     opensc
@@ -6,7 +6,7 @@
     gnupg
     libu2f-host
     yubikey-personalization
-    (unstable.pass.override { waylandSupport = true; })
+    pass.override { waylandSupport = true; }
   ];
 
   services.pcscd.enable = true;
