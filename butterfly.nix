@@ -51,6 +51,12 @@ in
       fsType = "vfat";
     };
 
+  fileSystems."/windows" =
+    { device = "/dev/nvme0n1p3";
+      fsType = "ntfs";
+      options = [ "rw" "uid=bag"];
+    };
+
   swapDevices = [{
     device = "/swapfile";
   }];
