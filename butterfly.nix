@@ -98,21 +98,13 @@ in
     enable = true;
   };
 
-
-
-  environment.systemPackages = with pkgs; [
-    libwacom
-    xf86_input_wacom
-  ];
-
-  services.xserver.libinput = {
+  services.xserver.libinput.touchpad = {
     naturalScrolling = false;
     tapping = true;
     disableWhileTyping = true;
     horizontalScrolling = false;
   };
 
-  services.xserver.modules = [ pkgs.xf86_input_wacom ];
   services.xserver.wacom.enable = true;
 
   services.tlp = {
