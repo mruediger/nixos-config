@@ -58,6 +58,7 @@ in
 
   programs.qt5ct.enable = true;
 
+  security.polkit.enable = true;
 
   environment.systemPackages = with pkgs; [
     fzf
