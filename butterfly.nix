@@ -67,6 +67,14 @@ in
   networking = {
     hostName = "butterfly";
     useDHCP = false;
+
+
+    nat = {
+      enable = true;
+      externalInterface = "wlp0s20f3";
+      internalInterfaces = ["enp0s31f6"];
+    };
+
     interfaces = {
       wlp0s20f3.useDHCP = true;
       enp0s31f6 = {
@@ -81,6 +89,9 @@ in
     firewall  ={
       enable = true;
       allowedTCPPorts = [ 22 4713 7680 ];
+      allowedUDPPorts = [
+        67 # DHCP
+      ];
     };
     wireguard.interfaces = {
       wg0 = {
@@ -94,6 +105,23 @@ in
         }];
       };
     };
+  };
+
+  networking.networkmanager.unmanaged = [ "enp0s31f6" ];
+
+  services.dhcpd4 = {
+    enable = true;
+    interfaces = [ "enp0s31f6" ];
+    extraConfig = ''
+      option subnet-mask 255.255.255.0;
+      option broadcast-address 192.168.1.255;
+      option routers 192.168.1.1;
+      option domain-name-servers 1.1.1.1;
+      option domain-name "lan";
+      subnet 192.168.1.0 netmask 255.255.255.0 {
+        range 192.168.1.100 192.168.1.200;
+      }
+    '';
   };
 
   hardware = {
