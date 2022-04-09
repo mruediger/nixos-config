@@ -43,6 +43,7 @@
     libreoffice
     linphone
     vscode
+    freecad
   ];
 
   nixpkgs.config.chromium.enableWideVine = true;
