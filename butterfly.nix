@@ -28,9 +28,12 @@ in
     ];
     kernelPackages = pkgs.linuxPackages;
     kernelModules = [ "kvm-intel" "acpi_call"  ];
+    blacklistedKernelModules = [ "rtl8xxxu" ];
     extraModulePackages = [
       pkgs.wireguard
       config.boot.kernelPackages.acpi_call
+      config.boot.kernelPackages.rtl8192eu
+
     ];
     kernel.sysctl = {
       "vm.swappiness" = 90;
