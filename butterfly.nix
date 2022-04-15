@@ -6,6 +6,7 @@ in
 {
   imports =
     [
+      <nixos-hardware/common/pc/ssd>
       ./base
       (import ./desktop ({ unstable = unstable;} // args ))
       (import ./desktop/sway.nix ({unstable = unstable;} // args))
