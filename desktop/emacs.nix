@@ -2,7 +2,7 @@
 {
 
   services.emacs = {
-    package = pkgs.emacsPgtkNativeComp; 
+    package = pkgs.emacsPgtkNativeComp;
     enable = true;
     defaultEditor = true;
   };
@@ -36,6 +36,4 @@
     fira-code
     roboto-mono
   ];
-
-
 }
