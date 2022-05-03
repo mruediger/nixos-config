@@ -29,7 +29,11 @@ in
     };
     kernelModules = [ "kvm-amd" ];
     kernelPackages = pkgs.linuxPackages;
-    extraModulePackages = with pkgs; [ wireguard ];
+    blacklistedKernelModules = [ "rtl8xxxu" ];
+    extraModulePackages =  [
+      pkgs.wireguard
+      config.boot.kernelPackages.rtl8192eu
+    ];
     loader = {
       timeout = 120;
       systemd-boot.enable = true;
