@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, unstable, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     packer
     vault
     gnumake
+    unstable._1password
   ];
 
   environment.variables ={
