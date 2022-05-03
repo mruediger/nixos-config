@@ -12,6 +12,7 @@
     ./virtualisation.nix
     ./rclone.nix
     ./python.nix
+    (import ./justwatch.nix ({unstable = unstable;} // args ))
     (import ./minecraft.nix ({unstable = unstable;} // args ))
     ./windows.nix
     ./yubikey.nix
@@ -65,7 +66,7 @@
     package = pkgs.pulseaudioFull;
     tcp = {
       enable = true;
-      anonymousClients.allowedIpRanges = [ "127.0.0.1" "192.168.1.0/24" ];
+      anonymousClients.allowedIpRanges = [ "127.0.0.1" "192.168.1.0/24" "192.168.178.0/24" ];
     };
     extraModules = [ pkgs.pulseaudio-modules-bt ];
  };
