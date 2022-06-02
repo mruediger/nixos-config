@@ -2,7 +2,7 @@
 {
 
   services.emacs = {
-    package = pkgs.emacsPgtkGcc;
+    package = pkgs.emacsPgtkNativeComp; 
     enable = true;
     defaultEditor = true;
   };
