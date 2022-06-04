@@ -23,7 +23,7 @@
     k = "kubectl";
   };
 
-  programs.bash.shellInit = ''
+  programs.bash.interactiveShellInit = ''
     source ${pkgs.kubectl}/share/bash-completion/completions/kubectl.bash
     complete -F __start_kubectl k
   '';
