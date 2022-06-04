@@ -56,6 +56,7 @@
       iosevka
       fira-code
       noto-fonts
+      roboto-mono
     ];
   };
 
