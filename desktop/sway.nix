@@ -31,6 +31,7 @@ in
       slurp
       waybar
       mako
+      sirula
       wl-clipboard
       xdg-user-dirs
     ];
