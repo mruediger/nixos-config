@@ -1,4 +1,4 @@
-{ pkgs, config, unstable, ... }:
+{ pkgs, config, ... }:
 {
   environment.systemPackages = with pkgs; [
     ansible
@@ -11,6 +11,7 @@
     yq-go
     bind
     pwgen
+    complete-alias
     unstable.kops
     unstable.kubectl
     unstable.terraform_1
@@ -21,10 +22,12 @@
 
   programs.bash.shellAliases = {
     k = "kubectl";
+    g = "git";
   };
 
   programs.bash.interactiveShellInit = ''
-    source ${pkgs.kubectl}/share/bash-completion/completions/kubectl.bash
-    complete -F __start_kubectl k
+    source ${pkgs.complete-alias}/bin/complete_alias
+    complete -F _complete_alias k
+    complete -F _complete_alias g
   '';
 }

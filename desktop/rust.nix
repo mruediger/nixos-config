@@ -5,7 +5,7 @@ let
 in
 {
   environment.systemPackages = [
-    (nixpkgs.latest.rustChannels.stable.rust.override { extensions = [ "rust-src" "rls-preview" "rust-analysis" "rustfmt-preview" ];})
+    (pkgs.latest.rustChannels.stable.rust.override { extensions = [ "rust-src" "rls-preview" "rust-analysis" "rustfmt-preview" ];})
   ];
 
   environment.variables = {

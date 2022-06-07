@@ -1,22 +1,21 @@
-{ pkgs, unstable, ... } @ args:
+{ pkgs, ... }:
 {
   imports = [
-    (import ./devops.nix ({unstable = unstable;} // args ))
+    ./devops.nix
     ./emacs.nix
     ./go.nix
     ./phone.nix
     ./printer.nix
-    ./rust.nix
     ./scala.nix
     ./java.nix
     ./virtualisation.nix
     ./rclone.nix
     ./python.nix
-    (import ./justwatch.nix ({unstable = unstable;} // args ))
-    (import ./minecraft.nix ({unstable = unstable;} // args ))
+    ./justwatch.nix
+    ./minecraft.nix
     ./windows.nix
     ./yubikey.nix
-    (import ./gaming.nix ({unstable = unstable;} // args ))
+    ./gaming.nix
   ];
 
   environment.systemPackages = with pkgs; [

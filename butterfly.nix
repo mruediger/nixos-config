@@ -1,15 +1,10 @@
-{ config, pkgs, lib, ... } @ args:
-
-let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in
+{ config, pkgs, lib, nixos-hardware, ... }:
 {
   imports =
     [
-      <nixos-hardware/common/pc/ssd>
       ./base
-      (import ./desktop ({ unstable = unstable;} // args ))
-      (import ./desktop/sway.nix ({unstable = unstable;} // args))
+      ./desktop
+      ./desktop/sway.nix
       ./laptop
     ];
 
@@ -189,6 +184,13 @@ in
   };
 
   nix.autoOptimiseStore = true;
+
+  nix = {
+    package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

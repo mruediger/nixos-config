@@ -1,6 +1,5 @@
-
 # see https://github.com/colemickens/nixpkgs-wayland
-{ pkgs, lib, unstable, ... } @ args:
+{ pkgs, lib, ... }:
 let
   startsway = pkgs.writeTextFile {
     name = "startsway";

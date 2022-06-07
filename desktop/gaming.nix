@@ -1,4 +1,4 @@
-{  pkgs, unstable, ... } @ args:
+{ pkgs, ... }:
 let
   steam = pkgs.steam.override {
     extraLibraries = pkgs: [

@@ -80,8 +80,6 @@
       shellAliases = {
         nix-search = "nix-env -qaP";
         nix-list   = "nix-env -qaP \"*\" --description";
-        glog       = "git log --graph --pretty=format:\"%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset\" --abbrev-commit --date=relative";
-        gst        = "git status";
         ssh        = "TERM=xterm-color ssh";
       };
   };
