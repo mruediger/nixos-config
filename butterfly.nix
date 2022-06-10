@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixos-hardware, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   imports =
     [
@@ -95,7 +95,8 @@
     wireguard.interfaces = {
       wg0 = {
         ips = [ "10.42.42.2/32" ];
-        privateKeyFile = "${toString ./.}" + "/wireguard-blueboot.key";
+        #privateKeyFile = "${inputs.self}/wireguard-blueboot.key";
+        privateKeyFile = "/home/bag/src/nixos/nixos-config/wireguard-blueboot.key";
         peers = [{
           publicKey = "uk0WkHHW02ExU/TYXbCRHJQX+R7mXhcCygz/1DTxOmI=";
           allowedIPs = [ "10.42.42.0/24" ];

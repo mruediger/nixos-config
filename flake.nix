@@ -23,7 +23,7 @@
     , nixos-hardware
     , emacs-overlay
     , mozilla-overlay
-    , ... }:
+    , ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -44,12 +44,15 @@
       };
     in
     {
-      nixosConfigurations.butterfly = nixpkgs.lib.nixosSystem {
-        inherit system pkgs;
-        modules = [
-          nixos-hardware.nixosModules.common-pc-ssd
-          ./butterfly.nix
-        ];
+      nixosConfigurations = {
+        butterfly = nixpkgs.lib.nixosSystem {
+          inherit system pkgs;
+          specialArgs = { inherit inputs; };
+          modules = [
+            nixos-hardware.nixosModules.common-pc-ssd
+            ./butterfly.nix
+          ];
+        };
       };
     };
 }
