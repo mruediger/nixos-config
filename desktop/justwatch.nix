@@ -5,6 +5,7 @@
     packer
     vault
     gnumake
+    complete-alias
     unstable._1password
   ];
 
@@ -18,9 +19,10 @@
     kp="kubectl --context gke_justwatch-compute_europe-west1-d_jw-k8s-prod-eu-1";
   };
 
-  programs.bash.shellInit = ''
-    complete -F __start_kubectl kp
-    complete -F __start_kubectl ks
+  programs.bash.interactiveShellInit = ''
+    source ${pkgs.complete-alias}/bin/complete_alias
+    complete -F _complete_alias kp
+    complete -F _complete_alias ks
   '';
 
 
