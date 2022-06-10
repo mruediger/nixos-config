@@ -53,6 +53,14 @@
             ./butterfly.nix
           ];
         };
+        josephine = nixpkgs.lib.nixosSystem {
+          inherit system pkgs;
+          specialArgs = { inherit inputs; };
+          modules = [
+            nixos-hardware.nixosModules.common-pc-ssd
+            ./josephine.nix
+          ];
+        };
       };
     };
 }

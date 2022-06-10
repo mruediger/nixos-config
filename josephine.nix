@@ -1,13 +1,9 @@
-{ config, pkgs, lib, ... } @ args:
-
-let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in
+{ config, pkgs, lib, ... }:
 {
   imports = [
     ./base
-    (import ./desktop ({unstable = unstable;} // args ))
-    (import ./desktop/sway.nix ({unstable = unstable;} // args ))
+    ./desktop
+    ./desktop/sway.nix
   ];
 
   networking = {
@@ -76,7 +72,7 @@ in
   networking.wireguard.interfaces = {
     wg0 = {
       ips = [ "10.42.42.4/32" ];
-      privateKeyFile = "${toString ./.}" + "/wireguard-blueboot.key";
+      privateKeyFile = "/home/bag/src/nixos/nixos-config/wireguard-blueboot.key";
       peers = [{
         publicKey = "uk0WkHHW02ExU/TYXbCRHJQX+R7mXhcCygz/1DTxOmI=";
         allowedIPs = [ "10.42.42.0/24" ];
@@ -113,5 +109,12 @@ in
     discovery.enable = false;
   };
 
-  system.stateVersion = "20.09";
+  nix = {
+    package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
+  system.stateVersion = "21.11";
 }
