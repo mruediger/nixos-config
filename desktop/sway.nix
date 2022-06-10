@@ -31,6 +31,7 @@ in
       waybar
       mako
       sirula
+      zathura
       wl-clipboard
       xdg-user-dirs
     ];
