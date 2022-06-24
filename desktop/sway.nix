@@ -14,6 +14,32 @@ let
           exec systemctl --user start sway.service
           '';
   };
+
+  dbus-sway-environment = pkgs.writeTextFile {
+    name = "dbus-sway-environment";
+    destination = "/bin/dbus-sway-environment";
+    executable = true;
+
+    text = ''
+  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+  systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+  systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+      '';
+  };
+
+  configure-gtk = pkgs.writeTextFile {
+      name = "configure-gtk";
+      destination = "/bin/configure-gtk";
+      executable = true;
+      text = let
+        schema = pkgs.gsettings-desktop-schemas;
+        datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+      in ''
+        export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+        gnome_schema=org.gnome.desktop.interface
+        gsettings set $gnome_schema gtk-theme 'Dracula'
+        '';
+  };
 in
 {
 
@@ -41,10 +67,22 @@ in
     };
   };
 
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
-  xdg.portal.gtkUsePortal = true;
+
+
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    # gtk portal needed to make gtk apps happy
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    gtkUsePortal = true;
+  };
 
   environment.sessionVariables = {
      MOZ_ENABLE_WAYLAND = "1";
@@ -52,10 +90,7 @@ in
      XDG_SESSION_TYPE = "wayland"; # https://github.com/emersion/xdg-desktop-portal-wlr/pull/11
   };
 
-
   programs.waybar.enable = true;
-
-  services.pipewire.enable = true;
 
   programs.qt5ct.enable = true;
 
@@ -74,34 +109,6 @@ in
     gsettings-desktop-schemas
     lxappearance
   ];
-
-  systemd.user.targets.sway-session = {
-    description = "Sway compositor session";
-    documentation = [ "man:systemd.special(7)" ];
-    bindsTo = [ "graphical-session.target" ];
-    wants = [ "graphical-session-pre.target" ];
-    after = [ "graphical-session-pre.target" ];
-  };
-
-  systemd.user.services.sway = {
-    description = "Sway - Wayland window manager";
-    documentation = [ "man:sway(5)" ];
-    bindsTo = [ "graphical-session.target" ];
-    wants = [ "graphical-session-pre.target" ];
-    after = [ "graphical-session-pre.target" ];
-    # We explicitly unset PATH here, as we want it to be set by
-    # systemctl --user import-environment in startsway
-    environment.PATH = lib.mkForce null;
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = ''
-        ${pkgs.dbus}/bin/dbus-run-session ${pkgs.sway}/bin/sway
-      '';
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
-    };
-  };
 
   # screen sharing
   # https://github.com/NixOS/nixpkgs/issues/91218
