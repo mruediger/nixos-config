@@ -60,6 +60,7 @@ in
       zathura
       wl-clipboard
       xdg-user-dirs
+      pulseaudio #for pactl
     ];
     wrapperFeatures = {
       base = true;
