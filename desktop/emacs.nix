@@ -2,7 +2,23 @@
 {
 
   services.emacs = {
-    package = pkgs.emacsPgtkNativeComp;
+    package = with pkgs; ((emacsPackagesFor emacsPgtkNativeComp).emacsWithPackages (epkgs: with epkgs; [
+      use-package
+      moody
+      flycheck
+      go-mode
+      lsp-mode
+      magit
+      nix-mode
+      org
+      origami
+      solarized-theme
+      sudo-edit
+      terraform-mode
+      which-key
+      yaml-mode
+    ]));
+
     enable = true;
     defaultEditor = true;
   };
