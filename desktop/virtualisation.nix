@@ -7,7 +7,7 @@
   users.extraUsers.bag.extraGroups = [ "libvirtd" ];
 
   environment.systemPackages = with pkgs; [
-    virtviewer
+    virt-viewer
     virtmanager
     vagrant
     bridge-utils

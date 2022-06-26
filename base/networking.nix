@@ -3,7 +3,7 @@
   networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
-    wireguard
+    wireguard-tools
   ];
 
   services.avahi = {
