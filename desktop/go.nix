@@ -1,14 +1,13 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    go
+    go_1_18
     gcc # cgo dependency
     godef
     gotools
   ];
 
   environment.variables = {
-    GOROOT = [ "${pkgs.go.out}/share/go" ];
     GOPATH = "$HOME/src/go";
     PATH   = ["$GOPATH/bin"];
   };
