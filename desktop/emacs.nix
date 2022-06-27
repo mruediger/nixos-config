@@ -7,6 +7,7 @@
       moody
       flycheck
       go-mode
+      gotest
       lsp-mode
       magit
       nix-mode
