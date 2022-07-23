@@ -18,6 +18,7 @@
       terraform-mode
       which-key
       yaml-mode
+      jsonnet-mode
     ]));
 
     enable = true;
