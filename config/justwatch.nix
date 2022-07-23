@@ -1,9 +1,6 @@
 { pkgs, ... }:
-
 {
   environment.systemPackages = with pkgs; [
-    packer
-    vault
     gnumake
     complete-alias
     unstable._1password

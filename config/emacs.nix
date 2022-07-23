@@ -1,6 +1,5 @@
 { pkgs, lib, config, ... }:
 {
-
   services.emacs = {
     package = with pkgs; ((emacsPackagesFor emacsPgtkNativeComp).emacsWithPackages (epkgs: with epkgs; [
       use-package

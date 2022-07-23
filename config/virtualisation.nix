@@ -25,7 +25,10 @@
   networking.firewall.checkReversePath = false;
   networking.firewall.trustedInterfaces = [ "virbr0" ];
 
-  # virtualbox
-  # virtualisation.virtualbox.host.enable = true;
-  # users.extraGroups.vboxusers.members = ["bag"];
+  users.extraUsers.bag.extraGroups = ["docker"];
+
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+  };
 }

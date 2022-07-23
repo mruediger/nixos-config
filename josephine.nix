@@ -3,7 +3,10 @@
   imports = [
     ./base
     ./desktop
-    ./desktop/sway.nix
+    ./config/sway.nix
+    ./config/networking.nix
+    ./conifg/nixos.nix
+    ./config/hardware.nix
   ];
 
   networking = {
@@ -24,17 +27,10 @@
       };
     };
     kernelModules = [ "kvm-amd" ];
-    kernelPackages = pkgs.linuxPackages;
     blacklistedKernelModules = [ "rtl8xxxu" ];
     extraModulePackages =  [
-      pkgs.wireguard
       config.boot.kernelPackages.rtl8192eu
     ];
-    loader = {
-      timeout = 120;
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
   };
 
   fileSystems."/" =
@@ -56,7 +52,6 @@
 
     gc = {
       automatic = true;
-      options = "--delete-older-than 7d";
     };
   };
 
@@ -73,47 +68,12 @@
     wg0 = {
       ips = [ "10.42.42.4/32" ];
       privateKeyFile = "/home/bag/src/nixos/nixos-config/wireguard-blueboot.key";
-      peers = [{
-        publicKey = "uk0WkHHW02ExU/TYXbCRHJQX+R7mXhcCygz/1DTxOmI=";
-        allowedIPs = [ "10.42.42.0/24" ];
-        endpoint = "blueboot.org:51820";
-        persistentKeepalive = 25;
-      }];
     };
-  };
-
-  networking.firewall  ={
-    enable = true;
-    allowedTCPPorts = [ 22 4713 7680 ];
-  };
-
-
-  services.resolved = {
-    enable = true;
-    domains = [
-      "local"
-    ];
-    fallbackDns = [
-      "1.1.1.1"
-      "2606:4700:4700::1111"
-    ];
   };
 
   powerManagement = {
     enable = true;
     cpuFreqGovernor = "schedutil";
-  };
-
-  hardware.pulseaudio.zeroconf = {
-    publish.enable = true;
-    discovery.enable = false;
-  };
-
-  nix = {
-    package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
   };
 
   system.stateVersion = "21.11";

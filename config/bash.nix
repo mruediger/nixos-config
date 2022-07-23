@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-
   environment.variables = {
     PATH = ["$HOME/bin"];
   };
