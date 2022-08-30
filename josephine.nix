@@ -29,6 +29,7 @@
     kernelModules = [ "kvm-amd" ];
     blacklistedKernelModules = [ "rtl8xxxu" ];
     extraModulePackages =  [
+      pkgs.wireguard-tools
       config.boot.kernelPackages.rtl8192eu
     ];
   };
@@ -76,5 +77,17 @@
     cpuFreqGovernor = "schedutil";
   };
 
-  system.stateVersion = "21.11";
+  hardware.pulseaudio.zeroconf = {
+    publish.enable = true;
+    discovery.enable = false;
+  };
+
+  nix = {
+    package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
+  system.stateVersion = "22.05";
 }
