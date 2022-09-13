@@ -44,4 +44,9 @@
     nodePackages.yaml-language-server
     rnix-lsp
   ];
+  fonts = {
+    fonts = with pkgs; [
+      iosevka
+    ];
+  };
 }
