@@ -4,7 +4,7 @@
     libvirtd.enable = true;
   };
 
-  users.extraUsers.bag.extraGroups = [ "libvirtd" ];
+  users.extraUsers.bag.extraGroups = [ "libvirtd" "docker" ];
 
   environment.systemPackages = with pkgs; [
     virt-viewer
@@ -24,8 +24,6 @@
 
   networking.firewall.checkReversePath = false;
   networking.firewall.trustedInterfaces = [ "virbr0" ];
-
-  users.extraUsers.bag.extraGroups = ["docker"];
 
   virtualisation.docker = {
     enable = true;
