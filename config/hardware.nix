@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   boot = {
     loader = {
@@ -16,7 +16,7 @@
     ksm.enable = true;
     cpu = {
       amd.updateMicrocode = true;
-      cpu.intel.updateMicrocode = true;
+      intel.updateMicrocode = true;
     };
   };
 
