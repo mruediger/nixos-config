@@ -3,7 +3,6 @@
   imports =
     [
       ./desktop
-      ./laptop
       ./config/audio.nix
       ./config/base.nix
       ./config/bash.nix
