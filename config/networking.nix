@@ -12,12 +12,14 @@
       allowedTCPPorts = [ 22 4713 7680 ];
     };
     wireguard.interfaces = {
-      peers = [{
-        publicKey = "uk0WkHHW02ExU/TYXbCRHJQX+R7mXhcCygz/1DTxOmI=";
-        allowedIPs = [ "10.42.42.0/24" ];
-        endpoint = "blueboot.org:51820";
-        persistentKeepalive = 25;
-      }];
+      wg0 = {
+        peers = [{
+          publicKey = "uk0WkHHW02ExU/TYXbCRHJQX+R7mXhcCygz/1DTxOmI=";
+          allowedIPs = [ "10.42.42.0/24" ];
+          endpoint = "blueboot.org:51820";
+          persistentKeepalive = 25;
+        }];
+      };
     };
   };
 
