@@ -98,17 +98,18 @@ in
   security.polkit.enable = true;
 
   environment.systemPackages = with pkgs; [
-    fzf
-    i3status
-    firefox-wayland
     alacritty
-    xss-lock
-    startsway
+    firefox-wayland
+    fzf
     gnome3.adwaita-icon-theme
+    gsettings-desktop-schemas
     gtk-engine-murrine
     gtk_engines
-    gsettings-desktop-schemas
+    i3status
     lxappearance
+    slack
+    startsway
+    xss-lock
   ];
 
   # screen sharing
