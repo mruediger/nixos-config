@@ -1,11 +1,13 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    opensc
-    pcsctools
     gnupg
     libu2f-host
+    opensc
+    openssl
+    pcsctools
     yubikey-personalization
+    yubikey-manager
     (pass.override { waylandSupport = true; })
   ];
 
