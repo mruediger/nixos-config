@@ -110,6 +110,7 @@ in
     slack
     startsway
     xss-lock
+    evince
   ];
 
   # screen sharing
