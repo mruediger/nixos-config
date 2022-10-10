@@ -1,12 +1,22 @@
 { config, pkgs, lib, ... }:
 {
   imports = [
-    ./base
     ./desktop
-    ./config/sway.nix
-    ./config/networking.nix
-    ./conifg/nixos.nix
+    ./config/audio.nix
+    ./config/base.nix
+    ./config/bash.nix
+    ./config/devops.nix
+    ./config/emacs.nix
     ./config/hardware.nix
+    ./config/justwatch.nix
+    ./config/laptop.nix
+    ./config/networking.nix
+    ./config/nixos.nix
+    ./config/printer.nix
+    ./config/sway.nix
+    ./config/users.nix
+    ./config/yubikey.nix
+    ./config/virtualisation.nix
   ];
 
   networking = {
@@ -50,10 +60,6 @@
 
   nix = {
     maxJobs = lib.mkDefault 12;
-
-    gc = {
-      automatic = true;
-    };
   };
 
   # High-DPI console
@@ -75,18 +81,6 @@
   powerManagement = {
     enable = true;
     cpuFreqGovernor = "schedutil";
-  };
-
-  hardware.pulseaudio.zeroconf = {
-    publish.enable = true;
-    discovery.enable = false;
-  };
-
-  nix = {
-    package = pkgs.nixFlakes; # or versioned attributes like nixVersions.nix_2_8
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
   };
 
   system.stateVersion = "22.05";

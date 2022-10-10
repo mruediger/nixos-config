@@ -6,7 +6,6 @@
     ./python.nix
     ./minecraft.nix
     ./windows.nix
-    ./yubikey.nix
     ./gaming.nix
   ];
 }
