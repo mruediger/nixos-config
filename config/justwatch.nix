@@ -4,6 +4,7 @@
     gnumake
     complete-alias
     unstable._1password
+    unstable.zoom-us
   ];
 
   environment.variables ={
