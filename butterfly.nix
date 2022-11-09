@@ -1,7 +1,6 @@
 { config, pkgs, lib, inputs, ... }:
 {
-  imports =
-    [
+  imports = [
       ./desktop
       ./config/audio.nix
       ./config/base.nix
@@ -16,6 +15,7 @@
       ./config/printer.nix
       ./config/sway.nix
       ./config/users.nix
+      ./config/yubikey.nix
       ./config/virtualisation.nix
     ];
 
