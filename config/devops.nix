@@ -6,7 +6,7 @@
     git
     minikube
     unstable.kubernetes-helm
-    google-cloud-sdk
+    unstable.google-cloud-sdk
     gnumake
     yq-go
     bind
