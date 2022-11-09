@@ -24,6 +24,7 @@
   programs.bash.shellAliases = {
     k = "kubectl";
     g = "git";
+    gst = "git status";
   };
 
   programs.bash.interactiveShellInit = ''
