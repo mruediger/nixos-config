@@ -22,8 +22,4 @@
     complete -F _complete_alias kp
     complete -F _complete_alias ks
   '';
-
-  networking.extraHosts = ''
-    10.132.4.53 vault-2.justwatch.com
-  '';
 }
