@@ -7,7 +7,6 @@
     ./config/bash.nix
     ./config/devops.nix
     ./config/emacs.nix
-    ./config/python.nix
     ./config/hardware.nix
     ./config/justwatch.nix
     ./config/laptop.nix
