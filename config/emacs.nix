@@ -3,6 +3,7 @@
   services.emacs = {
     package = with pkgs; ((emacsPackagesFor emacsPgtkNativeComp).emacsWithPackages (epkgs: with epkgs; [
       direnv
+      edit-server
       flycheck
       go-mode
       gotest
