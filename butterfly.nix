@@ -11,6 +11,7 @@
       ./config/justwatch.nix
       ./config/laptop.nix
       ./config/networking.nix
+      ./config/nu.nix
       ./config/nixos.nix
       ./config/printer.nix
       ./config/sway.nix
