@@ -109,8 +109,8 @@ in
     lxappearance
     slack
     startsway
+    unstable.google-chrome
     xss-lock
-    evince
   ];
 
   # screen sharing
