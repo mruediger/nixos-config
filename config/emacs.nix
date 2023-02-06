@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 {
   services.emacs = {
-    package = with pkgs; ((emacsPackagesFor emacsPgtkNativeComp).emacsWithPackages (epkgs: with epkgs; [
+    package = with pkgs; ((emacsPackagesFor emacsPgtk).emacsWithPackages (epkgs: with epkgs; [
       direnv
       edit-server
       flycheck
