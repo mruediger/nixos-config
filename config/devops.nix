@@ -6,7 +6,7 @@
     git
     minikube
     unstable.kubernetes-helm
-    unstable.google-cloud-sdk
+    (unstable.google-cloud-sdk.withExtraComponents [ unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin ])
     gnumake
     yq-go
     bind
