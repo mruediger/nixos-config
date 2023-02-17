@@ -20,6 +20,7 @@
       use-package
       which-key
       yaml-mode
+      ledger-mode
     ]));
 
     enable = true;
