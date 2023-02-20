@@ -9,6 +9,7 @@
       gotest
       jsonnet-mode
       lsp-mode
+      lsp-ui
       magit
       moody
       nix-mode
