@@ -8,6 +8,7 @@
       go-mode
       gotest
       jsonnet-mode
+      ledger-mode
       lsp-mode
       lsp-ui
       magit
@@ -21,7 +22,6 @@
       use-package
       which-key
       yaml-mode
-      ledger-mode
     ]));
 
     enable = true;
