@@ -2,6 +2,7 @@
 {
   services.emacs = {
     package = with pkgs; ((emacsPackagesFor emacsPgtk).emacsWithPackages (epkgs: with epkgs; [
+      corfu
       direnv
       edit-server
       flycheck
