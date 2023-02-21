@@ -5,6 +5,7 @@
     gcc # cgo dependency
     godef
     gotools
+    gopls
   ];
 
   environment.variables = {
