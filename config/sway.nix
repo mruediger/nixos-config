@@ -61,6 +61,7 @@ in
       wl-clipboard
       xdg-user-dirs
       pulseaudio #for pactl
+      cinnamon.nemo
     ];
     wrapperFeatures = {
       base = true;
