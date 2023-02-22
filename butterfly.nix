@@ -18,6 +18,7 @@
       ./config/users.nix
       ./config/yubikey.nix
       ./config/virtualisation.nix
+      ./config/python.nix
     ];
 
   boot = {
