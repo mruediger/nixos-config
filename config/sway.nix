@@ -6,13 +6,13 @@ let
     destination = "/bin/startsway";
     executable = true;
     text = ''
-          #! ${pkgs.bash}/bin/bash
+      #! ${pkgs.bash}/bin/bash
 
-          # first import environment variables from the login manager
-          systemctl --user import-environment
-          # then start the service
-          exec systemctl --user start sway.service
-          '';
+      # first import environment variables from the login manager
+      systemctl --user import-environment
+      # then start the service
+      exec systemctl --user start sway.service
+    '';
   };
 
   dbus-sway-environment = pkgs.writeTextFile {
@@ -21,24 +21,26 @@ let
     executable = true;
 
     text = ''
-  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-  systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-  systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-      '';
+      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+      systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+      systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
+    '';
   };
 
   configure-gtk = pkgs.writeTextFile {
-      name = "configure-gtk";
-      destination = "/bin/configure-gtk";
-      executable = true;
-      text = let
+    name = "configure-gtk";
+    destination = "/bin/configure-gtk";
+    executable = true;
+    text =
+      let
         schema = pkgs.gsettings-desktop-schemas;
         datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-      in ''
+      in
+      ''
         export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
         gnome_schema=org.gnome.desktop.interface
         gsettings set $gnome_schema gtk-theme 'Dracula'
-        '';
+      '';
   };
 in
 {
@@ -87,9 +89,9 @@ in
   };
 
   environment.sessionVariables = {
-     MOZ_ENABLE_WAYLAND = "1";
-     XDG_CURRENT_DESKTOP = "sway"; # https://github.com/emersion/xdg-desktop-portal-wlr/issues/20
-     XDG_SESSION_TYPE = "wayland"; # https://github.com/emersion/xdg-desktop-portal-wlr/pull/11
+    MOZ_ENABLE_WAYLAND = "1";
+    XDG_CURRENT_DESKTOP = "sway"; # https://github.com/emersion/xdg-desktop-portal-wlr/issues/20
+    XDG_SESSION_TYPE = "wayland"; # https://github.com/emersion/xdg-desktop-portal-wlr/pull/11
   };
 
   programs.waybar.enable = true;

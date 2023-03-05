@@ -1,25 +1,25 @@
 { config, pkgs, lib, inputs, ... }:
 {
   imports = [
-      ./desktop
-      ./config/audio.nix
-      ./config/base.nix
-      ./config/bash.nix
-      ./config/devops.nix
-      ./config/emacs.nix
-      ./config/hardware.nix
-      ./config/justwatch.nix
-      ./config/laptop.nix
-      ./config/networking.nix
-      ./config/nu.nix
-      ./config/nixos.nix
-      ./config/printer.nix
-      ./config/sway.nix
-      ./config/users.nix
-      ./config/yubikey.nix
-      ./config/virtualisation.nix
-      ./config/python.nix
-    ];
+    ./desktop
+    ./config/audio.nix
+    ./config/base.nix
+    ./config/bash.nix
+    ./config/devops.nix
+    ./config/emacs.nix
+    ./config/hardware.nix
+    ./config/justwatch.nix
+    ./config/laptop.nix
+    ./config/networking.nix
+    ./config/nu.nix
+    ./config/nixos.nix
+    ./config/printer.nix
+    ./config/sway.nix
+    ./config/users.nix
+    ./config/yubikey.nix
+    ./config/virtualisation.nix
+    ./config/python.nix
+  ];
 
   boot = {
     initrd = {
@@ -30,31 +30,34 @@
     resumeDevice = config.fileSystems."/".device;
     kernelParams = [
       "resume_offset=20791296" #offset by filefrag -v /swapfile
-      "acpi_backlight=native"  #allow brightnessctl to work
-      "i915.enable_guc=2"      #GuC/HuC firmware
-      "i915.enable_fbc=0"      #frambuffer compression for powersaving
-      "i915.enable_psr=0"      #panel self refresh for powersaving
+      "acpi_backlight=native" #allow brightnessctl to work
+      "i915.enable_guc=2" #GuC/HuC firmware
+      "i915.enable_fbc=0" #frambuffer compression for powersaving
+      "i915.enable_psr=0" #panel self refresh for powersaving
     ];
-    kernelModules = [ "kvm-intel" "acpi_call"  ];
+    kernelModules = [ "kvm-intel" "acpi_call" ];
     extraModulePackages = [
       config.boot.kernelPackages.acpi_call
     ];
   };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b896d5b2-8d8f-4199-921a-c28efca7e37d";
+    {
+      device = "/dev/disk/by-uuid/b896d5b2-8d8f-4199-921a-c28efca7e37d";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/nvme0n1p1";
+    {
+      device = "/dev/nvme0n1p1";
       fsType = "vfat";
     };
 
   fileSystems."/windows" =
-    { device = "/dev/nvme0n1p3";
+    {
+      device = "/dev/nvme0n1p3";
       fsType = "ntfs";
-      options = [ "rw" "uid=bag"];
+      options = [ "rw" "uid=bag" ];
     };
 
   swapDevices = [{
@@ -68,7 +71,7 @@
     nat = {
       enable = true;
       externalInterface = "wlp0s20f3";
-      internalInterfaces = ["enp0s31f6"];
+      internalInterfaces = [ "enp0s31f6" ];
     };
 
     interfaces = {
@@ -79,7 +82,8 @@
           {
             address = "192.168.42.1";
             prefixLength = 24;
-          }];
+          }
+        ];
       };
     };
     wireguard.interfaces = {
@@ -115,7 +119,7 @@
       "START_CHARGE_THRESH_BAT0" = 75;
       "STOP_CHARGE_THRESH_BAT0" = 100;
     };
-   };
+  };
 
   services.logind = {
     extraConfig = ''
