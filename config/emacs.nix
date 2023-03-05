@@ -20,7 +20,6 @@
     imagemagick # for image-dired
 
     gopls # lsp go
-    rls   # rust lsp
     terraform-ls
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
