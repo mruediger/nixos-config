@@ -85,7 +85,6 @@ in
     wlr.enable = true;
     # gtk portal needed to make gtk apps happy
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    gtkUsePortal = true;
   };
 
   environment.sessionVariables = {
@@ -95,8 +94,6 @@ in
   };
 
   programs.waybar.enable = true;
-
-  programs.qt5ct.enable = true;
 
   security.polkit.enable = true;
 
