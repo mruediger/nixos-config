@@ -1,24 +1,5 @@
 { config, pkgs, lib, ... }:
 {
-  imports = [
-    ./desktop
-    ./config/audio.nix
-    ./config/base.nix
-    ./config/bash.nix
-    ./config/devops.nix
-    ./config/emacs.nix
-    ./config/hardware.nix
-    ./config/justwatch.nix
-    ./config/laptop.nix
-    ./config/networking.nix
-    ./config/nixos.nix
-    ./config/printer.nix
-    ./config/sway.nix
-    ./config/users.nix
-    ./config/yubikey.nix
-    ./config/virtualisation.nix
-    ./config/python.nix
-  ];
 
   networking = {
     hostName = "josephine";

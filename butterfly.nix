@@ -1,26 +1,5 @@
 { config, pkgs, lib, inputs, ... }:
 {
-  imports = [
-    ./desktop
-    ./config/audio.nix
-    ./config/base.nix
-    ./config/bash.nix
-    ./config/devops.nix
-    ./config/emacs.nix
-    ./config/hardware.nix
-    ./config/justwatch.nix
-    ./config/laptop.nix
-    ./config/networking.nix
-    ./config/nu.nix
-    ./config/nixos.nix
-    ./config/printer.nix
-    ./config/sway.nix
-    ./config/users.nix
-    ./config/yubikey.nix
-    ./config/virtualisation.nix
-    ./config/python.nix
-  ];
-
   boot = {
     initrd = {
       availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
