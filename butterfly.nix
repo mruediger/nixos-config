@@ -9,7 +9,6 @@
     resumeDevice = config.fileSystems."/".device;
     kernelParams = [
       "resume_offset=20791296" #offset by filefrag -v /swapfile
-      "acpi_backlight=native" #allow brightnessctl to work
       "i915.enable_guc=2" #GuC/HuC firmware
       "i915.enable_fbc=0" #frambuffer compression for powersaving
       "i915.enable_psr=0" #panel self refresh for powersaving
