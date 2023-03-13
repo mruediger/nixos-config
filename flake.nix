@@ -63,7 +63,7 @@
           inherit system pkgs;
           specialArgs = { inherit inputs; };
           modules = modules ++ [
-            nixos-hardware.nixosModules.lenovo.thinkpad.x13.yoga
+            nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
             ./butterfly.nix
             ./config/laptop.nix
           ];
