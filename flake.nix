@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-22.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs-hardware.url = "github:NixOS/nixos-hardware/master";
 
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
@@ -62,7 +63,7 @@
           inherit system pkgs;
           specialArgs = { inherit inputs; };
           modules = modules ++ [
-            nixos-hardware.nixosModules.common-pc-ssd
+            nixos-hardware.nixosModules.lenovo.thinkpad.x13.yoga
             ./butterfly.nix
             ./config/laptop.nix
           ];
