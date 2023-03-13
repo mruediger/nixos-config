@@ -8,6 +8,7 @@
     pcsctools
     yubikey-personalization
     yubikey-manager
+    pinentry
     (pass.override { waylandSupport = true; })
   ];
 
@@ -25,11 +26,14 @@
 
   programs.browserpass.enable = true;
 
+  services.dbus.packages = [ pkgs.gcr ];
+
   # ssh agent and gpg agent + ssh are mutually exclusive
   programs.ssh.startAgent = false;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryFlavor = "gnome3";
+    #    pinentryFlavor = "gnome3";
+    pinentryFlavor = "curses";
   };
 }
