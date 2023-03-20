@@ -19,10 +19,8 @@
       };
     };
     kernelModules = [ "kvm-amd" ];
-    blacklistedKernelModules = [ "rtl8xxxu" ];
     extraModulePackages =  [
       pkgs.wireguard-tools
-      config.boot.kernelPackages.rtl8192eu
     ];
   };
 
