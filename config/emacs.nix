@@ -1,7 +1,28 @@
 { pkgs, lib, config, ... }:
 {
   services.emacs = {
-    package = pkgs.emacsPgtk;
+    package = with pkgs; ((emacsPackagesFor emacsPgtk).emacsWithPackages (epkgs: with epkgs; [
+      corfu
+      direnv
+      flycheck
+      go-mode
+      gotest
+      highlight-indent-guides
+      jsonnet-mode
+      ledger-mode
+      lsp-mode
+      lsp-ui
+      magit
+      moody
+      nix-mode
+      notmuch
+      org
+      solarized-theme
+      sudo-edit
+      terraform-mode
+      use-package
+      which-key
+    ]));
     enable = true;
     defaultEditor = true;
   };
@@ -19,12 +40,17 @@
 
     imagemagick # for image-dired
 
-    gopls # lsp go
-    terraform-ls
+    unstable.gopls
+    unstable.terraform-ls
+    unstable.rnix-lsp
+
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
-    rnix-lsp
+
     direnv
+
+    offlineimap
+    notmuch
   ];
 
   fonts = {
