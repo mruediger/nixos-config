@@ -12,13 +12,15 @@
     bind
     pwgen
     complete-alias
+
+    terraform
+    terragrunt
+
     unstable.kops
     unstable.kubectl
-    unstable.terraform
     unstable.vault
     unstable.packer
     unstable.terraformer
-    unstable.terragrunt
   ];
 
   programs.bash.shellAliases = {
