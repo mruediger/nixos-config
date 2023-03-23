@@ -6,6 +6,11 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    home-manager = {
+      url = "github:nix-community/home-manager/release-22.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +22,7 @@
     , nixpkgs
     , nixpkgs-unstable
     , nixos-hardware
+    , home-manager
     , emacs-overlay
     , ... }@inputs:
     let
@@ -31,7 +37,7 @@
 
       pkgs = import nixpkgs {
         inherit system;
-        config = { allowUnfree = true; };
+        config.allowUnfree = true;
         overlays = [
           unstable-overlay
           emacs-overlay.overlay
@@ -39,6 +45,13 @@
       };
 
       modules = [
+        home-manager.nixosModules.home-manager {
+          home-manager.users.bag = import ./home.nix;
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home.stateVersion = "22.11";
+        }
+
         ./config/audio.nix
         ./config/base.nix
         ./config/bash.nix
@@ -58,6 +71,7 @@
         ./config/go.nix
         ./config/gaming.nix
         ./config/windows.nix
+
       ];
     in
     {
