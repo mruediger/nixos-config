@@ -22,6 +22,8 @@
       terraform-mode
       use-package
       which-key
+      yasnippet
+      yasnippet-snippets
     ]));
     enable = true;
     defaultEditor = true;
