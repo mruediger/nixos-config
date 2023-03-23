@@ -49,7 +49,6 @@
           home-manager.users.bag = import ./home.nix;
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home.stateVersion = "22.11";
         }
 
         ./config/audio.nix
@@ -71,7 +70,6 @@
         ./config/go.nix
         ./config/gaming.nix
         ./config/windows.nix
-
       ];
     in
     {
