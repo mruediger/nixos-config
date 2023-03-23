@@ -39,7 +39,6 @@
       };
 
       modules = [
-        ./desktop
         ./config/audio.nix
         ./config/base.nix
         ./config/bash.nix
@@ -55,6 +54,10 @@
         ./config/yubikey.nix
         ./config/virtualisation.nix
         ./config/python.nix
+        ./config/phone.nix
+        ./config/go.nix
+        ./config/gaming.nix
+        ./config/windows.nix
       ];
     in
     {
