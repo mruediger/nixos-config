@@ -9,6 +9,9 @@ in
 {
 
   environment.systemPackages = with pkgs; [
+    unstable.piper
+    unstable.libratbag
+
     snes9x-gtk
     unstable.lutris-free
     gnome3.adwaita-icon-theme
@@ -24,6 +27,10 @@ in
       driSupport32Bit = true;
     };
     steam-hardware.enable = true;
-    pulseaudio.support32Bit  = true;
+    pulseaudio.support32Bit = true;
   };
+
+  services.dbus.packages = [ pkgs.unstable.libratbag ];
+  systemd.packages = [ pkgs.unstable.libratbag ];
+
 }
