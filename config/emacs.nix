@@ -57,7 +57,10 @@
 
   fonts = {
     fonts = with pkgs; [
+      roboto
       iosevka
+      font-awesome
+      inconsolata
     ];
   };
 
