@@ -17,14 +17,15 @@
     };
   };
 
-  outputs = {
-    self
+  outputs =
+    { self
     , nixpkgs
     , nixpkgs-unstable
     , nixos-hardware
     , home-manager
     , emacs-overlay
-    , ... }@inputs:
+    , ...
+    }@inputs:
     let
       system = "x86_64-linux";
 
@@ -45,8 +46,9 @@
       };
 
       modules = [
-        home-manager.nixosModules.home-manager {
-          home-manager.users.bag = import ./home.nix;
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.users.bag = import ./home;
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
         }
