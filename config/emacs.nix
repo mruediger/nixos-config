@@ -22,6 +22,7 @@
       terraform-mode
       use-package
       which-key
+      yaml-mode
       yasnippet
       yasnippet-snippets
     ]));
