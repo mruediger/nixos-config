@@ -1,9 +1,5 @@
 { config, pkgs, ... }:
 {
-  imports = [
-    ./waybar.nix
-  ];
-
   home.stateVersion = "22.11";
 
   home.pointerCursor = {
