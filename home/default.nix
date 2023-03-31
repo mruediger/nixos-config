@@ -10,6 +10,7 @@
 
   imports = [
     ./git.nix
+    ./gpg.nix
   ];
 
   gtk = {
