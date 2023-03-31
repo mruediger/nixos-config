@@ -8,6 +8,10 @@
     gtk.enable = true;
   };
 
+  imports = [
+    ./git.nix
+  ];
+
   gtk = {
     enable = true;
     theme = {
