@@ -9,7 +9,6 @@
   };
 
   imports = [
-    ./git.nix
     ./gpg.nix
     ./sway.nix
   ];

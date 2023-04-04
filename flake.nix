@@ -52,7 +52,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
         }
-
+        ./system
         ./config/audio.nix
         ./config/base.nix
         ./config/bash.nix
