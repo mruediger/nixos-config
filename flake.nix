@@ -63,7 +63,6 @@
         ./config/networking.nix
         ./config/nixos.nix
         ./config/printer.nix
-        ./config/sway.nix
         ./config/users.nix
         ./config/yubikey.nix
         ./config/virtualisation.nix
