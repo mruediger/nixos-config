@@ -43,7 +43,7 @@
         mode_layout = "splith (h) splitv (v) parent (p)";
       in
       {
-        terminal = "${pkgs.termite}/bin/termite";
+        terminal = "${pkgs.alacritty}/bin/alacritty";
         fonts = {
           names = [ "FiraCode Nerd Font" ];
           size = 12.0;
