@@ -5,6 +5,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     git-crypt
+    swaylock
   ];
 
   programs.git = {
@@ -44,4 +45,6 @@ in
       };
     };
   };
+
+  security.pam.services.swaylock = { };
 }

@@ -24,7 +24,6 @@
     mprime
     pciutils
     usbutils
-    swaylock
   ];
 
   time.timeZone = "Europe/Berlin";
@@ -35,4 +34,6 @@
   };
 
   console.keyMap = "neo";
+
+
 }
