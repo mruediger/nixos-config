@@ -15,6 +15,8 @@
     };
   };
 
+  systemd.user.services.waybar.Service.Environment = "PATH=/run/current-system/sw/bin";
+
   programs.swaylock = {
     settings = {
       color = "000000";
