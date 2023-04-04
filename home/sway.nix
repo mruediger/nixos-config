@@ -85,6 +85,10 @@
             "${alt}+F4" = "kill";
             "${mod}+l" = "exec ${pkgs.swaylock}/bin/swaylock";
 
+            "${mod}+t" = "layout toggle tabbed split";
+            "${mod}+Shift+t" = "layout toggle split";
+            "${mod}+f" = "fullscreen";
+
             "${mod}+${left}" = "focus left";
             "${mod}+${down}" = "focus down";
             "${mod}+${up}" = "focus up";
