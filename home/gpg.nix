@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+  programs.password-store = {
+    enable = true;
+    package = pkgs.pass.override { waylandSupport = true; };
+  };
+
   programs.gpg = {
     enable = true;
     settings = {
