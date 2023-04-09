@@ -56,15 +56,6 @@
     notmuch
   ];
 
-  fonts = {
-    fonts = with pkgs; [
-      roboto
-      iosevka
-      font-awesome
-      inconsolata
-    ];
-  };
-
   programs = {
     bash.interactiveShellInit = ''
       eval "$(${pkgs.direnv}/bin/direnv hook bash)"
