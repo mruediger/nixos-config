@@ -5,6 +5,7 @@
     pulseaudio # for pactl
     slack
     dconf
+    zathura
   ];
 
   programs.waybar = {
