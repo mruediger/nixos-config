@@ -16,6 +16,13 @@
     };
   };
 
+  programs.mako = {
+    enable = true;
+    sort = "-time";
+    layer = "top";
+    anchor = "top-right";
+  };
+
   systemd.user.services.waybar.Service.Environment = "PATH=/run/current-system/sw/bin";
 
   programs.swaylock = {
