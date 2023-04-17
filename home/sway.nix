@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     firefox-wayland
+    unstable.google-chrome
     pulseaudio # for pactl
     slack
     dconf
