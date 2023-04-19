@@ -24,6 +24,11 @@
     anchor = "top-right";
   };
 
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+  };
+
   systemd.user.services.waybar.Service.Environment = "PATH=/run/current-system/sw/bin";
 
   programs.swaylock = {
@@ -82,6 +87,8 @@
             "${mod}+h" = "mode default";
           };
         };
+
+        menu = "${pkgs.rofi-wayland}/bin/rofi -show drun";
 
         keybindings =
           let
