@@ -60,7 +60,7 @@
         terminal = "${pkgs.alacritty}/bin/alacritty";
         fonts = {
           names = [ "FiraCode Nerd Font" ];
-          size = 12.0;
+          size = 10.0;
         };
 
         bars = [ ];

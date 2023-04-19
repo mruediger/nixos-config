@@ -3,6 +3,10 @@ let
   user = import ../users/user.nix;
 in
 {
+  imports = [
+    ./fonts.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     git-crypt
     swaylock
@@ -47,21 +51,4 @@ in
   };
 
   security.pam.services.swaylock = { };
-
-  fonts = {
-    enableDefaultFonts = true;
-    fontDir.enable = true;
-    fonts = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
-      cantarell-fonts
-      font-awesome
-      inconsolata
-      iosevka
-      liberation_ttf
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      roboto
-    ];
-  };
 }
