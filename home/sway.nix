@@ -88,6 +88,15 @@
           };
         };
 
+        floating = {
+          modifier = "${mod}";
+          criteria = [
+            {
+              app_id = "pavucontrol";
+            }
+          ];
+        };
+
         menu = "${pkgs.rofi-wayland}/bin/rofi -show drun";
 
         keybindings =
