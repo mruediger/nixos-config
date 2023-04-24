@@ -11,6 +11,7 @@
   imports = [
     ./gpg.nix
     ./sway.nix
+    ./firefox.nix
   ];
 
   gtk = {
