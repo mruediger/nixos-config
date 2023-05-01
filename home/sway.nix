@@ -105,6 +105,13 @@ in
             {
               app_id = "pavucontrol";
             }
+            {
+              app_id = "^com.nextcloud.desktopclient.nextcloud$";
+            }
+            {
+              class = "^Steam$";
+              title = "^(?!Steam$)";
+            }
           ];
         };
 
