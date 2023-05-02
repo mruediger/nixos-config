@@ -161,6 +161,7 @@ in
             "${mod}+7" = "workspace number 7";
             "${mod}+8" = "workspace number 8";
             "${mod}+9" = "workspace number 9";
+            "${mod}+0" = "workspace number 10";
             "${mod}+z" = "workspace Zoom";
             "${mod}+g" = "workspace Games";
 
@@ -173,6 +174,7 @@ in
             "${mod}+Shift+7" = "move container to workspace number 7";
             "${mod}+Shift+8" = "move container to workspace number 8";
             "${mod}+Shift+9" = "move container to workspace number 9";
+            "${mod}+Shift+0" = "move container to workspace number 10";
             "${mod}+Shift+z" = "move container to workspace Zoom";
             "${mod}+Shift+g" = "move container to workspace Games";
 
