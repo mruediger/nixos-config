@@ -5,6 +5,7 @@ in
 {
   imports = [
     ./fonts.nix
+    ./sway.nix
   ];
 
   environment.systemPackages = with pkgs; [
