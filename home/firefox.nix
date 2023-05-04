@@ -12,5 +12,8 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-wayland;
+    profiles.main = {
+      id = 0;
+    };
   };
 }
