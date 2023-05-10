@@ -9,10 +9,4 @@ in
     ./sway.nix
     ./git.nix
   ];
-
-  environment.systemPackages = with pkgs; [
-    swaylock
-  ];
-
-  security.pam.services.swaylock = { };
 }
