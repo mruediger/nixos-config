@@ -12,25 +12,27 @@
       kernelModules = [ "dm-snapshot" ];
       luks.devices = {
         nvme1n1p1 = {
-          device = "/dev/nvme1n1p1";
+          device = "/dev/disk/by-uuid/a90e4023-f0dd-4353-aced-933d051c14ba";
           preLVM = true;
           allowDiscards = true;
         };
       };
     };
     kernelModules = [ "kvm-amd" ];
-    extraModulePackages =  [
+    extraModulePackages = [
       pkgs.wireguard-tools
     ];
   };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b579fa81-0b6e-48ef-b2cc-8dabecd06086";
+    {
+      device = "/dev/disk/by-uuid/b579fa81-0b6e-48ef-b2cc-8dabecd06086";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/nvme0n1p2";
+    {
+      device = "/dev/disk/by-uuid/AA75-465E";
       fsType = "vfat";
     };
 
