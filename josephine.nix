@@ -34,8 +34,20 @@
       fsType = "vfat";
     };
 
-  swapDevices = [ { device = "/dev/vg/swap"; } ];
+  fileSystems."/mnt/windows" =
+    {
+      device = "/dev/disk/by-uuid/4E98E4F498E4DB89";
+      fsType = "ntfs";
+    };
 
+  fileSystems."/mnt/archive" =
+    {
+      device = "/dev/disk/by-uuid/CADEFC1ADEFBFD0F";
+      fsType = "ntfs3";
+      options = [ "defaults" "user" "rw" "noauto" ];
+    };
+
+  swapDevices = [{ device = "/dev/vg/swap"; }];
 
   # High-DPI console
   console.font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
