@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./nixos.nix
     ./fonts.nix
     ./sway.nix
   ];

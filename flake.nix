@@ -61,7 +61,6 @@
         ./config/hardware.nix
         ./config/justwatch.nix
         ./config/networking.nix
-        ./config/nixos.nix
         ./config/printer.nix
         ./config/users.nix
         ./config/virtualisation.nix
