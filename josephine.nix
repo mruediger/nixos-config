@@ -36,9 +36,6 @@
 
   swapDevices = [ { device = "/dev/vg/swap"; } ];
 
-  nix = {
-    maxJobs = lib.mkDefault 12;
-  };
 
   # High-DPI console
   console.font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
