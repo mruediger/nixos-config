@@ -12,6 +12,7 @@
     ./gpg.nix
     ./sway.nix
     ./firefox.nix
+    ./dircolors.nix
   ];
 
   gtk = {
@@ -90,4 +91,6 @@
   services.nextcloud-client = {
     enable = true;
   };
+
+  home.file.".dir_colors".text = builtins.readFile ./dir_colors;
 }
