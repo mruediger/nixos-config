@@ -21,5 +21,9 @@
     pinentryFlavor = "curses";
     enableScDaemon = true;
     grabKeyboardAndMouse = false;
+    extraConfig = ''
+      allow-emacs-pinentry
+      allow-loopback-pinentry
+    '';
   };
 }
