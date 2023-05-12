@@ -26,19 +26,19 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/b579fa81-0b6e-48ef-b2cc-8dabecd06086";
+      device = "/dev/vg/root";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/AA75-465E";
+      device = "/dev/disk/by-uuid/6C3D-91D6";
       fsType = "vfat";
     };
 
   fileSystems."/mnt/windows" =
     {
-      device = "/dev/disk/by-uuid/4E98E4F498E4DB89";
+      device = "/dev/disk/by-uuid/94DCA0A6DCA08458";
       fsType = "ntfs";
     };
 
