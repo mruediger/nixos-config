@@ -48,6 +48,7 @@
   };
 
   # enable with systemctl --user add-wants default.targed rclone@foo.service
+  # import into nix via overrideStrategy = "asDropin";
   systemd.user.services."rclone@" = {
     path = [ "/run/wrappers" ]; # use fusermount wrapper
     serviceConfig = {
