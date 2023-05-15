@@ -15,29 +15,12 @@ let
     };
 in
 {
-  systemd.user.services = {
-    rclone-nextcloud_blueboot = {
-      Service = {
-        Type = "oneshot";
-        Environment = "PATH=/run/wrappers/bin";
-        ExecStart = ''
-          ${pkgs.rclone}/bin/rclone bisync nextcloud_blueboot: ${config.home.homeDirectory}/rclone/nextcloud_blueboot      '';
-      };
-    };
-  } // (builtins.listToAttrs (map mkService [
+  systemd.user.services = builtins.listToAttrs (map mkService [
+    "nextcloud_blueboot"
     "nextcloud_darksystem"
     "gdrive_blueboot"
     "gdrive_justwatch"
     "gdrive_n96"
     "onedrive"
-  ]));
-
-
-  systemd.users.timers.rclone-nextcloud_blueboot = {
-    Timer = {
-      Unit = "rclone-nextcloud_blueboot.service";
-      OnActiveSec = 300;
-    };
-    Install = { WantedBy = [ "timers.target" ]; };
-  };
+  ]);
 }
