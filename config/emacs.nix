@@ -3,28 +3,12 @@
   services.emacs = {
     package = with pkgs; ((emacsPackagesFor emacsPgtk).emacsWithPackages (epkgs: with epkgs; [
       corfu
-      direnv
-      flycheck
       go-mode
       gotest
-      highlight-indent-guides
-      jsonnet-mode
-      ledger-mode
-      lsp-mode
-      lsp-ui
-      magit
       moody
-      nix-mode
-      notmuch
-      org
       solarized-theme
-      sudo-edit
       terraform-mode
-      use-package
       which-key
-      yaml-mode
-      yasnippet
-      yasnippet-snippets
     ]));
     enable = true;
     defaultEditor = true;
