@@ -67,7 +67,6 @@
         ./config/python.nix
         ./config/phone.nix
         ./config/go.nix
-        ./config/gaming.nix
         ./config/windows.nix
       ];
     in

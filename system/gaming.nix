@@ -1,23 +1,10 @@
 { pkgs, ... }:
-let
-  steam = pkgs.steam.override {
-    extraLibraries = pkgs: [
-      pkgs.pipewire
-    ];
-  };
-in
 {
-
   environment.systemPackages = with pkgs; [
-    unstable.piper
-    unstable.libratbag
-
-    snes9x-gtk
     unstable.lutris-free
-    gnome3.adwaita-icon-theme
-    legendary-gl
-    wineWowPackages.stable
-    steam
+    unstable.prismlauncher #minecraft
+    unstable.libratbag
+    unstable.piper
   ];
 
   hardware = {
@@ -30,6 +17,7 @@ in
     pulseaudio.support32Bit = true;
   };
 
+  #mouse
   services.dbus.packages = [ pkgs.unstable.libratbag ];
   systemd.packages = [ pkgs.unstable.libratbag ];
 

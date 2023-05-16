@@ -8,5 +8,6 @@ in
     ./fonts.nix
     ./sway.nix
     ./git.nix
+    ./gaming.nix
   ];
 }
