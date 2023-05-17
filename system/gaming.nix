@@ -5,6 +5,8 @@
     unstable.prismlauncher #minecraft
     unstable.libratbag
     unstable.piper
+
+    mumble
   ];
 
   hardware = {
