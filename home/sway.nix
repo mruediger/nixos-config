@@ -18,6 +18,8 @@ in
     slack
     dconf
     zathura
+    slurp
+    grim
   ];
 
   programs.waybar = {
@@ -186,6 +188,8 @@ in
             "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1+";
 
             "${mod}+h" = "mode \"${mode_layout}\"";
+
+            "${mod}+Alt+s" = "exec slurp | grim -g - ${config.xdg.userDirs.pictures}/$(date +'%Y-%m-%d-%H%M%S_grim.png')";
           };
       };
   };
