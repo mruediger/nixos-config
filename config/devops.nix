@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     ansible
-    awscli
+    awscli2
     git
     minikube
     unstable.kubernetes-helm
