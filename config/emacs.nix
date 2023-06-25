@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 {
   services.emacs = {
-    package = with pkgs; ((emacsPackagesFor emacsPgtk).emacsWithPackages (epkgs: with epkgs; [
+    package = with pkgs; ((emacsPackagesFor emacs-unstable-pgtk).emacsWithPackages (epkgs: with epkgs; [
       corfu
       go-mode
       gotest

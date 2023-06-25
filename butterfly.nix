@@ -73,7 +73,6 @@
   };
 
   hardware = {
-    video.hidpi.enable = true;
     trackpoint.enable = true;
     trackpoint.emulateWheel = true;
     trackpoint.device = "TPPS/2 Elan TrackPoint";

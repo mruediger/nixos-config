@@ -30,7 +30,7 @@ in
     };
   };
 
-  programs.mako = {
+  services.mako = {
     enable = true;
     sort = "-time";
     layer = "top";
