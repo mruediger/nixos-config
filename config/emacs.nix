@@ -1,15 +1,7 @@
 { pkgs, lib, config, ... }:
 {
   services.emacs = {
-    package = with pkgs; ((emacsPackagesFor emacs-unstable-pgtk).emacsWithPackages (epkgs: with epkgs; [
-      corfu
-      go-mode
-      gotest
-      moody
-      solarized-theme
-      terraform-mode
-      which-key
-    ]));
+    package = pkgs.emacs-unstable-pgtk;
     enable = true;
     defaultEditor = true;
   };
