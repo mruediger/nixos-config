@@ -18,6 +18,8 @@
       noto-fonts-cjk
       noto-fonts-emoji
       roboto
+      roboto-mono
+      fira-code
     ];
   };
 }
