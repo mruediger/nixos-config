@@ -18,7 +18,7 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    pinentryFlavor = "curses";
+    pinentryFlavor = "gnome3";
     enableScDaemon = true;
     grabKeyboardAndMouse = false;
     extraConfig = ''
