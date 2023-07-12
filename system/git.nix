@@ -5,6 +5,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     git-crypt
+    gh
   ];
 
   programs.git = {
