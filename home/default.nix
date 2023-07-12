@@ -14,6 +14,7 @@
     ./firefox.nix
     ./dircolors.nix
     ./rclone.nix
+    ./rclone_bisync.nix
   ];
 
   gtk = {
