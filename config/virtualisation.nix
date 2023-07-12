@@ -25,8 +25,15 @@
   networking.firewall.checkReversePath = false;
   networking.firewall.trustedInterfaces = [ "virbr0" ];
 
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = false;
+  virtualisation = {
+    docker = {
+      enable = true;
+      enableOnBoot = false;
+    };
+
+    containerd = {
+      enable = true;
+    };
   };
+
 }
