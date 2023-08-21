@@ -15,8 +15,8 @@ in
         name = user.primary.name;
         email = user.primary.email;
       };
-      aliases = {
-        l = "log - -pretty=oneline --decorate --abbrev-commit --max-count=15";
+      alias = {
+        l = "log --pretty=oneline --decorate --abbrev-commit --max-count=15";
         ll = "log --graph --pretty=format:'%Cred%h%Creset %an: %s %Creset%Cgreen(%cr)%Creset' --abbrev-commit --date=relative";
         st = "status";
         c = "commit";
