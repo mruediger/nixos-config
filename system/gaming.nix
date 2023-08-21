@@ -5,7 +5,8 @@
     unstable.prismlauncher #minecraft
     unstable.libratbag
     unstable.piper
-
+    unstable.steam
+    unstable.wine
     mumble
   ];
 
