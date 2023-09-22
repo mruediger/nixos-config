@@ -32,7 +32,7 @@
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/6C3D-91D6";
+      device = "/dev/disk/by-uuid/FCF5-3E6D";
       fsType = "vfat";
     };
 
@@ -40,6 +40,7 @@
     {
       device = "/dev/disk/by-uuid/94DCA0A6DCA08458";
       fsType = "ntfs";
+      options = [ "defaults" "user" "ro" "noauto" ];
     };
 
   fileSystems."/mnt/archive" =
