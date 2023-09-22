@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   environment.variables = {
-    PATH = ["$HOME/bin"];
+    PATH = [ "$HOME/bin" ];
   };
 
   programs.bash = {
@@ -75,11 +75,12 @@
 
       set bell-style none
 
-      '';
-      shellAliases = {
-        nix-search = "nix-env -qaP";
-        nix-list   = "nix-env -qaP \"*\" --description";
-        ssh        = "TERM=xterm-color ssh";
-      };
+    '';
+    shellAliases = {
+      nix-search = "nix-env -qaP";
+      nix-list = "nix-env -qaP \"*\" --description";
+      ssh = "TERM=xterm-color ssh";
+      gparted = "sudo -E gparted";
+    };
   };
 }
