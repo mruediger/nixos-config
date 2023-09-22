@@ -9,5 +9,6 @@ in
     ./sway.nix
     ./git.nix
     ./gaming.nix
+    ./go.nix
   ];
 }

@@ -1,11 +1,12 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    go_1_20
+    unstable.go_1_21
+    unstable.godef
+    unstable.gotools
+    unstable.gopls
+
     gcc # cgo dependency
-    godef
-    gotools
-    gopls
   ];
 
   environment.variables = {
