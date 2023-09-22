@@ -66,7 +66,6 @@
         ./config/virtualisation.nix
         ./config/python.nix
         ./config/phone.nix
-        ./config/go.nix
         ./config/windows.nix
       ];
     in
