@@ -53,14 +53,12 @@
           home-manager.useUserPackages = true;
         }
         ./system
-        ./config/audio.nix
         ./config/base.nix
         ./config/bash.nix
         ./config/devops.nix
         ./config/emacs.nix
         ./config/hardware.nix
         ./config/justwatch.nix
-        ./config/networking.nix
         ./config/printer.nix
         ./config/users.nix
         ./config/virtualisation.nix
