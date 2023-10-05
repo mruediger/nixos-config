@@ -4,6 +4,8 @@ let
 in
 {
   imports = [
+    ./audio.nix
+    ./networking.nix
     ./nixos.nix
     ./fonts.nix
     ./sway.nix
