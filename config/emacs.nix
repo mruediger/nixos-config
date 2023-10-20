@@ -1,7 +1,9 @@
 { pkgs, lib, config, ... }:
 {
   services.emacs = {
-    package = pkgs.emacs-unstable-pgtk;
+    package = with pkgs; ((emacsPackagesFor emacs-unstable-pgtk).emacsWithPackages (epkgs: with epkgs; [
+      treesit-grammars.with-all-grammars
+    ]));
     enable = true;
     defaultEditor = true;
   };
