@@ -24,10 +24,12 @@ let
 in
 {
   systemd.user.services = {
-    rclone-bisync-doc = mkService "${config.home.homeDirectory}/doc" "nextcloud_blueboot:/Documents";
+    rclone-bisync-doc = mkService "${config.home.homeDirectory}/doc" "nextcloud_blueboot:Documents";
+    rclone-bisync-books = mkService "${config.home.homeDirectory}/media/books" "nextcloud_blueboot:Books";
   };
 
   systemd.user.timers = {
     rclone-bisync-doc = mkTimer "rclone-bisync-doc.service";
+    rclone-bisync-books = mkTimer "rclone-bisync-books.service";
   };
 }
