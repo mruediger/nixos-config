@@ -19,6 +19,9 @@ in
     zathura
     slurp
     grim
+
+    cinnamon.nemo-with-extensions
+    imv
   ];
 
   programs.waybar = {
