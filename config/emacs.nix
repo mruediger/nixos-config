@@ -1,14 +1,10 @@
 { pkgs, lib, config, ... }:
 {
-  services.emacs = {
-    package = with pkgs; ((emacsPackagesFor emacs-unstable-pgtk).emacsWithPackages (epkgs: with epkgs; [
-      treesit-grammars.with-all-grammars
-    ]));
-    enable = true;
-    defaultEditor = true;
-  };
-
   environment.systemPackages = with pkgs; [
+    ((emacsPackagesFor emacs-unstable-pgtk).emacsWithPackages (epkgs: with epkgs; [
+      treesit-grammars.with-all-grammars
+    ]))
+
     ledger
     hledger
     aspell
