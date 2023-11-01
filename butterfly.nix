@@ -67,7 +67,7 @@
     wireguard.interfaces = {
       wg0 = {
         ips = [ "10.42.42.2/32" ];
-        privateKeyFile = "/home/bag/src/nixos/nixos-config/wireguard-blueboot.key";
+        privateKeyFile = "/home/bag/src/nixos/src/wireguard-blueboot.key";
       };
     };
   };
