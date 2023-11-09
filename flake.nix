@@ -65,6 +65,7 @@
         ./config/python.nix
         ./config/phone.nix
         ./config/windows.nix
+        ./modules/gpg.nix
       ];
     in
     {

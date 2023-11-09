@@ -9,7 +9,6 @@
   };
 
   imports = [
-    ./gpg.nix
     ./sway.nix
     ./firefox.nix
     ./dircolors.nix
