@@ -63,6 +63,11 @@ in
         package = pkgs.rofi-wayland;
       };
 
+      programs.kitty = {
+        enable = true;
+        theme = "Zenburn";
+      };
+
       systemd.user.services.waybar.Service.Environment = "PATH=/run/current-system/sw/bin";
 
       programs.swaylock = {
@@ -96,7 +101,7 @@ in
             mode_layout = "splith (h) splitv (v) parent (p)";
           in
           {
-            terminal = "${pkgs.alacritty}/bin/alacritty";
+            terminal = "${pkgs.kitty}/bin/kitty";
             fonts = {
               names = [ "FiraCode Nerd Font" ];
               size = 10.0;
