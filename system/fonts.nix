@@ -19,6 +19,7 @@
       noto-fonts-emoji
       roboto
       roboto-mono
+      monaspace
       fira-code
     ];
   };
