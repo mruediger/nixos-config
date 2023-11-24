@@ -22,6 +22,7 @@
     unstable.vault
     unstable.packer
     unstable.terraformer
+    unstable.argocd
   ];
 
   programs.bash.shellAliases = {
