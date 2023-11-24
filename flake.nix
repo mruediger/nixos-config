@@ -66,6 +66,7 @@
         ./config/phone.nix
         ./config/windows.nix
         ./modules/gpg.nix
+        ./modules/sway.nix
       ];
     in
     {

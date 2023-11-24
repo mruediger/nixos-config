@@ -8,7 +8,6 @@ in
     ./networking.nix
     ./nixos.nix
     ./fonts.nix
-    ./sway.nix
     ./git.nix
     ./gaming.nix
     ./go.nix

@@ -9,7 +9,6 @@
   };
 
   imports = [
-    ./sway.nix
     ./firefox.nix
     ./dircolors.nix
     ./rclone.nix
