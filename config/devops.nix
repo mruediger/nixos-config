@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     ansible
-    awscli2
+
     git
     minikube
     unstable.kubernetes-helm
@@ -16,6 +16,7 @@
     terraform
     terragrunt
 
+    #    unstable.awscli2
     unstable.kops
     unstable.kubectl
     unstable.vault

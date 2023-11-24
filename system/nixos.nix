@@ -19,6 +19,4 @@
       persistent = true;
     };
   };
-
-  nixpkgs.config.allowUnfree = true;
 }

@@ -8,7 +8,7 @@
 
   environment.systemPackages = with pkgs; [
     virt-viewer
-    virtmanager
+    virt-manager
     vagrant
     bridge-utils
     spice-vdagent
