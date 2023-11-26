@@ -29,20 +29,32 @@ in
     imv
   ];
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    # gtk portal needed to make gtk apps happy
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common = {
-      default = [
-        "gtk"
-      ];
-    };
-  };
-
   home-manager.sharedModules = [
     ({ config, ... }: {
+      home.pointerCursor = {
+        name = "Paper";
+        package = pkgs.paper-icon-theme;
+        gtk.enable = true;
+      };
+
+      gtk = {
+        enable = true;
+        theme = {
+          name = "Paper";
+          package = pkgs.paper-gtk-theme;
+        };
+
+        iconTheme = {
+          name = "Paper";
+          package = pkgs.paper-icon-theme;
+        };
+
+        cursorTheme = {
+          name = "Paper";
+          package = pkgs.paper-icon-theme;
+        };
+      };
+
       programs.waybar = {
         enable = true;
         systemd = {

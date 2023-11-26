@@ -46,18 +46,14 @@
       };
 
       modules = [
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.users.bag = import ./home;
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-        }
         ./users/user.nix
         ./modules/audio.nix
         ./modules/base.nix
         ./modules/bash.nix
         ./modules/devops.nix
+        ./modules/dircolors.nix
         ./modules/emacs.nix
+        ./modules/firefox.nix
         ./modules/fonts.nix
         ./modules/gaming.nix
         ./modules/git.nix
@@ -70,10 +66,12 @@
         ./modules/phone.nix
         ./modules/printer.nix
         ./modules/python.nix
+        ./modules/rclone.nix
         ./modules/sway.nix
         ./modules/users.nix
         ./modules/virtualisation.nix
         ./modules/windows.nix
+        ./modules/xdg.nix
       ];
     in
     {
