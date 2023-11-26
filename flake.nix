@@ -53,20 +53,20 @@
           home-manager.useUserPackages = true;
         }
         ./system
-        ./config/base.nix
-        ./config/bash.nix
-        ./config/devops.nix
-        ./config/emacs.nix
-        ./config/hardware.nix
-        ./config/justwatch.nix
-        ./config/printer.nix
-        ./config/users.nix
-        ./config/virtualisation.nix
-        ./config/python.nix
-        ./config/phone.nix
-        ./config/windows.nix
+        ./modules/base.nix
+        ./modules/bash.nix
+        ./modules/devops.nix
+        ./modules/emacs.nix
         ./modules/gpg.nix
+        ./modules/hardware.nix
+        ./modules/justwatch.nix
+        ./modules/phone.nix
+        ./modules/printer.nix
+        ./modules/python.nix
         ./modules/sway.nix
+        ./modules/users.nix
+        ./modules/virtualisation.nix
+        ./modules/windows.nix
       ];
     in
     {

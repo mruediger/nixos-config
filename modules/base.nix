@@ -34,6 +34,4 @@
   };
 
   console.keyMap = "neo";
-
-
 }
