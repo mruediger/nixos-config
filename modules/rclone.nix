@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ lib, pkgs, config, ... }:
 let
   mkRcloneService = environment:
     lib.nameValuePair "rclone-${environment}" {
@@ -39,16 +39,15 @@ in
 {
   home-manager.sharedModules = [
     ({ ... }: {
-      systemd.user.services = builtins.listToAttrs (map mkRcloneService [
-        "nextcloud_blueboot"
-        "nextcloud_darksystem"
-        "gdrive_blueboot"
-        "gdrive_justwatch"
-        "gdrive_n96"
-        "onedrive"
-      ]);
-
-      systemd.user.services = {
+      systemd.user.services = builtins.listToAttrs
+        (map mkRcloneService [
+          "nextcloud_blueboot"
+          "nextcloud_darksystem"
+          "gdrive_blueboot"
+          "gdrive_justwatch"
+          "gdrive_n96"
+          "onedrive"
+        ]) // {
         rclone-bisync-doc = mkSyncService "${config.home.homeDirectory}/doc" "nextcloud_blueboot:Documents";
         rclone-bisync-books = mkSyncService "${config.home.homeDirectory}/media/books" "nextcloud_blueboot:Books";
       };

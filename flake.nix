@@ -46,7 +46,11 @@
       };
 
       modules = [
-        ./users/user.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+        }
         ./modules/audio.nix
         ./modules/base.nix
         ./modules/bash.nix
@@ -82,7 +86,7 @@
           modules = modules ++ [
             nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
             ./butterfly.nix
-            ./config/laptop.nix
+            ./modules/laptop.nix
           ];
         };
         josephine = nixpkgs.lib.nixosSystem {
