@@ -52,14 +52,21 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
         }
-        ./system
+        ./users/user.nix
+        ./modules/audio.nix
         ./modules/base.nix
         ./modules/bash.nix
         ./modules/devops.nix
         ./modules/emacs.nix
+        ./modules/fonts.nix
+        ./modules/gaming.nix
+        ./modules/git.nix
+        ./modules/go.nix
         ./modules/gpg.nix
         ./modules/hardware.nix
         ./modules/justwatch.nix
+        ./modules/networking.nix
+        ./modules/nixos.nix
         ./modules/phone.nix
         ./modules/printer.nix
         ./modules/python.nix
