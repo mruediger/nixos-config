@@ -17,7 +17,7 @@
       xdg = {
         userDirs = {
           enable = true;
-          desktop = "${config.home.homeDirectory}/";
+          desktop = "${config.home.homeDirectory}/.desktop";
           documents = "${config.home.homeDirectory}/doc";
           templates = "${config.home.homeDirectory}/doc/templates";
           download = "${config.home.homeDirectory}/downloads";
