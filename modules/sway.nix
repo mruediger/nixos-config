@@ -165,6 +165,8 @@ in
             #            };
 
 
+            window.titlebar = false;
+
             keybindings =
               let
                 cfg = config.wayland.windowManager.sway;
