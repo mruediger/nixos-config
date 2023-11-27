@@ -18,7 +18,6 @@ in
   security.pam.services.swaylock = { };
 
   environment.systemPackages = with pkgs; [
-    sway
     unstable.google-chrome
     slack
     dconf
