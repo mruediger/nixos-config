@@ -39,14 +39,14 @@
       };
 
       modules = [
-        home-manager.nixosModules.default
+        home-manager.nixosModules.home-manager
         {
           system.stateVersion = stateVersion;
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             sharedModules = [
-              { home-manager.stateVersion = stateVersion; }
+              { home.stateVersion = stateVersion; }
             ];
           };
         }

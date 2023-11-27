@@ -18,4 +18,6 @@
       enable = true;
     };
   };
+
+  home-manager.users.bag = { };
 }

@@ -2,7 +2,7 @@
 {
   home-manager.sharedModules = [
     ({ ... }: {
-      prgrams.dircolors = {
+      programs.dircolors = {
         enable = true;
         enableBashIntegration = true;
       };
