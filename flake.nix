@@ -17,17 +17,10 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-unstable
-    , nixos-hardware
-    , home-manager
-    , emacs-overlay
-    , ...
-    }@inputs:
-    let
+  outputs = inputs:
+    with inputs; let
       system = "x86_64-linux";
+      stateVersion = "23.11";
 
       unstable-overlay = final: prev: {
         unstable = import nixpkgs-unstable {
@@ -46,10 +39,16 @@
       };
 
       modules = [
-        home-manager.nixosModules.home-manager
+        home-manager.nixosModules.default
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
+          system.stateVersion = stateVersion;
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            sharedModules = [
+              { home-manager.stateVersion = stateVersion; }
+            ];
+          };
         }
         ./modules/audio.nix
         ./modules/base.nix
@@ -82,18 +81,16 @@
       nixosConfigurations = {
         butterfly = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
-          specialArgs = { inherit inputs; };
           modules = modules ++ [
-            nixos-hardware.nixosModules.lenovo-thinkpad-x13-yoga
+            nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-yoga
             ./butterfly.nix
             ./modules/laptop.nix
           ];
         };
         josephine = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
-          specialArgs = { inherit inputs; };
           modules = modules ++ [
-            nixos-hardware.nixosModules.common-pc-ssd
+            nixpkgs-hardware.nixosModules.common-pc-ssd
             ./josephine.nix
           ];
         };

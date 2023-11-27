@@ -103,6 +103,4 @@
       HandlePowerKey=hibernate
     '';
   };
-
-  system.stateVersion = "22.11";
 }

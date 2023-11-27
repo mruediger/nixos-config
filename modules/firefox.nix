@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home-manager.sharedModules = [
-    ({ ... }: {
+    ({ pkgs, ... }: {
       programs.browserpass = {
         enable = true;
         browsers = [

@@ -27,24 +27,12 @@
       json = pkgs.formats.json { };
     in
     {
-      "pipewire/pipewire-pulse.conf.d/99-network.conf".source = json.generate "99-network.conf"
-        {
-          "pulse.properties" = {
-            "server.address" = [
-              "unix:native"
-              { address = "tcp:0.0.0.0:4713"; "client.access" = "allowed"; }
-            ];
-          };
-          "context.exec" = [
-            { path = "${pkgs.pulseaudio}/bin/pactl"; args = "load-module module-always-sink"; }
-            { path = "${pkgs.pulseaudio}/bin/pactl"; args = "load-module module-zeroconf-publish"; }
-          ];
-        };
-
-      "pipewire/pipewire.conf.d/zeroconf.conf".source = json.generate "zeroconf.conf"
+      "pipewire/pipewire.conf.d/99-rtp-network.conf".source = json.generate "99-rtp-network.conf"
         {
           "context.modules" = [
-            { name = "libpipewire-module-zeroconf-discover"; args = { }; }
+            { name = "libpipewire-module-rtp-sink"; args = { }; }
+            { name = "libpipewire-module-rtp-source"; args = { }; }
+            { name = "libpipewire-module-rtp-session"; args = { }; }
           ];
         };
 

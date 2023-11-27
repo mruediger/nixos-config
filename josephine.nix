@@ -72,6 +72,4 @@
     enable = true;
     cpuFreqGovernor = "schedutil";
   };
-
-  system.stateVersion = "22.05";
 }

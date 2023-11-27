@@ -18,6 +18,7 @@ in
   security.pam.services.swaylock = { };
 
   environment.systemPackages = with pkgs; [
+    sway
     unstable.google-chrome
     slack
     dconf
@@ -156,6 +157,13 @@ in
             };
 
             menu = "${pkgs.rofi-wayland}/bin/rofi -show drun";
+
+            #            output = {
+            #              "*" = {
+            #                bg = "#000000 solid_color";
+            #              };
+            #            };
+
 
             keybindings =
               let
