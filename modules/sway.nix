@@ -83,6 +83,7 @@ in
       systemd.user.services.waybar.Service.Environment = "PATH=/run/current-system/sw/bin";
 
       programs.swaylock = {
+        enable = true;
         settings = {
           color = "000000";
           font-size = 24;
