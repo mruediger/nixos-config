@@ -70,9 +70,11 @@ in
         anchor = "top-right";
       };
 
-      programs.rofi = {
+      programs.wofi = {
         enable = true;
-        package = pkgs.rofi-wayland;
+        settings = {
+          allow_markup = true;
+        };
       };
 
       programs.kitty = {
@@ -156,7 +158,7 @@ in
               ];
             };
 
-            menu = "${pkgs.rofi-wayland}/bin/rofi -show drun";
+            menu = "${pkgs.wofi}/bin/wofi --show drun";
 
             #            output = {
             #              "*" = {
@@ -247,3 +249,4 @@ in
   ];
 
 }
+
