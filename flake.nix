@@ -65,6 +65,7 @@
         ./modules/hardware.nix
         ./modules/justwatch.nix
         ./modules/networking.nix
+        ./modules/nextcloud.nix
         ./modules/nixos.nix
         ./modules/phone.nix
         ./modules/printer.nix
