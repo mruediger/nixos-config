@@ -24,15 +24,11 @@
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
 
+    unstable.rust-analyzer
+
     direnv
 
     offlineimap
     notmuch
   ];
-
-  programs = {
-    bash.interactiveShellInit = ''
-      eval "$(${pkgs.direnv}/bin/direnv hook bash)"
-    '';
-  };
 }
