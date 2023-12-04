@@ -4,6 +4,10 @@
     PATH = [ "$HOME/bin" ];
   };
 
+  environment.systemPackages = [
+    pkgs.vivid
+  ];
+
   home-manager.users.bag.programs.powerline-go = {
     enable = false;
     modules = [ "host" "nix-shell" "cwd" "git" "exit" ];
@@ -66,9 +70,11 @@
       bind "set show-all-if-ambiguous on"
       bind "set mark-symlinked-directories on"
     '';
+
+    sessionVariables = {
+      LS_COLORS = "$(vivid generate molokai)";
+    };
   };
-
-
 
   #  programs.bash = {
   #    enableCompletion = true;

@@ -54,7 +54,6 @@
         ./modules/base.nix
         ./modules/bash.nix
         ./modules/devops.nix
-        ./modules/dircolors.nix
         ./modules/emacs.nix
         ./modules/firefox.nix
         ./modules/fonts.nix
