@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   environment.variables = {
     PATH = [ "$HOME/bin" ];
@@ -12,6 +12,27 @@
   home-manager.users.bag.programs.starship = {
     enable = true;
     enableBashIntegration = true;
+    settings = {
+      add_newline = true;
+      format = lib.strings.concatStrings [
+        "$username"
+        "$hostname"
+        "$directory"
+        "$nix_shell"
+        "$line_break"
+        "$character"
+      ];
+
+      username = {
+        show_always = true;
+        format = "[$user]($style)@";
+      };
+
+      hostname = {
+        ssh_only = false;
+        format = "[$ssh_symbol$hostname]($style):";
+      };
+    };
   };
 
   home-manager.users.bag.programs.bash = {
