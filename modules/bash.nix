@@ -27,6 +27,11 @@
         "$character"
       ];
 
+      directory = {
+        truncate_to_repo = false;
+        truncation_symbol = "...";
+      };
+
       username = {
         show_always = true;
         format = "[$user]($style)@";
