@@ -27,6 +27,8 @@ in
 
     cinnamon.nemo-with-extensions
     imv
+
+    alacritty-theme
   ];
 
   home-manager.sharedModules = [
@@ -77,9 +79,11 @@ in
         };
       };
 
-      programs.kitty = {
+      programs.alacritty = {
         enable = true;
-        theme = "Zenburn";
+        settings = {
+          import = [ "${pkgs.alacritty-theme}/gruvbox_dark.yaml" ];
+        };
       };
 
       systemd.user.services.waybar.Service.Environment = "PATH=/run/current-system/sw/bin";
@@ -116,7 +120,7 @@ in
             mode_layout = "splith (h) splitv (v) parent (p)";
           in
           {
-            terminal = "${pkgs.kitty}/bin/kitty";
+            terminal = "${pkgs.alacritty}/bin/alacritty";
             fonts = {
               names = [ "FiraCode Nerd Font" ];
               size = 10.0;
