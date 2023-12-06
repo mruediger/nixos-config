@@ -17,7 +17,7 @@
     enable = true;
     enableBashIntegration = true;
     settings = {
-      add_newline = true;
+      add_newline = false;
       format = lib.strings.concatStrings [
         "$username"
         "$hostname"
@@ -72,7 +72,7 @@
     '';
 
     sessionVariables = {
-      LS_COLORS = "$(vivid generate molokai)";
+      LS_COLORS = "$(vivid generate gruvbox-dark-hard)";
     };
   };
 
