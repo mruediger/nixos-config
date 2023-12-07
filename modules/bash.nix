@@ -71,6 +71,11 @@
       bind "set completion-map-case on"
       bind "set show-all-if-ambiguous on"
       bind "set mark-symlinked-directories on"
+
+      function set_win_title(){
+        echo -ne "\033]0;''${USER}@''${HOSTNAME}: ''${PWD}\007"
+      }
+      starship_precmd_user_func="set_win_title"
     '';
 
     sessionVariables = {

@@ -83,6 +83,7 @@ in
         enable = true;
         settings = {
           import = [ "${pkgs.alacritty-theme}/gruvbox_dark.yaml" ];
+          window.dynamic_title = true;
         };
       };
 
