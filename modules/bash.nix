@@ -57,9 +57,6 @@
     ];
 
     shellAliases = {
-      nix-search = "nix-env -qaP";
-      nix-list = "nix-env -qaP \"*\" --description";
-      ssh = "TERM=xterm-color ssh";
       gparted = "sudo -E gparted";
     };
 
