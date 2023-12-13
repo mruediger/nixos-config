@@ -1,5 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    rclone
+  ];
+
   home-manager.sharedModules = [
     ({ lib, pkgs, config, ... }:
       let

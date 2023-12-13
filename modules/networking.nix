@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     wireguard-tools
-    rclone
   ];
 
   networking = {
@@ -47,17 +46,5 @@
       "1.1.1.1"
       "2606:4700:4700::1111"
     ];
-  };
-
-  # enable with systemctl --user add-wants default.targed rclone@foo.service
-  # import into nix via overrideStrategy = "asDropin";
-  systemd.user.services."rclone@" = {
-    path = [ "/run/wrappers" ]; # use fusermount wrapper
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = ''
-        ${pkgs.rclone}/bin/rclone mount %I:/ %h/rclone/%I
-      '';
-    };
   };
 }
