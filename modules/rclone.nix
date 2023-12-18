@@ -52,15 +52,7 @@
             "gdrive_justwatch"
             "gdrive_n96"
             "onedrive"
-          ]) // {
-          #          rclone-bisync-doc = mkSyncService "${config.home.homeDirectory}/doc" "nextcloud_blueboot:Documents";
-          #          rclone-bisync-books = mkSyncService "${config.home.homeDirectory}/media/books" "nextcloud_blueboot:Books";
-        };
-
-        #        systemd.user.timers = {
-        #          rclone-bisync-doc = mkSyncTimer "rclone-bisync-doc.service";
-        #          rclone-bisync-books = mkSyncTimer "rclone-bisync-books.service";
-        #        };
+          ]) // { };
       })
   ];
 }
