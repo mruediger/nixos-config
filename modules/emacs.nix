@@ -5,6 +5,7 @@
       treesit-grammars.with-all-grammars
     ]))
 
+    silver-searcher # for ag.el
     ledger
     hledger
     aspell
