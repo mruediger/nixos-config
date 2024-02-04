@@ -6,6 +6,7 @@ in
   environment.systemPackages = with pkgs; [
     git-crypt
     gh
+    pre-commit
   ];
 
   programs.git = {
