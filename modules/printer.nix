@@ -30,8 +30,8 @@
   };
 
   hardware.sane = {
-     enable = true;
-     extraBackends = with pkgs; [ sane-airscan ];
+    enable = true;
+    extraBackends = with pkgs; [ sane-airscan ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -39,5 +39,5 @@
     xsane
   ];
 
-  users.extraUsers.bag.extraGroups = ["lp" "scanner"];
+  users.extraUsers.bag.extraGroups = [ "lp" "scanner" ];
 }

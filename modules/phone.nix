@@ -5,5 +5,5 @@
   ];
 
   programs.adb.enable = true;
-  users.users.bag.extraGroups = ["adbusers"];
+  users.users.bag.extraGroups = [ "adbusers" ];
 }
