@@ -55,6 +55,7 @@
         ./modules/bash.nix
         ./modules/devops.nix
         ./modules/emacs.nix
+        ./modules/filemanagers.nix
         ./modules/firefox.nix
         ./modules/fonts.nix
         ./modules/gaming.nix

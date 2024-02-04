@@ -5,7 +5,6 @@
     file
     iotop
     jq
-    mc
     ncdu
     pigz
     psmisc
