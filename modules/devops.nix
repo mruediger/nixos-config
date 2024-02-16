@@ -15,25 +15,37 @@
 
     terraform
     terragrunt
+    terramate
 
-    #    unstable.awscli2
-    unstable.kops
     unstable.kubectl
+    unstable.pluto #detect deprecated apis
+    unstable.kubent #detect deprecated apis
+
     unstable.vault
     unstable.packer
     unstable.terraformer
     unstable.argocd
+
+
   ];
 
   programs.bash.shellAliases = {
     k = "kubectl";
     g = "git";
     gst = "git status";
+
+    tf = "terraform";
+    tg = "terragrunt";
+    tm = "terramate";
   };
 
   programs.bash.interactiveShellInit = ''
     source ${pkgs.complete-alias}/bin/complete_alias
     complete -F _complete_alias k
     complete -F _complete_alias g
+
+    complete -F _complete_alias tf
+    complete -F _complete_alias tg
+    complete -F _complete_alias tm
   '';
 }
