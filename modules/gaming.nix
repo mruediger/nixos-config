@@ -1,12 +1,12 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    unstable.lutris-free
-    unstable.prismlauncher #minecraft
-    unstable.libratbag
-    unstable.piper
-    unstable.steam
-    unstable.wine
+    lutris-free
+    prismlauncher #minecraft
+    libratbag
+    piper
+    steam
+    wine
     mumble
   ];
 
