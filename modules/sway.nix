@@ -18,7 +18,7 @@ in
   security.pam.services.swaylock = { };
 
   environment.systemPackages = with pkgs; [
-    unstable.google-chrome
+    google-chrome
     slack
     dconf
     zathura
