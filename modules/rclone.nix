@@ -52,6 +52,7 @@
             "gdrive_justwatch"
             "gdrive_n96"
             "onedrive"
+            "dropbox"
           ]) // { };
       })
   ];
