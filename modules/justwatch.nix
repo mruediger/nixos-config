@@ -13,9 +13,10 @@
   };
 
   programs.bash.shellAliases = {
-    ks = "kubectl --context gke_justwatch-compute_europe-west1-b_jw-k8s-stage-eu-1";
-    kp = "kubectl --context gke_justwatch-compute_europe-west1-d_jw-k8s-prod-eu-1";
-    kn = "kubectl --context gke_justwatch-compute_europe-west1-b_jw-k8s-stage-eu-2";
+    ks_old = "kubectl --context gke_justwatch-compute_europe-west1-b_jw-k8s-stage-eu-1";
+    kp_old = "kubectl --context gke_justwatch-compute_europe-west1-d_jw-k8s-prod-eu-1";
+    ks = "kubectl --context gke_justwatch-compute_europe-west1-b_jw-k8s-stage-eu-2";
+    kp = "kubectl --context gke_justwatch-compute_europe-west1-d_jw-k8s-prod-eu-2";
     tgs = "TF_VAR_env=stage terragrunt";
     tgp = "TF_VAR_env=prod terragrunt";
     tfs = "TF_VAR_env=stage terraform";
