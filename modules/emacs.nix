@@ -20,7 +20,6 @@
 
     unstable.gopls
     unstable.terraform-ls
-    unstable.rnix-lsp
 
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
