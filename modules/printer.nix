@@ -48,7 +48,7 @@
   environment.systemPackages = with pkgs; [
     simple-scan
     xsane
-    incscape
+    inkscape
   ];
 
   users.extraUsers.bag.extraGroups = [ "lp" "scanner" ];
