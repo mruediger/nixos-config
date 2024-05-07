@@ -8,6 +8,10 @@
     steam
     wine
     mumble
+    gcompris
+    tuxpaint
+    superTux
+    superTuxKart
   ];
 
   hardware = {
