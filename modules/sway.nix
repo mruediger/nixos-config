@@ -20,6 +20,7 @@ in
   environment.systemPackages = with pkgs; [
     google-chrome
     slack
+    signal-desktop
     dconf
     zathura
     slurp
@@ -254,4 +255,3 @@ in
   ];
 
 }
-
