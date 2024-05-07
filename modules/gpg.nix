@@ -3,21 +3,24 @@
   services.dbus.packages = [ pkgs.gcr ];
   services.gnome.gnome-keyring.enable = true;
 
+  security.tpm2 = {
+    enable = true;
+    pkcs11.enable = true;
+    tctiEnvironment.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    tpm2-tools
+    gnupg
+  ];
+
+  users.extraUsers.bag.extraGroups = [ "tss" ];
+
   home-manager.sharedModules = [
     ({ ... }: {
       programs.password-store = {
         enable = true;
         package = pkgs.pass.override { waylandSupport = true; };
-      };
-
-      programs.gpg = {
-        enable = true;
-        settings = {
-          keyserver = "hkps://keys.openpgp.org";
-        };
-
-        mutableKeys = false;
-        mutableTrust = true;
       };
 
       services.gpg-agent = {
