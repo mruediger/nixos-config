@@ -25,6 +25,7 @@ in
     zathura
     slurp
     grim
+    evince
 
     cinnamon.nemo-with-extensions
     imv
