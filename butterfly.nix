@@ -78,7 +78,7 @@
     trackpoint.device = "TPPS/2 Elan TrackPoint";
   };
 
-  services.xserver.libinput.touchpad = {
+  services.libinput.touchpad = {
     naturalScrolling = false;
     tapping = true;
     disableWhileTyping = true;

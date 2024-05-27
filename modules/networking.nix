@@ -26,7 +26,7 @@
   services.avahi = {
     enable = true;
     ipv6 = true;
-    nssmdns = true;
+    nssmdns4 = true;
   };
 
   services.openssh = {
