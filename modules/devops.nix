@@ -29,7 +29,8 @@
     unstable.terraformer
     unstable.argocd
 
-
+    open-policy-agent
+    conftest
   ];
 
   programs.bash.shellAliases = {
