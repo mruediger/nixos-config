@@ -31,6 +31,7 @@ in
     imv
 
     alacritty-theme
+    nyxt
   ];
 
   home-manager.sharedModules = [
