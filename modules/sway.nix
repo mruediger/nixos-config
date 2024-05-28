@@ -249,7 +249,7 @@ in
 
                 "${mod}+Alt+s" = "exec slurp | grim -g - ${config.xdg.userDirs.pictures}/$(date +'%Y-%m-%d-%H%M%S_grim.png')";
 
-                "${mod}+e" = "exec ${pkgs.emacs-unstable-pgtk}/bin/emacsclient --create-frame";
+                "${mod}+e" = "exec ${pkgs.emacs29-pgtk}/bin/emacsclient --create-frame";
               };
           };
       };
