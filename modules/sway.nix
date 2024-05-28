@@ -85,7 +85,7 @@ in
       programs.alacritty = {
         enable = true;
         settings = {
-          import = [ "${pkgs.alacritty-theme}/gruvbox_dark.yaml" ];
+          import = [ "${pkgs.alacritty-theme}/gruvbox_dark.toml" ];
           window.dynamic_title = true;
         };
       };
