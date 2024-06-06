@@ -47,6 +47,7 @@
         ./modules/audio.nix
         ./modules/base.nix
         ./modules/bash.nix
+        ./modules/desktop.nix
         ./modules/devops.nix
         ./modules/emacs.nix
         ./modules/filemanagers.nix

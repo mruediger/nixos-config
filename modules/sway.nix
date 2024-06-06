@@ -1,16 +1,4 @@
 { pkgs, lib, config, ... }:
-let
-  slack = pkgs.slack.overrideAttrs (old: {
-    installPhase = old.installPhase + ''
-      rm $out/bin/slack
-
-      makeWrapper $out/lib/slack/slack $out/bin/slack \
-        --prefix XDG_DATA_DIRS : $GSETTINGS_SCHEMAS_PATH \
-        --prefix PATH : ${lib.makeBinPath [pkgs.xdg-utils]} \
-        --add-flags "--ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer"
-    '';
-  });
-in
 {
   services.dbus.enable = true;
   services.pipewire.enable = true;
@@ -18,9 +6,6 @@ in
   security.pam.services.swaylock = { };
 
   environment.systemPackages = with pkgs; [
-    google-chrome
-    slack
-    signal-desktop
     dconf
     zathura
     slurp
