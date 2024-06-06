@@ -31,6 +31,7 @@
 
     open-policy-agent
     conftest
+    openssl
   ];
 
   programs.bash.shellAliases = {
