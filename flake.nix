@@ -58,6 +58,7 @@
         ./modules/gpg.nix
         ./modules/hardware.nix
         ./modules/justwatch.nix
+        ./modules/localiation.nix
         ./modules/networking.nix
         ./modules/nextcloud.nix
         ./modules/nixos.nix

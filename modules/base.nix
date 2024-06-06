@@ -25,12 +25,6 @@
     usbutils
   ];
 
-  time.timeZone = "Europe/Berlin";
   services.timesyncd.enable = true;
-
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-  };
-
   console.keyMap = "neo";
 }
