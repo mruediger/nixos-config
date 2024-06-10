@@ -26,5 +26,4 @@
   ];
 
   services.timesyncd.enable = true;
-  console.keyMap = "neo";
 }
