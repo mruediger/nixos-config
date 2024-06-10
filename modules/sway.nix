@@ -1,4 +1,9 @@
 { pkgs, lib, config, ... }:
+let
+  accent = "#ebdbb2";
+  red = "#cc241d";
+  darkgray = "#3c3836";
+in
 {
   services.dbus.enable = true;
   services.pipewire.enable = true;
@@ -51,6 +56,167 @@
           enable = true;
           target = "sway-session.target";
         };
+        settings.mainBar = {
+          backlight = {
+            format = "{percent}% {icon}";
+            format-icons = [ "" "" "" "" "" "" "" "" "" ];
+            on-scroll-down = "light -U 1";
+            on-scroll-up = "light -A 1";
+          };
+          battery = {
+            format = "{capacity}% {icon}";
+            format-alt = "{time} {icon}";
+            format-charging = "{capacity}% 󰢝";
+            format-icons = [ "" "" "" "" "" ];
+            format-plugged = "{capacity}% ";
+            states = {
+              critical = 15;
+              warning = 30;
+            };
+          };
+          clock = {
+            format = "{:%b %d(%H:%M) 󰃰}";
+            tooltip-format = ''
+      <big>{:%Y %B}</big>
+      <tt><small>{calendar}</small></tt>'';
+          };
+          modules-left = [ "sway/workspaces" "sway/window" "sway/mode" ];
+          modules-right = [ "pulseaudio" "backlight" "network" "battery" "clock" ];
+          network = {
+            format = "{ifname}";
+            format-disconnected = "Disconnected 󱛅";
+            format-ethernet = "{ipaddr}/{cidr} 󰈀";
+            format-wifi = "Connected ";
+            max-length = 50;
+            tooltip-format = "{ifname} via {gwaddr} 󰛳";
+            tooltip-format-disconnected = "Disconnected";
+            tooltip-format-ethernet = "{ifname} ";
+            tooltip-format-wifi = "{essid} ({signalStrength}%) ";
+          };
+          pulseaudio = {
+            format = "{volume}% {icon} {format_source}";
+            format-bluetooth = "{volume}% {icon} {format_source}";
+            format-bluetooth-muted = "󰝟 {icon} {format_source}";
+            format-icons = {
+              car = "";
+              default = [ "" "" "" ];
+              hands-free = "󱠰";
+              headphone = "";
+              headset = "󰋎";
+              phone = "";
+              portable = "";
+            };
+            format-muted = "{volume}% {format_source}";
+            format-source = "{volume}% ";
+            format-source-muted = "";
+            on-click = "pavucontrol";
+          };
+          "sway/workspaces" = { disable-scroll = true; };
+        };
+        style = ''
+          * {
+            border: none;
+            border-radius: 0;
+            font-family: RobotoMono Nerd Font;
+            font-size: 14px;
+            font-weight: 500;
+          }
+
+          window#waybar {
+            background-color: #282828;
+            color: #ebdbb2;
+            transition-property: background-color;
+            transition-duration: 0.5s;
+            border-bottom: solid 0px #3c3836;
+          }
+
+          window#waybar.hidden {
+            opacity: 0.2;
+          }
+
+          #workspaces button {
+            padding: 0 5px;
+            color: #ebdbb2;
+            border-radius: 5px;
+          }
+
+          #workspaces button.focused {
+            background-color: #ebdbb2;
+            color: #282828;
+            border-bottom: none;
+          }
+
+          #workspaces button.urgent {
+            background-color: #cc241d;
+          }
+
+          widget > * {
+            margin-top: 6px;
+            margin-bottom: 6px;
+          }
+
+          .modules-left > widget > * {
+            margin-left: 12px;
+            margin-right: 12px;
+          }
+
+          .modules-left > widget:first-child > * {
+            margin-left: 6px;
+          }
+
+          .modules-left > widget:last-child > * {
+            margin-right: 18px;
+          }
+
+          .modules-right > widget > * {
+            padding: 0 12px;
+            margin-left: 0;
+            margin-right: 0;
+            color: #282828;
+            background-color: #ebdbb2;
+          }
+
+          .modules-right > widget:first-child > * {
+            border-radius: 5px 0 0 5px;
+          }
+
+          .modules-right > widget:last-child > * {
+            border-radius: 0 5px 5px 0;
+            margin-right: 6px;
+          }
+
+          #mode {
+            background: transparent;
+            color: #fb4934;
+          }
+
+          @keyframes blink {
+            to {
+              color: #ebdbb2;
+            }
+          }
+
+          #battery.critical:not(.charging) {
+            animation-name: blink;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+          }
+
+          label:focus {
+            background-color: #282828;
+          }
+
+          tooltip {
+            border-radius: 5px;
+            background: #504945;
+          }
+
+          tooltip label {
+            color: #ebdbb2;
+          }
+        '';
       };
 
       services.mako = {
@@ -152,15 +318,42 @@
             };
 
             menu = "${pkgs.wofi}/bin/wofi --show drun";
-
-            #            output = {
-            #              "*" = {
-            #                bg = "#000000 solid_color";
-            #              };
-            #            };
-
-
             window.titlebar = false;
+
+            # client.focused          $accent $accent $darkgray $accent $accent
+            # client.focused_inactive $darkgray $darkgray $accent $darkgray $darkgray
+            # client.unfocused        $darkgray $darkgray $accent $darkgray $darkgray
+            # client.urgent           $red $red $accent $red $red
+            colors = {
+              focused = {
+                background = accent;
+                border = accent;
+                text = darkgray;
+                indicator = accent;
+                childBorder = accent;
+              };
+              focusedInactive = {
+                background = darkgray;
+                border = darkgray;
+                text = accent;
+                indicator = darkgray;
+                childBorder = darkgray;
+              };
+              unfocused = {
+                background = darkgray;
+                border = darkgray;
+                text = accent;
+                indicator = darkgray;
+                childBorder = darkgray;
+              };
+              urgent = {
+                background = red;
+                border = red;
+                text = accent;
+                indicator = red;
+                childBorder = red;
+              };
+            };
 
             keybindings =
               let
