@@ -15,7 +15,7 @@
   outputs = inputs:
     with inputs; let
       system = "x86_64-linux";
-      stateVersion = "23.11";
+      stateVersion = "24.05";
 
       unstable-overlay = final: prev: {
         unstable = import nixpkgs-unstable {
@@ -51,7 +51,6 @@
         ./modules/devops.nix
         ./modules/emacs.nix
         ./modules/filemanagers.nix
-        ./modules/firefox.nix
         ./modules/fonts.nix
         ./modules/gaming.nix
         ./modules/git.nix
@@ -59,7 +58,7 @@
         ./modules/gpg.nix
         ./modules/hardware.nix
         ./modules/justwatch.nix
-        ./modules/localiation.nix
+        ./modules/localization.nix
         ./modules/networking.nix
         ./modules/nextcloud.nix
         ./modules/nixos.nix
@@ -90,6 +89,14 @@
           modules = modules ++ [
             nixpkgs-hardware.nixosModules.common-pc-ssd
             ./josephine.nix
+          ];
+        };
+        farting-unicorn = nixpkgs.lib.nixosSystem {
+          inherit system pkgs;
+          modules = modules ++ [
+            nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-amd
+            ./farting-unicorn.nix
+            ./modules/laptop.nix
           ];
         };
       };
