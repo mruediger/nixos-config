@@ -42,10 +42,8 @@
           };
           Install = { WantedBy = [ "timers.target" ]; };
         };
-      in
-      {
-        systemd.user.services = builtins.listToAttrs
-          (map mkRcloneService [
+
+        services = [
             "nextcloud_blueboot"
             "nextcloud_darksystem"
             "gdrive_blueboot"
@@ -53,7 +51,15 @@
             "gdrive_n96"
             "onedrive"
             "dropbox"
-          ]) // { };
+        ];
+        directories = map (v: "${config.home.homeDirectory}/rclone/${v}") services;
+      in
+      {
+        systemd.user.services = builtins.listToAttrs (map mkRcloneService services) // { };
+        home.activation.createRcloneDirectories = let
+          mkdir = (dir: ''[[ -L "${dir}" ]] || run mkdir -p $VERBOSE_ARG "${dir}"'');
+        in lib.hm.dag.entryAfter [ "writeBoundary" ]
+          (lib.strings.concatMapStringsSep "\n" mkdir directories);
       })
   ];
 }
