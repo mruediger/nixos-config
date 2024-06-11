@@ -30,7 +30,7 @@ in
   ];
 
   home-manager.sharedModules = [
-    ({ config, ... }: {
+    ({ config, lib, ... }: {
       systemd.user = {
         services = {
           nc-sync-doc = mkService "Documents" "${config.home.homeDirectory}/doc" "https://cloud.blueboot.org";
@@ -42,6 +42,10 @@ in
         };
         startServices = true;
       };
+      home.activation.createBooksDirectory = let
+        mkdir = (dir: ''[[ -L "${dir}" ]] || run mkdir -p $VERBOSE_ARG "${dir}"'');
+      in lib.hm.dag.entryAfter [ "writeBoundary" ]
+        (mkdir "${config.home.homeDirectory}/media/books");
     })
   ];
 }
