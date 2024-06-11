@@ -36,6 +36,8 @@
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
 
+  services.xserver.synaptics.palmDetect = true;
+
   #wg genkey > /home/bag/src/nixos/src/wireguard-blueboot.key
   #wg pubkey < /home/bag/src/nixos/src/wireguard-blueboot.key
   networking.wireguard.interfaces = {
