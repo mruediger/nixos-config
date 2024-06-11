@@ -1,8 +1,8 @@
 { pkgs, lib, config, ... }:
 let
-  accent = "#ebdbb2";
-  red = "#cc241d";
-  darkgray = "#3c3836";
+  gruvbox-accent = "#ebdbb2";
+  gruvbox-red = "#cc241d";
+  gruvbox-darkgray = "#3c3836";
 in
 {
   services.dbus.enable = true;
@@ -124,10 +124,10 @@ in
 
           window#waybar {
             background-color: #282828;
-            color: #ebdbb2;
+            color: ${gruvbox-accent};
             transition-property: background-color;
             transition-duration: 0.5s;
-            border-bottom: solid 0px #3c3836;
+            border-bottom: solid 0px ${gruvbox-darkgray};
           }
 
           window#waybar.hidden {
@@ -135,19 +135,17 @@ in
           }
 
           #workspaces button {
-            padding: 0 5px;
-            color: #ebdbb2;
-            border-radius: 5px;
+            color: ${gruvbox-accent};
           }
 
           #workspaces button.focused {
-            background-color: #ebdbb2;
+            background-color: ${gruvbox-accent};
             color: #282828;
             border-bottom: none;
           }
 
           #workspaces button.urgent {
-            background-color: #cc241d;
+            background-color: ${gruvbox-red};
           }
 
           widget > * {
@@ -173,15 +171,10 @@ in
             margin-left: 0;
             margin-right: 0;
             color: #282828;
-            background-color: #ebdbb2;
-          }
-
-          .modules-right > widget:first-child > * {
-            border-radius: 5px 0 0 5px;
+            background-color: ${gruvbox-accent};
           }
 
           .modules-right > widget:last-child > * {
-            border-radius: 0 5px 5px 0;
             margin-right: 6px;
           }
 
@@ -192,7 +185,7 @@ in
 
           @keyframes blink {
             to {
-              color: #ebdbb2;
+              color: ${gruvbox-accent};
             }
           }
 
@@ -214,7 +207,7 @@ in
           }
 
           tooltip label {
-            color: #ebdbb2;
+            color: ${gruvbox-accent};
           }
         '';
       };
@@ -319,39 +312,35 @@ in
 
             menu = "${pkgs.wofi}/bin/wofi --show drun";
             window.titlebar = false;
-
-            # client.focused          $accent $accent $darkgray $accent $accent
-            # client.focused_inactive $darkgray $darkgray $accent $darkgray $darkgray
-            # client.unfocused        $darkgray $darkgray $accent $darkgray $darkgray
-            # client.urgent           $red $red $accent $red $red
-            colors = {
+            colors =
+              {
               focused = {
-                background = accent;
-                border = accent;
-                text = darkgray;
-                indicator = accent;
-                childBorder = accent;
+                background = gruvbox-accent;
+                border = gruvbox-accent;
+                text = gruvbox-darkgray;
+                indicator = gruvbox-accent;
+                childBorder = gruvbox-accent;
               };
               focusedInactive = {
-                background = darkgray;
-                border = darkgray;
-                text = accent;
-                indicator = darkgray;
-                childBorder = darkgray;
+                background = gruvbox-darkgray;
+                border = gruvbox-darkgray;
+                text = gruvbox-accent;
+                indicator = gruvbox-darkgray;
+                childBorder = gruvbox-darkgray;
               };
               unfocused = {
-                background = darkgray;
-                border = darkgray;
-                text = accent;
-                indicator = darkgray;
-                childBorder = darkgray;
+                background = gruvbox-darkgray;
+                border = gruvbox-darkgray;
+                text = gruvbox-accent;
+                indicator = gruvbox-darkgray;
+                childBorder = gruvbox-darkgray;
               };
               urgent = {
-                background = red;
-                border = red;
-                text = accent;
-                indicator = red;
-                childBorder = red;
+                background = gruvbox-red;
+                border = gruvbox-red;
+                text = gruvbox-accent;
+                indicator = gruvbox-red;
+                childBorder = gruvbox-red;
               };
             };
 
