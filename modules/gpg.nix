@@ -23,6 +23,19 @@
         package = pkgs.pass.override { waylandSupport = true; };
       };
 
+      programs.gpg = {
+        enable = true;
+        mutableKeys = true;
+        mutableTrust = true;
+        publicKeys = [
+          { source = ../gpg/butterfly.gpg; trust = "ultimate"; }
+          { source = ../gpg/farting-unicorn.gpg; trust = "ultimate"; }
+          { source = ../gpg/josephine.gpg; trust = "ultimate"; }
+          { source = ../gpg/mruediger.gpg; trust = "ultimate"; }
+          { source = ../gpg/yubikey.gpg; trust = "ultimate"; }
+        ];
+      };
+
       services.gpg-agent = {
         enable = true;
         enableSshSupport = true;
