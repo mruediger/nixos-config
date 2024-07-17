@@ -81,7 +81,7 @@ in
       <tt><small>{calendar}</small></tt>'';
           };
           modules-left = [ "sway/workspaces" "sway/window" "sway/mode" ];
-          modules-right = [ "pulseaudio" "backlight" "network" "battery" "clock" ];
+          modules-right = [ "pulseaudio" "backlight" "network" "battery" "clock" "tray" ];
           network = {
             format = "{ifname}";
             format-disconnected = "Disconnected 󱛅";
