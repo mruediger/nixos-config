@@ -379,6 +379,16 @@ in
                 "${mod}+Shift+Up" = "move up";
                 "${mod}+Shift+Right" = "move right";
 
+                "${mod}+Control+${left}" = "move workspace to output left";
+                "${mod}+Control+${down}" = "move workspace to output down";
+                "${mod}+Control+${up}" = "move workspace to output up";
+                "${mod}+Control+${right}" = "move workspace to output right";
+
+                "${mod}+Control+Left" = "move workspace to output left";
+                "${mod}+Control+Down" = "move workspace to output down";
+                "${mod}+Control+Up" = "move workspace to output up";
+                "${mod}+Control+Right" = "move workspace to output right";
+
                 "${mod}+1" = "workspace number 1";
                 "${mod}+2" = "workspace number 2";
                 "${mod}+3" = "workspace number 3";
