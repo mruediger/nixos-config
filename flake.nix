@@ -95,6 +95,8 @@
           inherit system pkgs;
           modules = modules ++ [
             nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-amd
+            nixpkgs-hardware.nixosModules.common-gpu-amd
+            nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
             ./farting-unicorn.nix
             ./modules/laptop.nix
           ];
