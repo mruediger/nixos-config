@@ -20,6 +20,8 @@ in
     cinnamon.nemo-with-extensions
     imv
 
+    wev
+
     alacritty-theme
     nyxt
   ];
@@ -421,6 +423,8 @@ in
                 "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
                 "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1-";
                 "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1+";
+
+                "XF86Messenger" = "input type:touchpad events toggle enabled disabled";
 
                 "${mod}+h" = "mode \"${mode_layout}\"";
 
