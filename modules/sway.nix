@@ -276,6 +276,15 @@ in
               size = 10.0;
             };
 
+            output = {
+              DP-1 = {
+                pos = "0 0";
+              };
+              eDP-1 = {
+                pos = "0 1080";
+              };
+            };
+
             bars = [ ];
 
             input = {
