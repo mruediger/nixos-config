@@ -5,7 +5,7 @@
 
     git
     minikube
-    unstable.kubernetes-helm
+    kubernetes-helm
     (unstable.google-cloud-sdk.withExtraComponents [
       unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin
       unstable.google-cloud-sdk.components.config-connector
@@ -20,14 +20,14 @@
     terragrunt
     terramate
 
-    unstable.kubectl
-    unstable.pluto #detect deprecated apis
-    unstable.kubent #detect deprecated apis
+    kubectl
+    pluto #detect deprecated apis
+    kubent #detect deprecated apis
 
-    unstable.vault
-    unstable.packer
-    unstable.terraformer
-    unstable.argocd
+    vault
+    packer
+    terraformer
+    argocd
 
     open-policy-agent
     conftest

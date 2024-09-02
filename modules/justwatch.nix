@@ -3,8 +3,8 @@
   environment.systemPackages = with pkgs; [
     gnumake
     complete-alias
-    unstable._1password
-    unstable.zoom-us
+    _1password
+    zoom-us
   ];
 
   environment.variables = {
