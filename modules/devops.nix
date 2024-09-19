@@ -29,7 +29,6 @@
     terraformer
     argocd
 
-    open-policy-agent
     conftest
     openssl
   ];
