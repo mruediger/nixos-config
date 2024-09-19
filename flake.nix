@@ -63,6 +63,7 @@
         ./modules/nextcloud.nix
         ./modules/nixos.nix
         ./modules/nu.nix
+        ./modules/ollama.nix
         ./modules/phone.nix
         ./modules/printer.nix
         ./modules/python.nix
@@ -92,7 +93,8 @@
           ];
         };
         farting-unicorn = nixpkgs.lib.nixosSystem {
-          inherit system pkgs;
+          inherit system pkgs ;
+          specialArgs = { inherit inputs; };
           modules = modules ++ [
             nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-amd
             nixpkgs-hardware.nixosModules.common-gpu-amd
