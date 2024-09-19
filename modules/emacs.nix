@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 {
   environment.systemPackages = with pkgs; [
-    ((emacsPackagesFor emacs29-pgtk).emacsWithPackages (epkgs: with epkgs; [
+    ((emacsPackagesFor emacs-unstable-pgtk).emacsWithPackages (epkgs: with epkgs; [
       treesit-grammars.with-all-grammars
     ]))
 
