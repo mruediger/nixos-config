@@ -84,6 +84,7 @@
     {
       nixosConfigurations = {
         butterfly = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
           inherit system pkgs;
           modules = modules ++ [
             nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-yoga
@@ -93,6 +94,7 @@
         };
         josephine = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
+          specialArgs = { inherit inputs; };
           modules = modules ++ [
             nixpkgs-hardware.nixosModules.common-pc-ssd
             ./josephine.nix
