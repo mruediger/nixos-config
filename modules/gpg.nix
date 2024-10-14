@@ -14,6 +14,8 @@
     gnupg
   ];
 
+  programs.browserpass.enable = true;
+
   users.extraUsers.bag.extraGroups = [ "tss" ];
 
   home-manager.sharedModules = [
