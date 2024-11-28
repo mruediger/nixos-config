@@ -1,5 +1,20 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 {
+  nixpkgs.overlays = [
+    (self: super:
+      {
+        piper = super.piper.overrideAttrs ( old: rec {
+          version = "104ee170c1028f9d2fac1859dc6dea72efc0648f";
+          src = super.fetchFromGitHub {
+            owner  = "libratbag";
+            repo   = "piper";
+            rev    =  version;
+            sha256 = "poy8jqwNhPNXed0ptWjkytztNM6uTPmPYYiGaZWbI6CE=";
+          };
+        });
+      })
+  ];
+
   environment.systemPackages = with pkgs; [
     lutris-free
     prismlauncher #minecraft
