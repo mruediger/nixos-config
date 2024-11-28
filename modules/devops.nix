@@ -9,18 +9,22 @@
     (unstable.google-cloud-sdk.withExtraComponents [
       unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin
       unstable.google-cloud-sdk.components.config-connector
+      unstable.google-cloud-sdk.components.cloud_sql_proxy
     ])
+    unstable.google-cloud-sql-proxy
     gnumake
     yq-go
     bind
     pwgen
     complete-alias
+    postgresql
 
     terraform
     terragrunt
     terramate
 
     kubectl
+    kustomize
     pluto #detect deprecated apis
     kubent #detect deprecated apis
 
