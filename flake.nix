@@ -69,6 +69,7 @@
         ./modules/nextcloud.nix
         ./modules/nixos.nix
         ./modules/nu.nix
+        ./modules/nzb.nix
         ./modules/ollama.nix
         ./modules/phone.nix
         ./modules/printer.nix
