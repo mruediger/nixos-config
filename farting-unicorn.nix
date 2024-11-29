@@ -46,4 +46,12 @@
       privateKeyFile = "/home/bag/src/nixos/src/wireguard-blueboot.key";
     };
   };
+
+  services.pipewire.extraConfig.pipewire-pulse = {
+    "90-pacmd" = {
+      "pulse.cmd" = [
+        { cmd = "load-module" args = "module-zeroconf-discover" }
+      ];
+    };
+  };
 }
