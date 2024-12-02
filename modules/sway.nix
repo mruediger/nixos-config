@@ -231,7 +231,7 @@ in
       programs.alacritty = {
         enable = true;
         settings = {
-          import = [ "${pkgs.alacritty-theme}/gruvbox_dark.toml" ];
+          general.import = [ "${pkgs.alacritty-theme}/gruvbox_dark.toml" ];
           window.dynamic_title = true;
         };
       };
