@@ -9,7 +9,7 @@
             owner  = "libratbag";
             repo   = "piper";
             rev    =  version;
-            sha256 = "poy8jqwNhPNXed0ptWjkytztNM6uTPmPYYiGaZWbI6CE=";
+            sha256 = "oy8jqwNhPNXed0ptWjkytztNM6uTPmPYYiGaZWbI6CE=";
           };
         });
       })
