@@ -6,15 +6,6 @@
     pulseaudio
   ];
 
-
-  services.avahi = {
-    enable = true;
-    publish = {
-      enable = true;
-      userServices = true;
-    };
-  };
-
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
