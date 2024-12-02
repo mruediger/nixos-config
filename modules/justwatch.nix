@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     gnumake
     complete-alias
-    _1password
+    _1password-cli
     zoom-us
   ];
 

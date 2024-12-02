@@ -2,12 +2,12 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.05";
+    nixpkgs.url = "nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,7 +20,7 @@
   outputs = inputs:
     with inputs; let
       system = "x86_64-linux";
-      stateVersion = "24.05";
+      stateVersion = "24.11";
 
       unstable-overlay = final: prev: {
         unstable = import nixpkgs-unstable {

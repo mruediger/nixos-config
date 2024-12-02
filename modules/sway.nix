@@ -17,7 +17,7 @@ in
     grim
     evince
 
-    cinnamon.nemo-with-extensions
+    nemo-with-extensions
     imv
 
     wev

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    go_1_21
+    go
     godef
     gotools
     gopls

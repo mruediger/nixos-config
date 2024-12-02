@@ -26,7 +26,7 @@
     tuxpaint
     superTux
     superTuxKart
-    gnome3.adwaita-icon-theme
+    adwaita-icon-theme
   ];
 
   programs.steam = {
@@ -36,10 +36,9 @@
   };
 
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
       ## amdvlk: an open-source Vulkan driver from AMD
       extraPackages = [ pkgs.amdvlk ];
       extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
