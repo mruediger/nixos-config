@@ -433,7 +433,7 @@ in
                 "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1-";
                 "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1+";
 
-                "XF86Messenger" = "input type:touchpad events toggle enabled disabled";
+                "XF86NotificationCenter" = "input type:touchpad events toggle enabled disabled";
 
                 "${mod}+h" = "mode \"${mode_layout}\"";
 
