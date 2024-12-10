@@ -426,8 +426,8 @@ in
                 "${mod}+Shift+z" = "move container to workspace Zoom";
                 "${mod}+Shift+g" = "move container to workspace Games";
 
-                "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 5%-";
-                "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 5%+";
+                "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 1%-";
+                "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 1%+";
                 "XF86AudioMicMute" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
                 "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
                 "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1-";
