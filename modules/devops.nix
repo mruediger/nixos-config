@@ -1,5 +1,22 @@
 { pkgs, config, ... }:
 {
+  nixpkgs.overlays = [
+    (self: super:
+      {
+        terramate = super.terramate.overrideAttrs( old: rec {
+          version = "0.11.4";
+          src = super.fetchFromGitHub {
+            owner = "terramate-io";
+            repo = "terramate";
+            rev = "v${version}";
+            sha256 = "RZBafDaSGW01EdvDg8RUynrSO84/pkh3OcVXlSsZ+ao=";
+          };
+          vendorHash = "sha256-PwMxmls7sL9RhgvGKKDwxAeObk7HVBtYLOsIYt90dVU=";
+        });
+      }
+    )
+  ];
+
   environment.systemPackages = with pkgs; [
     ansible
 
