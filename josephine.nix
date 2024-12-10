@@ -34,6 +34,7 @@
     {
       device = "/dev/nvme0n1p1";
       fsType = "vfat";
+      options = ["umask=0077"];
     };
 
   fileSystems."/mnt/windows" =
