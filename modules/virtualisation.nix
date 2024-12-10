@@ -9,7 +9,7 @@
   environment.systemPackages = with pkgs; [
     virt-viewer
     virt-manager
-    vagrant
+    #vagrant
     bridge-utils
     spice-vdagent
   ];
@@ -34,6 +34,7 @@
     containerd = {
       enable = true;
     };
-  };
 
+    waydroid.enable = true;
+  };
 }
