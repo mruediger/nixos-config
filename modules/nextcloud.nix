@@ -1,5 +1,7 @@
 { pkgs, ... }:
 let
+  credentials = import ../crypt/nextcloud.nix;
+
   mkService = path1: path2: url: {
     Unit = {
       Description = "Auto sync Nextcloud: ${path1} ${path2}";
@@ -7,7 +9,7 @@ let
     };
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h -n --path ${path1} ${path2} ${url}";
+      ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h -n -u ${credentials.blueboot.username} -p ${credentials.blueboot.password} --path ${path1} ${path2} ${url}";
       TimeoutStopSec = "180";
       KillMode = "process";
       KillSignal = "SIGINT";
@@ -26,7 +28,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    nextcloud-client
+    unstable.nextcloud-client
   ];
 
   home-manager.sharedModules = [
