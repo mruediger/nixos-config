@@ -19,7 +19,7 @@ in
 
     nemo-with-extensions
     imv
-
+    mpv
     wev
 
     alacritty-theme
