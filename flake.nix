@@ -75,6 +75,7 @@
         ./modules/phone.nix
         ./modules/printer.nix
         ./modules/python.nix
+        ./modules/raspberry.nix
         ./modules/rclone.nix
         ./modules/sway.nix
         ./modules/users.nix
