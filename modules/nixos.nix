@@ -1,10 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
     nixos-option
+    unstable.nixd
+    unstable.nixfmt-rfc-style
   ];
 
   nix = {
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
     settings.auto-optimise-store = true;
 
     settings.trusted-public-keys = [
