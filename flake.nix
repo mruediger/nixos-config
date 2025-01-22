@@ -17,8 +17,19 @@
     };
   };
 
-  outputs = inputs:
-    with inputs; let
+  nixConfig = {
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
+
+  outputs =
+    inputs:
+    with inputs;
+    let
       system = "x86_64-linux";
       stateVersion = "24.11";
 
@@ -104,7 +115,7 @@
           ];
         };
         farting-unicorn = nixpkgs.lib.nixosSystem {
-          inherit system pkgs ;
+          inherit system pkgs;
           specialArgs = { inherit inputs; };
           modules = modules ++ [
             nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-amd
