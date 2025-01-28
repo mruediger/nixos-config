@@ -76,13 +76,14 @@
         ./modules/hardware.nix
         ./modules/hyprland.nix
         ./modules/justwatch.nix
+        ./modules/latex.nix
         ./modules/localization.nix
         ./modules/networking.nix
         ./modules/nextcloud.nix
         ./modules/nixos.nix
         ./modules/nu.nix
         ./modules/nzb.nix
-        ./modules/ollama.nix
+#        ./modules/ollama.nix
         ./modules/phone.nix
         ./modules/printer.nix
         ./modules/python.nix
