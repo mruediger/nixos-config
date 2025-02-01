@@ -42,6 +42,7 @@
 
   hardware.sane = {
     enable = true;
+    brscan4.enable = true;
     extraBackends = with pkgs; [ sane-airscan ];
   };
 
