@@ -37,6 +37,7 @@ in
         services = {
           nc-sync-doc = mkService "Documents" "${config.home.homeDirectory}/doc" "https://cloud.blueboot.org";
           nc-sync-books = mkService "Books" "${config.home.homeDirectory}/media/books" "https://cloud.blueboot.org";
+          nc-sync-norg = mkService "org" "${config.home.homeDirectory}/org" "https://cloud.blueboot.org";
         };
         timers = {
           nc-sync-doc = mkTimer;
