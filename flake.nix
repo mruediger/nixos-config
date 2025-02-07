@@ -112,6 +112,9 @@
           specialArgs = { inherit inputs; };
           modules = modules ++ [
             nixpkgs-hardware.nixosModules.common-pc-ssd
+            nixpkgs-hardware.nixosModules.common-gpu-amd
+            nixpkgs-hardware.nixosModules.common-cpu-amd
+            nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
             ./josephine.nix
           ];
         };
