@@ -1,11 +1,11 @@
 { pkgs, ... }:
-let
-  my-python-packages = p: with p; [
-    ruamel-yaml
-  ];
-in
 {
   environment.systemPackages = with pkgs; [
-    (python3.withPackages my-python-packages)
+    uv
+    pyright
+    (python3.withPackages (python-pkgs: with python-pkgs ;[
+      ruamel-yaml
+      systemd
+    ]))
   ];
 }
