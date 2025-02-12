@@ -20,6 +20,7 @@
         tikzfill
         wrapfig
         capt-of
+        g-brief
       ]
     ))
     pandoc
