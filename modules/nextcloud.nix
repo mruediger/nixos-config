@@ -9,7 +9,7 @@ let
     };
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h -n -u ${credentials.blueboot.username} -p ${credentials.blueboot.password} --path ${path1} ${path2} ${url}";
+      ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h -s -u ${credentials.blueboot.username} -p ${credentials.blueboot.password} --path ${path1} ${path2} ${url}";
       TimeoutStopSec = "180";
       KillMode = "process";
       KillSignal = "SIGINT";
