@@ -71,16 +71,12 @@
 
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "schedutil";
+    cpuFreqGovernor = "ondemand";
   };
 
-  services.pipewire.extraConfig.pipewire-pulse = {
-    "90-pacmd" = {
-      "pulse.cmd" = [
-        { cmd = "load-module"; args = "module-native-protocol-tcp listen=0.0.0.0"; }
-        { cmd = "load-module"; args = "module-zeroconf-discover"; }
-        { cmd = "load-module"; args = "module-zeroconf-publish"; }
-      ];
-    };
+  hardware.pulseaudio = {
+    zeroconf.publish.enable = true;
+    zeroconf.discovery.enable = true;
+    tcp.enable = true;
   };
 }

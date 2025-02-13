@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    nixos-option
+    unstable.nixos-option
     unstable.nixd
     unstable.nixfmt-rfc-style
   ];

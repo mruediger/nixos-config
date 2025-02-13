@@ -83,7 +83,7 @@ in
       <tt><small>{calendar}</small></tt>'';
           };
           modules-left = [ "sway/workspaces" "sway/window" "sway/mode" ];
-          modules-right = [ "pulseaudio" "backlight" "network" "battery" "clock" "tray" ];
+          modules-right = [ "pulseaudio" "backlight" "network" "battery" "clock" "custom/uptime" "tray" ];
           network = {
             format = "{ifname}";
             format-disconnected = "Disconnected 󱛅";
@@ -112,6 +112,9 @@ in
             format-source = "{volume}% ";
             format-source-muted = "";
             on-click = "pavucontrol";
+          };
+          "custom/uptime" = {
+            exec = "~/src/python/hibernate-uptime/uptime.py";
           };
           "sway/workspaces" = { disable-scroll = true; };
         };
