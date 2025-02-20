@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   networking.hostName = "farting-unicorn";
 
@@ -8,30 +13,39 @@
       efi.canTouchEfiVariables = true;
     };
 
-    initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
+    initrd.availableKernelModules = [
+      "nvme"
+      "xhci_pci"
+      "thunderbolt"
+      "usb_storage"
+      "sd_mod"
+    ];
     kernelModules = [ "kvm-amd" ];
     kernelParams = [
-       "resume_offset=5697536" #offset by filefrag -v /swapfile
+      "resume_offset=5697536" # offset by filefrag -v /swapfile
     ];
   };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/808ee033-b30f-451b-af36-6074563c13d2";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/e50a21f8-efda-4c70-94b1-aee61f724832";
+    fsType = "ext4";
+  };
 
-  boot.initrd.luks.devices."luks-abbe1c65-c5c0-4864-9bbb-e12c93552762".device = "/dev/disk/by-uuid/abbe1c65-c5c0-4864-9bbb-e12c93552762";
+  boot.initrd.luks.devices."luks-47e2e76d-6ca1-4580-a646-4276cbbebd2b".device =
+    "/dev/disk/by-uuid/47e2e76d-6ca1-4580-a646-4276cbbebd2b";
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/B001-5ACD";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/621A-C573";
+    fsType = "vfat";
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
+  };
 
-  swapDevices = [{
-    device = "/swapfile";
-  }];
-
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/f550894c-6b6c-4353-b3a3-c79fd06123b1"; }
+  ];
 
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
@@ -50,7 +64,10 @@
   services.pipewire.extraConfig.pipewire-pulse = {
     "90-pacmd" = {
       "pulse.cmd" = [
-        { cmd = "load-module"; args = "module-zeroconf-discover"; }
+        {
+          cmd = "load-module";
+          args = "module-zeroconf-discover";
+        }
       ];
     };
   };
