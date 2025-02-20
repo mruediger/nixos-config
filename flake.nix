@@ -129,6 +129,18 @@
             ./modules/laptop.nix
           ];
         };
+        farting-unicorn-old = nixpkgs.lib.nixosSystem {
+          inherit system pkgs;
+          specialArgs = { inherit inputs; };
+          modules = modules ++ [
+            nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-amd
+            nixpkgs-hardware.nixosModules.common-gpu-amd
+            nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
+            ./farting-unicorn-old.nix
+            ./modules/laptop.nix
+          ];
+        };
+
       };
     };
 }

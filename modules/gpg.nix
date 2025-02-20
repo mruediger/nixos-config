@@ -32,6 +32,7 @@
         publicKeys = [
           { source = ../gpg/butterfly.asc; trust = "ultimate"; }
           { source = ../gpg/farting-unicorn.asc; trust = "ultimate"; }
+          { source = ../gpg/farting-unicorn-old.asc; trust = "ultimate"; }
           { source = ../gpg/josephine.asc; trust = "ultimate"; }
           { source = ../gpg/mruediger.asc; trust = "ultimate"; }
           { source = ../gpg/yubikey.asc; trust = "ultimate"; }
