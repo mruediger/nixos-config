@@ -99,15 +99,6 @@
     in
     {
       nixosConfigurations = {
-        butterfly = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit emacs-version inputs; };
-          inherit system pkgs;
-          modules = modules ++ [
-            nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-yoga
-            ./butterfly.nix
-            ./modules/laptop.nix
-          ];
-        };
         josephine = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
           specialArgs = { inherit emacs-version inputs; };
@@ -130,18 +121,6 @@
             ./modules/laptop.nix
           ];
         };
-        farting-unicorn-old = nixpkgs.lib.nixosSystem {
-          inherit system pkgs;
-          specialArgs = { inherit inputs; };
-          modules = modules ++ [
-            nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-amd
-            nixpkgs-hardware.nixosModules.common-gpu-amd
-            nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
-            ./farting-unicorn-old.nix
-            ./modules/laptop.nix
-          ];
-        };
-
       };
     };
 }
