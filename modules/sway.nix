@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, emacs-version, ... }:
 let
   gruvbox-accent = "#ebdbb2";
   gruvbox-red = "#cc241d";
@@ -442,7 +442,7 @@ in
 
                 "${mod}+Alt+s" = "exec slurp | grim -g - ${config.xdg.userDirs.pictures}/$(date +'%Y-%m-%d-%H%M%S_grim.png')";
 
-                "${mod}+e" = "exec ${pkgs.emacs29-pgtk}/bin/emacsclient --create-frame";
+                "${mod}+e" = "exec ${emacs-version}/bin/emacsclient --create-frame";
               };
           };
       };

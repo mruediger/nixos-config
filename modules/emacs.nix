@@ -1,7 +1,8 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, emacs-version, ... }:
 {
+
   environment.systemPackages = with pkgs; [
-    ((emacsPackagesFor emacs-unstable-pgtk).emacsWithPackages (epkgs: with epkgs; [
+    ((emacsPackagesFor emacs-version).emacsWithPackages (epkgs: with epkgs; [
       treesit-grammars.with-all-grammars
     ]))
 

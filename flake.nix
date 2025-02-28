@@ -94,11 +94,13 @@
         ./modules/windows.nix
         ./modules/xdg.nix
       ];
+
+      emacs-version = pkgs.emacs-unstable-pgtk;
     in
     {
       nixosConfigurations = {
         butterfly = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit emacs-version inputs; };
           inherit system pkgs;
           modules = modules ++ [
             nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-yoga
@@ -108,7 +110,7 @@
         };
         josephine = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit emacs-version inputs; };
           modules = modules ++ [
             nixpkgs-hardware.nixosModules.common-pc-ssd
             nixpkgs-hardware.nixosModules.common-gpu-amd
@@ -119,7 +121,7 @@
         };
         farting-unicorn = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit emacs-verison inputs; };
           modules = modules ++ [
             nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-amd
             nixpkgs-hardware.nixosModules.common-gpu-amd
