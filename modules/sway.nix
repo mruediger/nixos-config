@@ -113,9 +113,6 @@ in
             format-source-muted = "";
             on-click = "pavucontrol";
           };
-          "custom/uptime" = {
-            exec = "~/src/python/hibernate-uptime/uptime.py";
-          };
           "sway/workspaces" = { disable-scroll = true; };
         };
         style = ''
