@@ -113,7 +113,7 @@
         };
         farting-unicorn = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
-          specialArgs = { inherit emacs-verison inputs; };
+          specialArgs = { inherit emacs-version inputs; };
           modules = modules ++ [
             nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-amd
             nixpkgs-hardware.nixosModules.common-gpu-amd
