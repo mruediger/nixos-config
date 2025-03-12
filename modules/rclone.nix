@@ -56,16 +56,7 @@
       in
       {
         systemd.user = {
-          services = builtins.listToAttrs (map mkRcloneMountService services) // {
-            rc-bisync-org = mkRcloneBiSyncService "nextcloud_blueboot" "org" "${config.home.homeDirectory}/org";
-            rc-bisync-doc = mkRcloneBiSyncService "nextcloud_blueboot" "Documents" "${config.home.homeDirectory}/doc";
-            rc-bisync-books = mkRcloneBiSyncService "nextcloud_blueboot" "Books" "${config.home.homeDirectory}/media/books";
-          };
-          timers = {
-            rc-bisync-org = mkTimer;
-            rc-bisync-doc = mkTimer;
-            rc-bisync-books = mkTimer;
-          };
+          services = builtins.listToAttrs (map mkRcloneMountService services);
           startServices = true;
         };
         home.activation.createRcloneDirectories = let
