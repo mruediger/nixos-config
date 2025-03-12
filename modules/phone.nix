@@ -9,4 +9,9 @@
   users.users.bag.extraGroups = [ "adbusers" ];
 
   networking.firewall.allowedUDPPorts = [ 24727 ];
+
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;
+  };
 }
