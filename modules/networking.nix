@@ -26,6 +26,7 @@
   services.avahi = {
     enable = true;
     ipv6 = true;
+    nssmdns4 = true;
     publish = {
       enable = true;
       userServices = true;
