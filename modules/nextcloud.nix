@@ -42,6 +42,7 @@ in
         timers = {
           nc-sync-doc = mkTimer;
           nc-sync-books = mkTimer;
+          nc-sync-norg = mkTimer;
         };
         startServices = true;
       };
