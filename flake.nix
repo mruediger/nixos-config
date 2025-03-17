@@ -65,6 +65,7 @@
         ./modules/base.nix
         ./modules/bash.nix
         ./modules/desktop.nix
+        ./modules/dev.nix
         ./modules/devops.nix
         ./modules/emacs.nix
         ./modules/filemanagers.nix
