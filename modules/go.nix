@@ -9,7 +9,7 @@
   ];
 
   environment.variables = {
-    GOPATH = "$HOME/src/go";
+    GOPATH = "$HOME/src/go/path";
     PATH = [ "$GOPATH/bin" ];
   };
 }
