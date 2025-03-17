@@ -232,6 +232,9 @@ in
         enable = true;
         settings = {
           general.import = [ "${pkgs.alacritty-theme}/gruvbox_dark.toml" ];
+          keyboard.bindings = [
+            { key = "N"; mods = "Control|Shift"; action = "CreateNewWindow"; }
+          ];
           window.dynamic_title = true;
         };
       };
