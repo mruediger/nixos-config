@@ -76,7 +76,6 @@
         ./modules/gpg.nix
         ./modules/hardware.nix
         ./modules/hyprland.nix
-        ./modules/justwatch.nix
         ./modules/latex.nix
         ./modules/localization.nix
         ./modules/networking.nix

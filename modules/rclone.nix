@@ -24,7 +24,6 @@
             "nextcloud_blueboot"
             "nextcloud_darksystem"
             "gdrive_blueboot"
-            "gdrive_justwatch"
             "gdrive_n96"
             "onedrive"
             "dropbox"
