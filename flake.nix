@@ -92,6 +92,7 @@
         ./modules/sway.nix
         ./modules/users.nix
         ./modules/virtualisation.nix
+        ./modules/vault.nix
         ./modules/windows.nix
         ./modules/xdg.nix
       ];
