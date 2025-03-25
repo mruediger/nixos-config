@@ -1,8 +1,6 @@
 { pkgs, emacs-version, ... }:
 let
-  gruvbox-accent = "#ebdbb2";
-  gruvbox-red = "#cc241d";
-  gruvbox-darkgray = "#3c3836";
+  theme = import ../themes/gruvbox-dark.nix;
 in
 {
   services.dbus.enable = true;
@@ -125,29 +123,24 @@ in
           }
 
           window#waybar {
-            background-color: #282828;
-            color: ${gruvbox-accent};
-            transition-property: background-color;
-            transition-duration: 0.5s;
-            border-bottom: solid 0px ${gruvbox-darkgray};
-          }
-
-          window#waybar.hidden {
-            opacity: 0.2;
+            background-color: ${theme.background};
+            color: ${theme.foreground};
+            /* border-bottom: solid 0px ${theme.background}; */
+            border-bottom: solid 2px ${theme.normal.gray};
           }
 
           #workspaces button {
-            color: ${gruvbox-accent};
+            color: ${theme.foreground};
           }
 
           #workspaces button.focused {
-            background-color: ${gruvbox-accent};
-            color: #282828;
+            background-color: ${theme.foreground};
+            color: ${theme.background};
             border-bottom: none;
           }
 
           #workspaces button.urgent {
-            background-color: ${gruvbox-red};
+            background-color: ${theme.normal.red};
           }
 
           widget > * {
@@ -172,8 +165,8 @@ in
             padding: 0 12px;
             margin-left: 0;
             margin-right: 0;
-            color: #282828;
-            background-color: ${gruvbox-accent};
+            color: ${theme.background};
+            background-color: ${theme.foreground};
           }
 
           .modules-right > widget:last-child > * {
@@ -187,7 +180,7 @@ in
 
           @keyframes blink {
             to {
-              color: ${gruvbox-accent};
+              color: ${theme.foreground};
             }
           }
 
@@ -200,7 +193,7 @@ in
           }
 
           label:focus {
-            background-color: #282828;
+            background-color: ${theme.background} ;
           }
 
           tooltip {
@@ -209,7 +202,7 @@ in
           }
 
           tooltip label {
-            color: ${gruvbox-accent};
+            color: ${theme.foreground};
           }
         '';
       };
@@ -226,6 +219,47 @@ in
         settings = {
           allow_markup = true;
         };
+        style = ''
+          window {
+            margin: 0px;
+            border: 1px solid #928374;
+            background-color: ${theme.background};
+          }
+
+          #input {
+            margin: 5px;
+            border: none;
+            color: #ebdbb2;
+            background-color: #1d2021;
+          }
+
+          #inner-box {
+            margin: 5px;
+            border: none;
+            background-color: ${theme.background};
+          }
+
+          #outer-box {
+            margin: 5px;
+            border: none;
+            background-color: ${theme.background};
+          }
+
+          #scroll {
+            margin: 0px;
+            border: none;
+          }
+
+          #text {
+            margin: 5px;
+            border: none;
+            color: #ebdbb2;
+          }
+
+          #entry:selected {
+            background-color: #1d2021;
+          }
+        '';
       };
 
       programs.alacritty = {
@@ -280,6 +314,9 @@ in
             };
 
             output = {
+              DP-2 = {
+                bg = "${../wallpapers/retro_gruvbox_linux_wallpaper.svg} fill";
+              };
               DP-1 = {
                 pos = "0 0";
               };
@@ -329,32 +366,32 @@ in
             colors =
               {
               focused = {
-                background = gruvbox-accent;
-                border = gruvbox-accent;
-                text = gruvbox-darkgray;
-                indicator = gruvbox-accent;
-                childBorder = gruvbox-accent;
+                background = theme.foreground;
+                border = theme.foreground;
+                text = theme.background;
+                indicator = theme.foreground;
+                childBorder = theme.foreground;
               };
               focusedInactive = {
-                background = gruvbox-darkgray;
-                border = gruvbox-darkgray;
-                text = gruvbox-accent;
-                indicator = gruvbox-darkgray;
-                childBorder = gruvbox-darkgray;
+                background = theme.background;
+                border = theme.background;
+                text = theme.foreground;
+                indicator = theme.background;
+                childBorder = theme.background;
               };
               unfocused = {
-                background = gruvbox-darkgray;
-                border = gruvbox-darkgray;
-                text = gruvbox-accent;
-                indicator = gruvbox-darkgray;
-                childBorder = gruvbox-darkgray;
+                background = theme.background;
+                border = theme.background;
+                text = theme.foreground;
+                indicator = theme.background;
+                childBorder = theme.background;
               };
               urgent = {
-                background = gruvbox-red;
-                border = gruvbox-red;
-                text = gruvbox-accent;
-                indicator = gruvbox-red;
-                childBorder = gruvbox-red;
+                background = theme.normal.red;
+                border = theme.normal.red;
+                text = theme.foreground;
+                indicator = theme.normal.red;
+                childBorder = theme.normal.red;
               };
             };
 
