@@ -20,7 +20,6 @@ in
     mpv
     wev
 
-    alacritty-theme
     nyxt
   ];
 
@@ -214,62 +213,48 @@ in
         anchor = "top-right";
       };
 
-      programs.wofi = {
+      programs.foot = {
         enable = true;
         settings = {
-          allow_markup = true;
+          main = {
+            font = "FiraCode Nerd Font:size=10";
+            dpi-aware = "yes";
+            term =  "xterm-256color";
+          };
+          colors = {
+            background = "282828";
+            foreground = "ebdbb2";
+            regular0 = "282828";
+            regular1 = "cc241d";
+            regular2 = "98971a";
+            regular3 = "d79921";
+            regular4 = "458588";
+            regular5 = "b16286";
+            regular6 = "689d6a";
+            regular7 = "a89984";
+            bright0 = "928374";
+            bright1 = "fb4934";
+            bright2 = "b8bb26";
+            bright3 = "fabd2f";
+            bright4 = "83a598";
+            bright5 = "d3869b";
+            bright6 = "8ec07c";
+            bright7 = "ebdbb2";
+          };
         };
-        style = ''
-          window {
-            margin: 0px;
-            border: 1px solid #928374;
-            background-color: ${theme.background};
-          }
-
-          #input {
-            margin: 5px;
-            border: none;
-            color: #ebdbb2;
-            background-color: #1d2021;
-          }
-
-          #inner-box {
-            margin: 5px;
-            border: none;
-            background-color: ${theme.background};
-          }
-
-          #outer-box {
-            margin: 5px;
-            border: none;
-            background-color: ${theme.background};
-          }
-
-          #scroll {
-            margin: 0px;
-            border: none;
-          }
-
-          #text {
-            margin: 5px;
-            border: none;
-            color: #ebdbb2;
-          }
-
-          #entry:selected {
-            background-color: #1d2021;
-          }
-        '';
       };
 
-      programs.alacritty = {
+      programs.fuzzel = {
         enable = true;
         settings = {
-          general.import = [ "${pkgs.alacritty-theme}/gruvbox_dark.toml" ];
-          keyboard.bindings = [
-            { key = "N"; mods = "Control|Shift"; action = "CreateNewWindow"; }
-          ];
-          window.dynamic_title = true;
+          main = {
+            terminal = "${pkgs.foot}/bin/foot";
+            layer = "overlay";
+          };
+          colors = {
+            background = "ebdbb2ff";
+            foreground = "282828ff";
+          };
         };
       };
 
@@ -307,7 +292,7 @@ in
             mode_layout = "splith (h) splitv (v) parent (p)";
           in
           {
-            terminal = "${pkgs.alacritty}/bin/alacritty";
+            terminal = "${pkgs.foot}/bin/foot";
             fonts = {
               names = [ "FiraCode Nerd Font" ];
               size = 10.0;
@@ -361,7 +346,8 @@ in
               ];
             };
 
-            menu = "${pkgs.wofi}/bin/wofi --show drun";
+            #menu = "${pkgs.wofi}/bin/wofi --show drun";
+            menu = "${pkgs.fuzzel}/bin/fuzzel";
             window.titlebar = false;
             colors =
               {
