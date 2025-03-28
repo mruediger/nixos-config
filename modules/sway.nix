@@ -217,8 +217,8 @@ in
         enable = true;
         settings = {
           main = {
-            font = "FiraCode Nerd Font:size=10";
-            dpi-aware = "yes";
+            font = "FiraCode Nerd Font:size=11";
+            dpi-aware = "no";
             term =  "xterm-256color";
           };
           colors = {
@@ -249,11 +249,12 @@ in
         settings = {
           main = {
             terminal = "${pkgs.foot}/bin/foot";
+            dpi-aware = "no";
             layer = "overlay";
           };
           colors = {
             background = "ebdbb2ff";
-            foreground = "282828ff";
+            text = "282828ff";
           };
         };
       };
