@@ -76,6 +76,7 @@
         ./modules/gpg.nix
         ./modules/hardware.nix
         ./modules/hyprland.nix
+        ./modules/java.nix
         ./modules/latex.nix
         ./modules/localization.nix
         ./modules/networking.nix
