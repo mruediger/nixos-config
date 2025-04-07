@@ -26,6 +26,8 @@
       magit
       magit-todos
       marginalia
+      nerd-icons
+      nerd-icons-completion
       nerd-icons-dired
       nix-mode
       nov
