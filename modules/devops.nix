@@ -52,6 +52,7 @@
 
     conftest
     openssl
+    awscli2
   ];
 
   programs.bash.shellAliases = {
