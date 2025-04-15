@@ -16,6 +16,7 @@ in
     google-chrome
     slack
     signal-desktop
+    calibre
   ];
 
   programs.firefox = {
