@@ -56,6 +56,8 @@ in
           target = "sway-session.target";
         };
         settings.mainBar = {
+          modules-left = [ "sway/workspaces" "sway/window" "sway/mode" ];
+          modules-right = [ "pulseaudio" "backlight" "network" "battery" "clock" "sway/language" "tray" ];
           backlight = {
             format = "{percent}% {icon}";
             format-icons = [ "" "" "" "" "" "" "" "" "" ];
@@ -79,8 +81,6 @@ in
       <big>{:%Y %B}</big>
       <tt><small>{calendar}</small></tt>'';
           };
-          modules-left = [ "sway/workspaces" "sway/window" "sway/mode" ];
-          modules-right = [ "pulseaudio" "backlight" "network" "battery" "clock" "custom/uptime" "tray" ];
           network = {
             format = "{ifname}";
             format-disconnected = "Disconnected 󱛅";
@@ -111,6 +111,9 @@ in
             on-click = "pavucontrol";
           };
           "sway/workspaces" = { disable-scroll = true; };
+          "sway/language" = {
+            format = "{short} {variant}";
+          };
         };
         style = ''
           * {
@@ -316,6 +319,7 @@ in
             input = {
               "type:keyboard" = {
                 xkb_layout = "de(neo),de";
+                xkb_options = "grp:alts_toggle";
               };
             };
 
