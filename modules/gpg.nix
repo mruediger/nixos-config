@@ -12,6 +12,7 @@
   environment.systemPackages = with pkgs; [
     tpm2-tools
     gnupg
+    gopass
   ];
 
   programs.browserpass.enable = true;
@@ -30,7 +31,6 @@
         mutableKeys = true;
         mutableTrust = true;
         publicKeys = [
-          { source = ../gpg/butterfly.asc; trust = "ultimate"; }
           { source = ../gpg/farting-unicorn.asc; trust = "ultimate"; }
           { source = ../gpg/josephine.asc; trust = "ultimate"; }
           { source = ../gpg/mruediger.asc; trust = "ultimate"; }
