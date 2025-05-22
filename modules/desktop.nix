@@ -17,6 +17,7 @@ in
     slack
     signal-desktop
     calibre
+    zoom-us
   ];
 
   programs.firefox = {
