@@ -79,7 +79,7 @@
     enableDefaultPackages = true;
     fontDir.enable = true;
     packages = with pkgs; [
-      nerdfonts
+      nerd-fonts.iosevka
       iosevka
     ];
   };

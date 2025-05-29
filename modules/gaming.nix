@@ -41,8 +41,9 @@
       enable32Bit = true;
     };
     steam-hardware.enable = true;
-    pulseaudio.support32Bit = true;
   };
+
+  services.pulseaudio.support32Bit = true;
 
   #mouse
   services.dbus.packages = [ pkgs.unstable.libratbag ];

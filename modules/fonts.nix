@@ -8,7 +8,8 @@
     enableDefaultPackages = true;
     fontDir.enable = true;
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" "Iosevka" ]; })
+      nerd-fonts.iosevka
+      nerd-fonts.fira-code
       cantarell-fonts
       font-awesome
       inconsolata
