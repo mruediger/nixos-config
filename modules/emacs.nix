@@ -1,4 +1,5 @@
 { pkgs, emacs-version, ... }:
+
 {
 
   environment.systemPackages = with pkgs; [
@@ -26,6 +27,7 @@
       magit
       magit-todos
       marginalia
+      mcp
       nerd-icons
       nerd-icons-completion
       nerd-icons-dired
