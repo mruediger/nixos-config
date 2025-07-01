@@ -90,6 +90,7 @@
         ./modules/python.nix
         ./modules/raspberry.nix
         ./modules/rclone.nix
+        ./modules/rennsport.nix
         ./modules/sway.nix
         ./modules/users.nix
         ./modules/virtualisation.nix
