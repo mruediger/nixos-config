@@ -18,6 +18,7 @@ in
     signal-desktop
     calibre
     zoom-us
+    element-desktop
   ];
 
   programs.firefox = {
