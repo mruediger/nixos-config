@@ -27,23 +27,6 @@ in
       init = {
         defaultBranch = "main";
       };
-      includeIf = {
-        "gitdir:~/src/justwatch/" = {
-          path = "gitconfig_justwatch";
-        };
-      };
-    };
-  };
-
-  environment.etc.gitconfig_justwatch.text = lib.generators.toGitINI {
-    user = {
-      userName = user.justwatch.name;
-      userEmail = user.justwatch.email;
-    };
-    url = {
-      "ssh://git@gitlab.justwatch.com" = {
-        insteadOf = [ "https://jus.tw.cx" ];
-      };
     };
   };
 }
