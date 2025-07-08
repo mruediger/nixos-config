@@ -48,6 +48,7 @@
       xkcd
       yasnippet
       yasnippet-snippets
+      polymode
     ]))
 
     silver-searcher # for ag.el
