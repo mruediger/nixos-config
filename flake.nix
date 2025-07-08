@@ -91,6 +91,7 @@
         ./modules/raspberry.nix
         ./modules/rclone.nix
         ./modules/rennsport.nix
+        ./modules/ssh.nix
         ./modules/sway.nix
         ./modules/users.nix
         ./modules/virtualisation.nix
