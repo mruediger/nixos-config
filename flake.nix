@@ -100,7 +100,7 @@
         ./modules/xdg.nix
       ];
 
-      emacs-version = pkgs.emacs-unstable-pgtk;
+      emacs-version = pkgs.emacs-pgtk;
     in
     {
       nixosConfigurations = {
