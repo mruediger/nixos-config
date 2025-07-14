@@ -23,7 +23,6 @@
           "wifi"
         ];
       };
-      varnish.enable = true;
     };
   };
 }

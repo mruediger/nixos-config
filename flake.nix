@@ -85,6 +85,7 @@
         ./modules/nu.nix
         ./modules/nzb.nix
 #        ./modules/ollama.nix
+        ./modules/prometheus.nix
         ./modules/phone.nix
         ./modules/printer.nix
         ./modules/python.nix
