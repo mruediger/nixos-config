@@ -461,8 +461,8 @@ in
                 "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 1%+";
                 "XF86AudioMicMute" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
                 "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
-                "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1-";
-                "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1+";
+                "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s -1%";
+                "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s +1%";
 
                 "XF86NotificationCenter" = "input type:touchpad events toggle enabled disabled";
 
