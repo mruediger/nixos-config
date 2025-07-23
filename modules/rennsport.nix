@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   services.tailscale = {
     enable = true;
@@ -15,7 +15,17 @@
     GOPRIVATE="gitlab.com/rennsport/*";
   };
 
- home-manager.sharedModules = [
+  programs.git.config.includeIf = {
+    "gitdir:~/src/rennsport/" = {
+      path = "gitconfig_rennsport";
+    };
+  };
+
+  environment.etc.gitconfig_rennsport.text = lib.generators.toGitINI {
+    gitlab.user = "mruediger_rennsport";
+  };
+
+  home-manager.sharedModules = [
     ({ ... }: {
       programs.ssh.matchBlocks."rennsport.gitlab.com" = {
         hostname = "gitlab.com";
@@ -23,6 +33,6 @@
         identityFile = "~/.ssh/rennsport_gitlab";
       };
     })
- ];
+  ];
 
 }
