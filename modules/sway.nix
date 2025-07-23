@@ -311,6 +311,7 @@ in
               };
               eDP-1 = {
                 pos = "0 1080";
+                bg = "${../wallpapers/retro_gruvbox_linux_wallpaper.svg} stretch";
               };
             };
 
