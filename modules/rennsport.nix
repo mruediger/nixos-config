@@ -6,6 +6,7 @@
 
   environment.systemPackages = [
     pkgs.zulip
+    pkgs.grafana-loki
   ];
 
   environment.variables = {
