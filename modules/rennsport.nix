@@ -4,9 +4,13 @@
     enable = true;
   };
 
-  environment.systemPackages = [
-    pkgs.zulip
-    pkgs.grafana-loki
+  environment.systemPackages = with pkgs; [
+    zulip
+    grafana-loki
+    kind
+    _1password-gui
+    p4
+    p4v
   ];
 
   environment.variables = {
