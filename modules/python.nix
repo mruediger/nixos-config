@@ -8,4 +8,7 @@
       systemd
     ]))
   ];
+
+  # make uv work (suppor non-nix executables: https://nix.dev/permalink/stub-ld)
+  programs.nix-ld.enable = true;
 }
