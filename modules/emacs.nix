@@ -49,6 +49,8 @@
       yasnippet
       yasnippet-snippets
       polymode
+      eat
+      vterm
     ]))
 
     silver-searcher # for ag.el
