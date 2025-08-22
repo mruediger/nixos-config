@@ -63,16 +63,16 @@
     };
   };
 
-  services.pipewire.extraConfig.pipewire-pulse = {
-    "90-pacmd" = {
-      "pulse.cmd" = [
-        {
-          cmd = "load-module";
-          args = "module-zeroconf-discover";
-        }
-      ];
-    };
-  };
+#  services.pipewire.extraConfig.pipewire-pulse = {
+#    "90-pacmd" = {
+#      "pulse.cmd" = [
+#        {
+#          cmd = "load-module";
+#          args = "module-zeroconf-discover";
+#        }
+#      ];
+#    };
+#  };
 
   services.logind = {
     extraConfig = ''
