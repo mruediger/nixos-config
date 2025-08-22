@@ -86,4 +86,6 @@
       iosevka
     ];
   };
+
+  environment.variables.EDITOR = "emacsclient";
 }
