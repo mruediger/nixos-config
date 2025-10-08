@@ -51,6 +51,9 @@
       polymode
       eat
       vterm
+      ob-http
+      envrc
+      pyvenv
     ]))
 
     silver-searcher # for ag.el
@@ -71,6 +74,8 @@
 
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
+
+    unstable.jsonnet-language-server
 
     unstable.rust-analyzer
 
