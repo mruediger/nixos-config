@@ -44,6 +44,7 @@
     kustomize
     pluto #detect deprecated apis
     kubent #detect deprecated apis
+    k9s
 
     vault
     packer
