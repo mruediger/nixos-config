@@ -21,6 +21,7 @@ in
     wev
 
     nyxt
+    kdePackages.okular
   ];
 
   home-manager.sharedModules = [
