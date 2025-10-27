@@ -1,9 +1,5 @@
 { pkgs, lib, ... }:
 {
-  services.tailscale = {
-    enable = true;
-  };
-
   environment.systemPackages = with pkgs; [
     zulip
     grafana-loki
@@ -11,6 +7,7 @@
     _1password-gui
     p4
     p4v
+    tailscale
   ];
 
   environment.variables = {

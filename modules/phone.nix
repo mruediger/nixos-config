@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     go-mtpfs
     ausweisapp
+    android-tools
   ];
 
   programs.adb.enable = true;

@@ -54,6 +54,8 @@
       ob-http
       envrc
       pyvenv
+      ob-bigquery
+      shell-maker
     ]))
 
     silver-searcher # for ag.el

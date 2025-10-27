@@ -112,6 +112,7 @@
             nixpkgs-hardware.nixosModules.common-cpu-amd
             nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
             ./josephine.nix
+            ./modules/laptop.nix
           ];
         };
         farting-unicorn = nixpkgs.lib.nixosSystem {

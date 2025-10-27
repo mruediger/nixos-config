@@ -22,6 +22,7 @@ in
 
     nyxt
     kdePackages.okular
+    playerctl
   ];
 
   home-manager.sharedModules = [
@@ -465,6 +466,11 @@ in
                 "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
                 "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1%-";
                 "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1%+";
+
+                "XF86AudioNext" = "exec playerctl next";
+                "XF86AudioPrev" = "exec playerctl previous";
+                "XF86AudioPlay" = "exec playerctl play-pause";
+                "XF86AudioStop" = "exec playerctl stop";
 
                 "XF86NotificationCenter" = "input type:touchpad events toggle enabled disabled";
 
