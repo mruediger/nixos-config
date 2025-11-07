@@ -25,4 +25,8 @@
       };
     };
   };
+
+  services.grafana = {
+    enabled = true;
+  };
 }
