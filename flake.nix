@@ -79,12 +79,12 @@
         ./modules/java.nix
         ./modules/latex.nix
         ./modules/localization.nix
+        ./modules/monitoring.nix
         ./modules/networking.nix
         ./modules/nextcloud.nix
         ./modules/nixos.nix
         ./modules/nu.nix
         ./modules/nzb.nix
-        ./modules/prometheus.nix
         ./modules/phone.nix
         ./modules/printer.nix
         ./modules/python.nix
@@ -93,6 +93,7 @@
         ./modules/rennsport.nix
         ./modules/ssh.nix
         ./modules/sway.nix
+        ./modules/traefik.nix
         ./modules/users.nix
         ./modules/virtualisation.nix
         ./modules/windows.nix
