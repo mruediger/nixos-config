@@ -27,6 +27,7 @@
             "gdrive_n96"
             "onedrive"
             "dropbox"
+            "opencloud_blueboot"
         ];
         directories = map (v: "${config.home.homeDirectory}/rclone/${v}") services;
 
