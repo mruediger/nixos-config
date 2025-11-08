@@ -56,8 +56,11 @@
       pyvenv
       ob-bigquery
       shell-maker
+      mermaid-mode
+      ob-mermaid
     ]))
 
+    mermaid-cli
     silver-searcher # for ag.el
     ledger
     hledger
