@@ -16,6 +16,9 @@
           preLVM = true;
           allowDiscards = true;
         };
+        swap = {
+          device = "/dev/sda3";
+        };
       };
     };
     kernelModules = [ "kvm-amd" ];
@@ -26,7 +29,7 @@
 
   fileSystems."/" =
     {
-      device = "/dev/vg/root";
+      device = "/dev/mapper/vg-root";
       fsType = "ext4";
     };
 
@@ -51,7 +54,7 @@
       options = [ "defaults" "user" "rw" "noauto" ];
     };
 
-  swapDevices = [{ device = "/dev/vg/swap"; }];
+  swapDevices = [{ device = "/dev/mapper/swap"; }];
 
   # High-DPI console
   console.font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
@@ -83,4 +86,9 @@
       ];
     };
   };
+  environment.etc."lvm/lvm.conf".text = ''
+    devices {
+      allow_mixed_block_sizes = 1
+    }
+    '';
 }
