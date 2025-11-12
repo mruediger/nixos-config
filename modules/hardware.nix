@@ -6,7 +6,6 @@
       systemd-boot.memtest86.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
     kernel.sysctl = {
       "vm.swappiness" = 90;
     };

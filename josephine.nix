@@ -22,6 +22,7 @@
       };
     };
     kernelModules = [ "kvm-amd" ];
+    kernelPackages = pkgs.linuxPackages_lqx;
     extraModulePackages = [
       pkgs.wireguard-tools
     ];
@@ -74,7 +75,8 @@
 
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "ondemand";
+    #    cpuFreqGovernor = "ondemand";
+    cpuFreqGovernor = "performance";
   };
 
   services.pipewire.extraConfig.pipewire-pulse = {
