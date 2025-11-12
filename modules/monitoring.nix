@@ -1,6 +1,6 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 {
-
+  environment.systemPackages = [ pkgs.lm_sensors ];
   services.prometheus = {
     enable = true;
     scrapeConfigs = [
