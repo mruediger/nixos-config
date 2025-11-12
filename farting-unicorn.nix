@@ -21,6 +21,7 @@
       "sd_mod"
     ];
     kernelModules = [ "kvm-amd" ];
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "resume_offset=5697536" # offset by filefrag -v /swapfile
     ];
@@ -79,4 +80,6 @@
       HandlePowerKey=hibernate
     '';
   };
+
+  boot.recoverySystem.enable = true;
 }

@@ -26,9 +26,7 @@
     ];
   };
 
-  outputs =
-    inputs:
-    with inputs;
+  outputs =  { self, nixpkgs, nixpkgs-unstable, emacs-overlay, home-manager, nixpkgs-hardware, ... }@inputs:
     let
       system = "x86_64-linux";
       stateVersion = "24.11";
@@ -98,35 +96,51 @@
         ./modules/virtualisation.nix
         ./modules/windows.nix
         ./modules/xdg.nix
+
+        ./extras/recovery-image.nix
       ];
 
       emacs-version = pkgs.emacs-pgtk;
     in
-    {
-      nixosConfigurations = {
-        josephine = nixpkgs.lib.nixosSystem {
-          inherit system pkgs;
-          specialArgs = { inherit emacs-version inputs; };
-          modules = modules ++ [
-            nixpkgs-hardware.nixosModules.common-pc-ssd
-            nixpkgs-hardware.nixosModules.common-gpu-amd
-            nixpkgs-hardware.nixosModules.common-cpu-amd
-            nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
-            ./josephine.nix
-            ./modules/laptop.nix
-          ];
+      {
+        nixosConfigurations = {
+          josephine = nixpkgs.lib.nixosSystem {
+            inherit system pkgs;
+            specialArgs = { inherit emacs-version inputs; flake = self; };
+            modules = modules ++ [
+              nixpkgs-hardware.nixosModules.common-pc-ssd
+              nixpkgs-hardware.nixosModules.common-gpu-amd
+              nixpkgs-hardware.nixosModules.common-cpu-amd
+              nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
+              ./josephine.nix
+              ./modules/laptop.nix
+            ];
+          };
+          farting-unicorn = nixpkgs.lib.nixosSystem {
+            inherit system pkgs;
+            specialArgs = { inherit emacs-version inputs; flake = self; };
+            modules = modules ++ [
+              nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-amd
+              nixpkgs-hardware.nixosModules.common-gpu-amd
+              nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
+              ./farting-unicorn.nix
+              ./modules/laptop.nix
+            ];
+          };
+          recovery-system = nixpkgs.lib.nixosSystem {
+            inherit system;
+            modules = [
+              "${nixpkgs}/nixos/modules/installer/netboot/netboot-minimal.nix"
+              ({ pkgs, ... }: {
+                environment.systemPackages = with pkgs; [
+                  gptfdisk testdisk ddrescue e2fsprogs btrfs-progs
+                ];
+              })
+            ];
+          };
         };
-        farting-unicorn = nixpkgs.lib.nixosSystem {
-          inherit system pkgs;
-          specialArgs = { inherit emacs-version inputs; };
-          modules = modules ++ [
-            nixpkgs-hardware.nixosModules.lenovo-thinkpad-x13-amd
-            nixpkgs-hardware.nixosModules.common-gpu-amd
-            nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
-            ./farting-unicorn.nix
-            ./modules/laptop.nix
-          ];
+        recoveryBundle = {
+          x86_64-linux = self.nixosConfigurations.recovery-system.config.system.build.toplevel;
         };
       };
-    };
 }
