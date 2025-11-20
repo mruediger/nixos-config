@@ -84,8 +84,6 @@
 
     unstable.rust-analyzer
 
-    direnv
-
     offlineimap
     notmuch
   ];

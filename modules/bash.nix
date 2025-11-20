@@ -102,4 +102,16 @@
     };
   };
 
+  programs.direnv = {
+    enable = true;
+    direnvrcExtra = ''
+      function use_standard-python() {
+          source_up_if_exists
+          dotenv_if_exists
+          source_env_if_exists .envrc.local
+          use venv
+          uv sync
+      }
+    '';
+  };
 }
