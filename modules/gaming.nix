@@ -13,6 +13,13 @@
     superTux
     superTuxKart
     adwaita-icon-theme
+    vulkan-tools
+    mesa-demos
+    amdgpu_top
+    nvtopPackages.amd
+    vdpauinfo
+    gamemode
+    mangohud
   ];
 
   programs.steam = {
