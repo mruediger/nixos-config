@@ -39,7 +39,7 @@
 
   fileSystems."/boot" =
     {
-      device = "/dev/nvme0n1p1";
+      device = "/dev/disk/by-uuid/040D-FF6C";
       fsType = "vfat";
       options = ["umask=0077"];
     };
