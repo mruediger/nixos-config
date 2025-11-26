@@ -60,6 +60,7 @@
       ob-mermaid
       gnuplot
       emms
+      k8s-mode
     ]))
 
     mermaid-cli
