@@ -59,6 +59,7 @@
       mermaid-mode
       ob-mermaid
       gnuplot
+      emms
     ]))
 
     mermaid-cli
