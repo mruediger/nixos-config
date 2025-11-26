@@ -15,6 +15,11 @@
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -26,7 +31,7 @@
     ];
   };
 
-  outputs =  { self, nixpkgs, nixpkgs-unstable, emacs-overlay, home-manager, nixpkgs-hardware, ... }@inputs:
+  outputs =  { self, nixpkgs, nixpkgs-unstable, emacs-overlay, home-manager, nixpkgs-hardware,  antigravity-nix, ... }@inputs:
     let
       system = "x86_64-linux";
       stateVersion = "24.11";
@@ -96,6 +101,12 @@
         ./modules/virtualisation.nix
         ./modules/windows.nix
         ./modules/xdg.nix
+
+        {
+          environment.systemPackages = [
+            antigravity-nix.packages.x86_64-linux.default
+          ];
+        }
 
         ./extras/recovery-image.nix
       ];
