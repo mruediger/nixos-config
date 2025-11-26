@@ -58,6 +58,7 @@
       shell-maker
       mermaid-mode
       ob-mermaid
+      gnuplot
     ]))
 
     mermaid-cli
@@ -86,6 +87,8 @@
 
     offlineimap
     notmuch
+
+    gnuplot
   ];
 
   fonts = {
