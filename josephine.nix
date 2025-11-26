@@ -58,7 +58,7 @@
       options = [ "defaults" "user" "rw" "noauto" ];
     };
 
-  swapDevices = [{ device = "/dev/mapper/swap"; }];
+  swapDevices = [{ device = "/dev/disk/by-uuid/65fc9910-38e3-4361-9955-8d2635ac0a6c"; }];
 
   # High-DPI console
   console.font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
