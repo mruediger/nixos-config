@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    mdadm
+    dmraid
+  ];
+
   boot = {
     loader = {
       systemd-boot.enable = true;
