@@ -20,7 +20,8 @@
           Duplex = "DuplexNoTumble";
         };
         # lpinfo -v  or   hp-setup -i  or   hp-makeuri <IP>
-        deviceUri = "hp:/net/HP_LaserJet_Pro_M148-M149";
+        #deviceUri = "hp:/net/HP_LaserJet_Pro_M148-M149";
+        deviceUri = "hp:/usb/HP_LaserJet_Pro_M148-M149?serial=VNCNN10813";
 
         # lpinfo -m
         model = "HP/hp-laserjet_pro_m148-m149-ps.ppd.gz";
@@ -43,7 +44,10 @@
   hardware.sane = {
     enable = true;
     brscan4.enable = true;
-    extraBackends = with pkgs; [ sane-airscan ];
+    extraBackends = with pkgs; [
+      sane-airscan
+      hplipWithPlugin
+    ];
   };
 
   environment.systemPackages = with pkgs; [
