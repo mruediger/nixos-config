@@ -2,12 +2,11 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -31,23 +30,15 @@
     ];
   };
 
-  outputs =  { self, nixpkgs, nixpkgs-unstable, emacs-overlay, home-manager, nixpkgs-hardware,  antigravity-nix, ... }@inputs:
+  outputs =  { self, nixpkgs, emacs-overlay, home-manager, nixpkgs-hardware,  antigravity-nix, ... }@inputs:
     let
       system = "x86_64-linux";
       stateVersion = "24.11";
-
-      unstable-overlay = final: prev: {
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
 
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays = [
-          unstable-overlay
           (import emacs-overlay)
         ];
       };

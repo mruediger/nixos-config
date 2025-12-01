@@ -64,9 +64,9 @@
   console.font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
 
   services.logind = {
-    extraConfig = ''
-      HandlePowerKey=hibernate
-    '';
+    settings.Login = {
+      HandlePowerKey = "hibernate";
+    };
   };
 
   networking.wireguard.interfaces = {

@@ -5,7 +5,7 @@
   ];
 
   imports = [
-    "${inputs.nixpkgs-unstable}/nixos/modules/services/misc/ollama.nix"
+    "${inputs.nixpkgs}/nixos/modules/services/misc/ollama.nix"
   ];
 
   services.ollama = {

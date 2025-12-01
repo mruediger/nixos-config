@@ -28,7 +28,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    unstable.nextcloud-client
+    nextcloud-client
   ];
 
   home-manager.sharedModules = [

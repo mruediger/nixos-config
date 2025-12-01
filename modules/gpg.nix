@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   services.dbus.packages = [ pkgs.gcr ];
-  services.gnome.gnome-keyring.enable = true;
 
   security.tpm2 = {
     enable = true;

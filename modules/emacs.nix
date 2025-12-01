@@ -77,15 +77,15 @@
 
     imagemagick # for image-dired
 
-    unstable.gopls
-    unstable.terraform-ls
+    gopls
+    terraform-ls
 
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
 
-    unstable.jsonnet-language-server
+    jsonnet-language-server
 
-    unstable.rust-analyzer
+    rust-analyzer
 
     offlineimap
     notmuch

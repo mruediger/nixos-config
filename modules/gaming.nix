@@ -58,7 +58,7 @@
   services.pulseaudio.support32Bit = true;
 
   #mouse
-  services.dbus.packages = [ pkgs.unstable.libratbag ];
-  systemd.packages = [ pkgs.unstable.libratbag ];
+  services.dbus.packages = [ pkgs.libratbag ];
+  systemd.packages = [ pkgs.libratbag ];
 
 }

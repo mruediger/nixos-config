@@ -2,7 +2,7 @@
 {
 
   environment.systemPackages = [
-    pkgs.unstable.devenv
-    pkgs.unstable.claude-code
+    pkgs.devenv
+    pkgs.claude-code
   ];
 }

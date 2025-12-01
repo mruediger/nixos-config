@@ -23,12 +23,12 @@
     git
     minikube
     kubernetes-helm
-    (unstable.google-cloud-sdk.withExtraComponents [
-      unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin
-      unstable.google-cloud-sdk.components.config-connector
-      unstable.google-cloud-sdk.components.cloud_sql_proxy
+    (google-cloud-sdk.withExtraComponents [
+      google-cloud-sdk.components.gke-gcloud-auth-plugin
+      google-cloud-sdk.components.config-connector
+      google-cloud-sdk.components.cloud_sql_proxy
     ])
-    unstable.google-cloud-sql-proxy
+    google-cloud-sql-proxy
     gnumake
     yq-go
     bind

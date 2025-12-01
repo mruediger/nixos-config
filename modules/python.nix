@@ -5,7 +5,7 @@
     pyright
     (python3.withPackages (python-pkgs: with python-pkgs ;[
       ruamel-yaml
-      systemd
+      systemd-python
     ]))
   ];
 
