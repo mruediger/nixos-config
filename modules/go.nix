@@ -6,6 +6,8 @@
     gotools
     gopls
     gcc # cgo dependency
+    delve
+    gdlv
   ];
 
   environment.variables = {
