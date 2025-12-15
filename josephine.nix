@@ -11,13 +11,9 @@
       availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
       kernelModules = [ "dm-snapshot" ];
       luks.devices = {
-        nvme1n1p1 = {
-          device = "/dev/disk/by-uuid/a90e4023-f0dd-4353-aced-933d051c14ba";
-          preLVM = true;
-          allowDiscards = true;
-        };
-        swap = {
-          device = "/dev/sda3";
+	      root = {
+	        device = "/dev/disk/by-uuid/e497ba1d-3908-4c1e-a8ea-61f0a44b803a";
+	        allowDiscards = true;
         };
       };
     };
@@ -25,16 +21,30 @@
     kernelPackages = pkgs.linuxPackages_lqx;
     kernelParams = [
       "amd_3d_vcache.x3d_mode=cache" # AMD V-Cache https://wiki.cachyos.org/configuration/general_system_tweaks/#amd-3d-v-cache-optimizer
+      "resume_offset=144123136"
     ];
+    resumeDevice = "/dev/mapper/root";
     extraModulePackages = [
       pkgs.wireguard-tools
     ];
   };
 
   fileSystems."/" =
-    {
-      device = "/dev/mapper/vg-root";
-      fsType = "ext4";
+    { device = "/dev/mapper/root";
+      fsType = "btrfs";
+      options = [ "subvol=root" "compress=zstd"  ];
+    };
+
+  fileSystems."//home" =
+    { device = "/dev/mapper/root";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/mapper/root";
+      fsType = "btrfs";
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/boot" =
@@ -58,7 +68,7 @@
       options = [ "defaults" "user" "rw" "noauto" ];
     };
 
-  swapDevices = [{ device = "/dev/disk/by-uuid/65fc9910-38e3-4361-9955-8d2635ac0a6c"; }];
+  swapDevices = [{ device = "/swapfile"; }];
 
   # High-DPI console
   console.font = lib.mkDefault "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";

@@ -58,6 +58,7 @@
         ./modules/audio.nix
         ./modules/base.nix
         ./modules/bash.nix
+        ./modules/btrfs.nix
         ./modules/desktop.nix
         ./modules/dev.nix
         ./modules/devops.nix
