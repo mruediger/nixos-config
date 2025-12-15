@@ -61,6 +61,8 @@
       gnuplot
       emms
       k8s-mode
+      dape
+      go-eldoc
     ]))
 
     mermaid-cli
