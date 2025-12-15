@@ -321,7 +321,7 @@ in
 
             input = {
               "type:keyboard" = {
-                xkb_layout = "de(neo),de";
+                xkb_layout = "de,de(neo)";
                 xkb_options = "grp:alts_toggle";
               };
             };
