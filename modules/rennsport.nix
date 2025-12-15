@@ -8,6 +8,7 @@
     p4
     p4v
     tailscale
+    _1password-cli
   ];
 
   services.tailscale = {
@@ -36,6 +37,7 @@
         hostname = "gitlab.com";
         user = "git";
         identityFile = "~/.ssh/rennsport_gitlab";
+        identityAgent = "none";
       };
     })
   ];
