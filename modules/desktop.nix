@@ -37,6 +37,7 @@ in
     enable = true;
     extensions = [
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      "kkhfnlkhiapbiehimabddjbimfaijdhk" # gopass bridge
     ];
     extraOpts = {
       BraveRewardsDisabled = true;

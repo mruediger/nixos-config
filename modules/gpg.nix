@@ -12,6 +12,7 @@
     tpm2-tools
     gnupg
     gopass
+    gopass-jsonapi
   ];
 
   programs.browserpass.enable = true;
