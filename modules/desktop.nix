@@ -14,6 +14,8 @@ in
 {
   environment.systemPackages = with pkgs; [
     google-chrome
+    chromium
+    brave
     slack
     signal-desktop
     calibre
@@ -36,5 +38,16 @@ in
     extensions = [
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
     ];
+    extraOpts = {
+      BraveRewardsDisabled = true;
+      BraveWalletDisabled = true;
+      BraveVPNDisabled = true;
+      PasswordManagerEnabled = false;
+      SpellcheckEnabled = true;
+      SpellcheckLanguage = [
+        "de"
+        "en-US"
+      ];
+    };
   };
 }
