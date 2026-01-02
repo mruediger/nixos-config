@@ -3,6 +3,11 @@
   environment.systemPackages = with pkgs; [
     mdadm
     dmraid
+    btrfs-progs
+    btrfs-snap
+    btrfs-list
+    btrfs-heatmap
+    btrfs-assistant
   ];
 
   boot = {
