@@ -21,6 +21,7 @@ in
     calibre
     zoom-us
     element-desktop
+    koreader
   ];
 
   programs.firefox = {
