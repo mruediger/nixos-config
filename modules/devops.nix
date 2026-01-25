@@ -40,6 +40,9 @@
     terragrunt
     terramate
 
+    opentofu
+    opentofu-ls
+
     kubectl
     kustomize
     pluto #detect deprecated apis
