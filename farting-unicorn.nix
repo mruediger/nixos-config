@@ -76,9 +76,9 @@
 #  };
 
   services.logind = {
-    extraConfig = ''
-      HandlePowerKey=hibernate
-    '';
+    settings.Login = {
+      HandlePowerKey = "hibernate";
+    };
   };
 
   boot.recoverySystem.enable = true;
