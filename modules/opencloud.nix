@@ -9,7 +9,7 @@ let
     };
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.opencloud-desktop}/bin/opencloudcmd --user ${credentials.blueboot.username} --token \"${credentials.blueboot.token}\" --remote-folder ${remote_folder} --verbose 1 ${server_url} ${space_id} ${source_dir}";
+      ExecStart = "${pkgs.opencloud-desktop}/bin/opencloudcmd --user ${credentials.blueboot.username} --token \"${credentials.blueboot.token}\" --remote-folder ${remote_folder} ${server_url} ${space_id} ${source_dir}";
       TimeoutStopSec = "180";
       KillMode = "process";
       KillSignal = "SIGINT";
