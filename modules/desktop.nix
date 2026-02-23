@@ -32,6 +32,25 @@ in
       "en-GB"
       "hr"
     ];
+    #https://raw.githubusercontent.com/corbindavenport/just-the-browser/main/firefox/policies.json
+    policies = {
+      "DisableFirefoxStudies" = true;
+      "DisableTelemetry"= true;
+      "DontCheckDefaultBrowser" = true;
+      "FirefoxHome" = {
+        "SponsoredStories" = false;
+        "SponsoredTopSites" = false;
+        "Stories" = false;
+      };
+      "GenerativeAI" = {
+        "Enabled" = false;
+      };
+      "SearchEngines" = {
+        "Remove" = [
+          "Perplexity"
+        ];
+      };
+    };
   };
 
   programs.chromium = {
