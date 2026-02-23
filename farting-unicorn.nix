@@ -50,9 +50,6 @@
     { device = "/dev/disk/by-uuid/f550894c-6b6c-4353-b3a3-c79fd06123b1"; }
   ];
 
-  hardware.cpu.amd.updateMicrocode = true;
-  hardware.enableRedistributableFirmware = true;
-
   services.xserver.synaptics.palmDetect = true;
 
   #wg genkey > /home/bag/src/nixos/src/wireguard-blueboot.key
