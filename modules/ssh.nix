@@ -16,12 +16,12 @@
           };
 
           "github.com" = {
-            user = "bag";
+            user = "mruediger";
             identityFile = "~/.ssh/github";
           };
 
           "gitlab.com" = {
-            user = "bag";
+            user = "mruediger";
             identityFile = "~/.ssh/gitlab";
           };
         };
