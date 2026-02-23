@@ -88,7 +88,6 @@
         ./modules/nixos.nix
         ./modules/nu.nix
         ./modules/nzb.nix
-        ./modules/opencloud.nix
         ./modules/phone.nix
         ./modules/printer.nix
         ./modules/python.nix
