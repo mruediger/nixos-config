@@ -84,6 +84,7 @@
         ./modules/localization.nix
         ./modules/monitoring.nix
         ./modules/networking.nix
+        ./modules/nextcloud.nix
         ./modules/nixos.nix
         ./modules/nu.nix
         ./modules/nzb.nix

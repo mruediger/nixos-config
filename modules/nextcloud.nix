@@ -1,5 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
+  environment.systemPackages = [ pkgs.nextcloud-client ];
+
   credentials = import ../crypt/nextcloud.nix;
 
   mkService = server_url: remote_folder: source_dir: {
@@ -9,7 +11,7 @@ let
     };
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.nextcloud-client}/bin/nextcloud-cmd --user ${credentials.blueboot.username} --password ${credentials.blueboot.password} --path ${remote_folder} ${source_dir} ${server_url}
+      ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd --user ${credentials.blueboot.username} --password ${credentials.blueboot.password} --path ${remote_folder} ${source_dir} ${server_url}";
       TimeoutStopSec = "180";
       KillMode = "process";
       KillSignal = "SIGINT";
