@@ -61,4 +61,7 @@
   services.dbus.packages = [ pkgs.libratbag ];
   systemd.packages = [ pkgs.libratbag ];
 
+  #minecraft
+  networking.firewall.allowedTCPPorts = [ 10123 ];
+
 }
