@@ -22,6 +22,7 @@ in
     zoom-us
     element-desktop
     koreader
+    thunderbird
   ];
 
   programs.firefox = {
