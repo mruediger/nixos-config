@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     discord
     lutris-free
-    prismlauncher #minecraft
+    unstable.prismlauncher #minecraft
     libratbag
     piper
     wine

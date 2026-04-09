@@ -3,7 +3,7 @@
 
   environment.systemPackages = with pkgs; [
     maven
-    jdk
+    jdk25
     jdt-language-server
     spring-boot-cli
     gradle
