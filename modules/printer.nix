@@ -3,7 +3,12 @@
   services.printing = {
     enable = true;
     startWhenNeeded = true;
-    drivers = with pkgs; [ gutenprint hplip brlaser ];
+    drivers = with pkgs; [
+      gutenprint
+      hplip
+      brlaser
+      mfc5890cncupswrapper
+    ];
   };
 
   services.avahi = {
@@ -35,6 +40,14 @@
           PageSize = "A4";
         };
         model = "drv:///brlaser.drv/brl2500d.ppd";
+      }
+      {
+        name = "Brother_MFC-5890CN";
+        deviceUri = "usb://Brother/MFC-5890CN?serial=BROL1F114846";
+        ppdOptions = {
+          PageSize = "A4";
+        };
+        model = "brmfc5890cn.ppd";
       }
     ];
 
