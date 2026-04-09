@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   environment.systemPackages = with pkgs; [
     btrfs-progs
@@ -9,9 +9,7 @@
   ];
 
   services.btrfs.autoScrub = {
-    enable = true;
+    enable = config.networking.hostName == "josephine";
     interval = "weekly";
   };
-
-
 }
