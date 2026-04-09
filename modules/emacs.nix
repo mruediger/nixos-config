@@ -69,6 +69,8 @@
     silver-searcher # for ag.el
     ledger
     hledger
+    beancount_2
+    fava
     aspell
     aspellDicts.en
     aspellDicts.en-computers
