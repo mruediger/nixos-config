@@ -92,15 +92,16 @@
     cpuFreqGovernor = "performance";
   };
 
-  services.pipewire.extraConfig.pipewire-pulse = {
-    "90-pacmd" = {
-      "pulse.cmd" = [
-        { cmd = "load-module"; args = "module-native-protocol-tcp listen=0.0.0.0"; }
-        { cmd = "load-module"; args = "module-zeroconf-discover"; }
-        { cmd = "load-module"; args = "module-zeroconf-publish"; }
-      ];
-    };
-  };
+#  services.pipewire.extraConfig.pipewire-pulse = {
+#    "90-pacmd" = {
+#      "pulse.cmd" = [
+#        { cmd = "load-module"; args = "module-native-protocol-tcp listen=0.0.0.0"; }
+#        { cmd = "load-module"; args = "module-zeroconf-discover"; }
+#        { cmd = "load-module"; args = "module-zeroconf-publish"; }
+#      ];
+#    };
+#  };
+
   environment.etc."lvm/lvm.conf".text = ''
     devices {
       allow_mixed_block_sizes = 1

@@ -29,6 +29,7 @@
     docker = {
       enable = true;
       enableOnBoot = false;
+      storageDriver = "btrfs";
     };
 
     containerd = {

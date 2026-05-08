@@ -43,6 +43,7 @@
 
   services.resolved = {
     enable = true;
+#    dnssec = "true";
     domains = [
       "local"
     ];

@@ -59,6 +59,7 @@
             ];
           };
         }
+        ./extras/recovery-image.nix
         ./modules/audio.nix
         ./modules/base.nix
         ./modules/bash.nix
@@ -69,6 +70,7 @@
         ./modules/emacs.nix
         ./modules/filemanagers.nix
         ./modules/fonts.nix
+        ./modules/freecad.nix
         ./modules/gaming.nix
         ./modules/git.nix
         ./modules/go.nix
@@ -96,7 +98,6 @@
         ./modules/virtualisation.nix
         ./modules/windows.nix
         ./modules/xdg.nix
-        ./extras/recovery-image.nix
       ];
 
       emacs-version = pkgs.emacs-pgtk;
