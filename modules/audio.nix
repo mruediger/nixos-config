@@ -22,4 +22,27 @@
       };
     };
   };
+
+  # Open the PulseAudio TCP port
+  networking.firewall.allowedTCPPorts = [ 4713 ];
+
+# Enable Avahi to broadcast the audio sink
+  services.avahi = {
+    enable = true;
+    publish.enable = true;
+    publish.userServices = true;
+  };
+
+  # Configure PipeWire to accept network connections
+  services.pipewire.extraConfig.pipewire-pulse."99-network.conf" = {
+    "context.modules" = [
+      {
+        name = "libpipewire-module-protocol-pulse";
+        args = {
+          "server.address" = [ "tcp:4713" ];
+        };
+      }
+      { name = "libpipewire-module-zeroconf-discover"; }
+    ];
+  };
 }
