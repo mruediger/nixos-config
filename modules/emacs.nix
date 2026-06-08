@@ -84,8 +84,8 @@
     gopls
     terraform-ls
 
-    nodePackages.bash-language-server
-    nodePackages.yaml-language-server
+    bash-language-server
+    yaml-language-server
 
     jsonnet-language-server
 

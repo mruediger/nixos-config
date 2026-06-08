@@ -6,7 +6,6 @@
     android-tools
   ];
 
-  programs.adb.enable = true;
   users.users.bag.extraGroups = [ "adbusers" ];
 
   networking.firewall.allowedUDPPorts = [ 24727 ];

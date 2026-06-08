@@ -10,8 +10,8 @@
     mumble
     gcompris
     tuxpaint
-    superTux
-    superTuxKart
+    supertux
+    supertuxkart
     adwaita-icon-theme
     vulkan-tools
     mesa-demos

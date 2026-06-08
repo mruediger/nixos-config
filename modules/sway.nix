@@ -49,6 +49,8 @@ in
           name = "Paper";
           package = pkgs.paper-icon-theme;
         };
+
+        gtk4.theme = config.gtk.theme;
       };
 
       programs.waybar = {
@@ -228,7 +230,7 @@ in
             dpi-aware = "no";
             term =  "xterm-256color";
           };
-          colors = {
+          colors-dark = {
             background = "282828";
             foreground = "ebdbb2";
             regular0 = "282828";
