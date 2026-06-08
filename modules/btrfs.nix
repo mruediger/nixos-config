@@ -9,7 +9,7 @@
   ];
 
   services.btrfs.autoScrub = {
-    enable = config.networking.hostName == "josephine";
+    enable = true;
     interval = "weekly";
   };
 }
