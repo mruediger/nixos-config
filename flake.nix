@@ -131,6 +131,7 @@
             inherit system;
             modules = [
               "${nixpkgs}/nixos/modules/installer/netboot/netboot-minimal.nix"
+              { system.stateVersion = stateVersion; }
               ({ pkgs, ... }: {
                 environment.systemPackages = with pkgs; [
                   gptfdisk testdisk ddrescue e2fsprogs btrfs-progs
