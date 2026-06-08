@@ -7,7 +7,7 @@
     nixpkgs-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -41,6 +41,11 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+
+        config.permittedInsecurePackages = [
+          "electron-39.8.10"
+        ];
+
         overlays = [
           unstable-overlay
           (import emacs-overlay)
