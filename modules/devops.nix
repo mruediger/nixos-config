@@ -41,7 +41,7 @@
     terramate
 
     opentofu
-    opentofu-ls
+    tofu-ls
 
     kubectl
     kustomize
