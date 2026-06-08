@@ -26,7 +26,7 @@
   # Open the PulseAudio TCP port
   networking.firewall.allowedTCPPorts = [ 4713 ];
 
-# Enable Avahi to broadcast the audio sink
+  # Enable Avahi to broadcast the audio sink
   services.avahi = {
     enable = true;
     publish.enable = true;

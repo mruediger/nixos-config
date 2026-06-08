@@ -1,3 +1,4 @@
+
 {
   config,
   pkgs,
@@ -22,14 +23,24 @@
     ];
     kernelModules = [ "kvm-amd" ];
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [
-      "resume_offset=5697536" # offset by filefrag -v /swapfile
-    ];
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/e50a21f8-efda-4c70-94b1-aee61f724832";
-    fsType = "ext4";
+    device = "/dev/mapper/root";
+    fsType = "btrfs";
+    options = [ "subvol=root" "compress=zstd" ];
+  };
+
+  fileSystems."/home" = {
+    device = "/dev/mapper/root";
+    fsType = "btrfs";
+    options = [ "subvol=home" "compress=zstd" ];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/mapper/root";
+    fsType = "btrfs";
+    options = [ "subvol=nix" "compress=zstd" "noatime" ];
   };
 
   boot.initrd.luks.devices = {
@@ -47,7 +58,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/f550894c-6b6c-4353-b3a3-c79fd06123b1"; }
+    { device = "/dev/mapper/swap"; }
   ];
 
   services.xserver.synaptics.palmDetect = true;
