@@ -47,6 +47,7 @@ in
         "Enabled" = false;
       };
       "SearchEngines" = {
+        "Default" = "DuckDuckGo";
         "Remove" = [
           "Perplexity"
         ];
