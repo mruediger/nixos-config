@@ -4,6 +4,7 @@
     brightnessctl
     powertop
     s-tui
+    bluetui
   ];
 
   #  nixpkgs.config = {
