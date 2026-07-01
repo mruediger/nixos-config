@@ -119,6 +119,7 @@
               nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
               ./josephine.nix
               ./modules/laptop.nix
+              ./modules/minecraft.nix
             ];
           };
           farting-unicorn = nixpkgs.lib.nixosSystem {
