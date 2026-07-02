@@ -23,6 +23,7 @@ in
     element-desktop
     koreader
     thunderbird
+    gimp
   ];
 
   programs.firefox = {
