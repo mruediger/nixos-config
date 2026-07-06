@@ -21,6 +21,7 @@
         wrapfig
         capt-of
         g-brief
+        pdfjam
       ]
     ))
     pandoc
