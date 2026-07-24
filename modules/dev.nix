@@ -8,5 +8,6 @@
     unstable.antigravity-cli
     unstable.flutter
     difftastic
+    nodejs
   ];
 }
