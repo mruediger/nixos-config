@@ -59,6 +59,7 @@
             useUserPackages = true;
           };
         }
+        ./modules/ai.nix
         ./modules/audio.nix
         ./modules/base.nix
         ./modules/bash.nix
