@@ -18,4 +18,11 @@
     powerOnBoot = false;
     settings.General.Enable = "Source,Sink,Media,Socket";
   };
+
+  services.upower = {
+    enable = true;
+    usePercentageForPolicy = true;
+    percentageAction = 3;
+    criticalPowerAction = "Hibernate";
+  };
 }
