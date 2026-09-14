@@ -30,7 +30,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    opencloud-desktop
+    nextcloud-client
   ];
 
   home-manager.users.bag = { config, ... }:{
