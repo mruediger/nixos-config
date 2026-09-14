@@ -5,7 +5,6 @@
   ];
 
   networking = {
-    nameservers = [ "1.1.1.1" "9.9.9.9" ];
     networkmanager.enable = true;
     firewall = {
       enable = true;
@@ -43,13 +42,12 @@
 
   services.resolved = {
     enable = true;
-#    dnssec = "true";
-    domains = [
-      "local"
-    ];
-    fallbackDns = [
-      "1.1.1.1"
-      "2606:4700:4700::1111"
-    ];
+    dnssec = "true";
+    settings.Resolve = {
+      FallbackDNS = [
+        "1.1.1.1"
+        "2606:4700:4700::1111"
+      ];
+    };
   };
 }
