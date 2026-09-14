@@ -22,6 +22,7 @@
     kernelParams = [
       "amd_3d_vcache.x3d_mode=cache" # AMD V-Cache https://wiki.cachyos.org/configuration/general_system_tweaks/#amd-3d-v-cache-optimizer
       "resume_offset=177743104" # btrfs inspect-internal map-swapfile /swapfile
+      "nvme_core.default_ps_max_latency_us=0" # try to fix nvme issues (https://wiki.archlinux.org/title/Solid_state_drive/NVMe)
     ];
     resumeDevice = "/dev/mapper/root";
     extraModulePackages = [
