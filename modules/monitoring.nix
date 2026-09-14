@@ -40,5 +40,8 @@
         }
       ];
     };
+    settings.security = {
+      secret_key = "$__file{/etc/secrets/gf_secret_key}";
+    };
   };
 }
