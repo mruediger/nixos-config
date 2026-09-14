@@ -16,14 +16,15 @@
           };
 
           "github.com" = {
-            user = "mruediger";
+            user = "git";
             identityFile = "~/.ssh/github";
           };
 
           "gitlab.com" = {
-            user = "mruediger";
+            user = "git";
             identityFile = "~/.ssh/gitlab";
           };
+
           "*" = {
             ForwardAgent = false;
             AddKeysToAgent = "no";
