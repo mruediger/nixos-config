@@ -356,7 +356,6 @@ in
               ];
             };
 
-            #menu = "${pkgs.wofi}/bin/wofi --show drun";
             menu = "${pkgs.fuzzel}/bin/fuzzel";
             window.titlebar = false;
             colors =
