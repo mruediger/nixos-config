@@ -24,6 +24,8 @@ in
     koreader
     thunderbird
     gimp
+    onlyoffice-bin
+    libreoffice
   ];
 
   programs.firefox = {
