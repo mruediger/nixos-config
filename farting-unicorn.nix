@@ -88,6 +88,4 @@
       HandlePowerKey = "hibernate";
     };
   };
-
-  boot.recoverySystem.enable = true;
 }

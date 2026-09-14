@@ -64,7 +64,6 @@
             ];
           };
         }
-        ./extras/recovery-image.nix
         ./modules/audio.nix
         ./modules/base.nix
         ./modules/bash.nix
@@ -132,21 +131,6 @@
               ./modules/laptop.nix
             ];
           };
-          recovery-system = nixpkgs.lib.nixosSystem {
-            inherit system;
-            modules = [
-              "${nixpkgs}/nixos/modules/installer/netboot/netboot-minimal.nix"
-              { system.stateVersion = stateVersion; }
-              ({ pkgs, ... }: {
-                environment.systemPackages = with pkgs; [
-                  gptfdisk testdisk ddrescue e2fsprogs btrfs-progs
-                ];
-              })
-            ];
-          };
-        };
-        recoveryBundle = {
-          x86_64-linux = self.nixosConfigurations.recovery-system.config.system.build.toplevel;
         };
       };
 }

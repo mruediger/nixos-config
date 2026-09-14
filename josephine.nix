@@ -108,6 +108,4 @@
       allow_mixed_block_sizes = 1
     }
     '';
-
-  boot.recoverySystem.enable = true;
 }
