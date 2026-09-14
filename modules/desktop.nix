@@ -24,7 +24,7 @@ in
     koreader
     thunderbird
     gimp
-    onlyoffice-bin
+    onlyoffice-desktopeditors
     libreoffice
   ];
 

@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     nixos-option
     nixd
-    nixfmt-rfc-style
+    nixfmt
   ];
 
   nix = {
