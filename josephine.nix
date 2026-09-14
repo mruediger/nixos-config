@@ -1,5 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 {
+  system.stateVersion = "24.11";
+  home-manager.sharedModules = [ { home.stateVersion = "24.11"; } ];
 
   networking = {
     hostName = "josephine";

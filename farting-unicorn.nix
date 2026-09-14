@@ -1,11 +1,8 @@
+{ pkgs, ... }:
+{
+  system.stateVersion = "24.11";
+  home-manager.sharedModules = [ { home.stateVersion = "24.11"; } ];
 
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
-{
   networking.hostName = "farting-unicorn";
 
   boot = {

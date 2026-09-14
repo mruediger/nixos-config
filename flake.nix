@@ -29,7 +29,6 @@
   outputs =  { self, nixpkgs, nixpkgs-unstable, emacs-overlay, home-manager, nixpkgs-hardware,  ... }@inputs:
     let
       system = "x86_64-linux";
-      stateVersion = "24.11";
 
       unstable-overlay = final: prev: {
         unstable = import nixpkgs-unstable {
@@ -55,13 +54,9 @@
       modules = [
         home-manager.nixosModules.home-manager
         {
-          system.stateVersion = stateVersion;
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            sharedModules = [
-              { home.stateVersion = stateVersion; }
-            ];
           };
         }
         ./modules/audio.nix
