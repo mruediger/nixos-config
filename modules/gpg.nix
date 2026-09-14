@@ -24,6 +24,7 @@
       programs.password-store = {
         enable = true;
         package = pkgs.pass.override { waylandSupport = true; };
+        settings = { };
       };
 
       programs.gpg = {

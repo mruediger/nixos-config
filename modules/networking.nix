@@ -42,8 +42,8 @@
 
   services.resolved = {
     enable = true;
-    dnssec = "true";
     settings.Resolve = {
+      DNSSEC = "true";
       FallbackDNS = [
         "1.1.1.1"
         "2606:4700:4700::1111"
