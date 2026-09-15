@@ -7,9 +7,9 @@ in
   services.pipewire.enable = true;
   security.polkit.enable = true;
   security.pam.services.swaylock = { };
+  programs.dconf.enable = true;
 
   environment.systemPackages = with pkgs; [
-    dconf
     zathura
     slurp
     grim
@@ -35,6 +35,10 @@ in
 
       gtk = {
         enable = true;
+        font = {
+          name = "Roboto";
+          size = 11;
+        };
         theme = {
           name = "Paper";
           package = pkgs.paper-gtk-theme;
@@ -51,6 +55,11 @@ in
         };
 
         gtk4.theme = config.gtk.theme;
+      };
+
+      qt = {
+        enable = true;
+        platformTheme.name = "gtk";
       };
 
       programs.waybar = {
