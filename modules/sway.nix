@@ -1,6 +1,7 @@
 { pkgs, emacs-version, ... }:
 let
   theme = import ../themes/gruvbox-dark.nix;
+  stripHash = color: builtins.substring 1 (builtins.stringLength color - 1) color;
 in
 {
   services.dbus.enable = true;
@@ -69,7 +70,10 @@ in
           targets = [ "sway-session.target" ];
         };
         settings.mainBar = {
-          modules-left = [ "sway/workspaces" "sway/window" "sway/mode" ];
+          position = "top";
+          height = 25;
+          modules-left = [ "sway/workspaces"  "sway/mode" ];
+          modules-center = [ "sway/window" ];
           modules-right = [ "pulseaudio" "backlight" "network" "battery" "clock" "sway/language" "tray" ];
           backlight = {
             format = "{percent}% {icon}";
@@ -106,9 +110,12 @@ in
             tooltip-format-wifi = "{essid} ({signalStrength}%) ";
           };
           pulseaudio = {
-            format = "{volume}% {icon} {format_source}";
-            format-bluetooth = "{volume}% {icon} {format_source}";
-            format-bluetooth-muted = "󰝟 {icon} {format_source}";
+            format = "{volume}% {icon}  {format_source}";
+            format-muted = "{volume}%   {format_source}";
+            format-source = "{volume}% 󰍬";
+            format-source-muted = "{volume}% 󰍭";
+            format-bluetooth = "{volume}%{icon} ";
+            format-bluetooth-muted = "󰖁 {icon} ";
             format-icons = {
               car = "";
               default = [ "" "" "" ];
@@ -118,9 +125,6 @@ in
               phone = "";
               portable = "";
             };
-            format-muted = "{volume}% {format_source}";
-            format-source = "{volume}% ";
-            format-source-muted = "";
             on-click = "pavucontrol";
           };
           "sway/workspaces" = { disable-scroll = true; };
@@ -129,97 +133,79 @@ in
           };
         };
         style = ''
-          * {
+        * {
             border: none;
             border-radius: 0;
             font-family: RobotoMono Nerd Font;
             font-size: 14px;
-            font-weight: 500;
-          }
+            min-height: 0;
+        }
 
-          window#waybar {
-            background-color: ${theme.background};
-            color: ${theme.foreground};
-            /* border-bottom: solid 0px ${theme.background}; */
-            border-bottom: solid 2px ${theme.normal.gray};
-          }
+        window#waybar {
+            background: ${theme.background};
+            border-bottom: 3px solid ${theme.foreground};
+            color: ${theme.bright.white};
+        }
 
-          #workspaces button {
-            color: ${theme.foreground};
-          }
-
-          #workspaces button.focused {
-            background-color: ${theme.foreground};
-            color: ${theme.background};
-            border-bottom: none;
-          }
-
-          #workspaces button.urgent {
-            background-color: ${theme.normal.red};
-          }
-
-          widget > * {
-            margin-top: 6px;
-            margin-bottom: 6px;
-          }
-
-          .modules-left > widget > * {
-            margin-left: 12px;
-            margin-right: 12px;
-          }
-
-          .modules-left > widget:first-child > * {
-            margin-left: 6px;
-          }
-
-          .modules-left > widget:last-child > * {
-            margin-right: 18px;
-          }
-
-          .modules-right > widget > * {
-            padding: 0 12px;
-            margin-left: 0;
-            margin-right: 0;
-            color: ${theme.background};
-            background-color: ${theme.foreground};
-          }
-
-          .modules-right > widget:last-child > * {
-            margin-right: 6px;
-          }
-
-          #mode {
+        #workspaces button {
+            padding: 0 5px;
             background: transparent;
-            color: #fb4934;
-          }
+            color: ${theme.bright.white};
+            border-bottom: 3px solid transparent;
+        }
 
-          @keyframes blink {
+        #workspaces button.focused {
+            background: ${theme.bright.orange};
+            border-bottom: 3px solid ${theme.bright.orange};
+        }
+
+        #mode, #clock, #battery {
+            padding: 0 10px;
+            margin: 0 5px;
+        }
+
+        #mode {
+            background: ${theme.normal.red};
+            border-bottom: 3px solid ${theme.bright.white};
+        }
+
+        #clock {
+            background-color: ${theme.bright.orange};
+            color: ${theme.bright.white};
+        }
+
+        #battery {
+            background-color: ${theme.bright.white};
+            color: ${theme.background};
+        }
+
+        #battery.charging {
+            color: ${theme.background};
+            background-color: ${theme.normal.green};
+        }
+
+        @keyframes blink {
             to {
-              color: ${theme.foreground};
+                background-color: ${theme.bright.white};
+                color: ${theme.background};
             }
-          }
+        }
 
-          #battery.critical:not(.charging) {
+        #idle_inhibitor, #pulseaudio, #custom-openvpn, #network, #cpu, #memory, #temperature, #backlight, #battery, #clock, #tray {
+             padding: 0 6px;
+             margin: 0 3px;
+        }
+
+        #battery.warning:not(.charging) {
+            background: ${theme.normal.red};
+            color: ${theme.bright.white};
             animation-name: blink;
-            animation-duration: 1s;
+            animation-duration: 0.5s;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
             animation-direction: alternate;
-          }
-
-          label:focus {
-            background-color: ${theme.background} ;
-          }
-
-          tooltip {
-            border-radius: 5px;
-            background: #504945;
-          }
-
-          tooltip label {
-            color: ${theme.foreground};
-          }
-        '';
+        }
+                '';
       };
 
       services.mako = {
@@ -240,24 +226,24 @@ in
             term =  "xterm-256color";
           };
           colors-dark = {
-            background = "282828";
-            foreground = "ebdbb2";
-            regular0 = "282828";
-            regular1 = "cc241d";
-            regular2 = "98971a";
-            regular3 = "d79921";
-            regular4 = "458588";
-            regular5 = "b16286";
-            regular6 = "689d6a";
-            regular7 = "a89984";
-            bright0 = "928374";
-            bright1 = "fb4934";
-            bright2 = "b8bb26";
-            bright3 = "fabd2f";
-            bright4 = "83a598";
-            bright5 = "d3869b";
-            bright6 = "8ec07c";
-            bright7 = "ebdbb2";
+            background = "${stripHash theme.background}";
+            foreground = "${stripHash theme.foreground}";
+            regular0 = "${stripHash theme.normal.black}";
+            regular1 = "${stripHash theme.normal.red}";
+            regular2 = "${stripHash theme.normal.green}";
+            regular3 = "${stripHash theme.normal.yellow}";
+            regular4 = "${stripHash theme.normal.blue}";
+            regular5 = "${stripHash theme.normal.purple}";
+            regular6 = "${stripHash theme.normal.aqua}";
+            regular7 = "${stripHash theme.normal.gray}";
+            bright0 = "${stripHash theme.bright.gray}";
+            bright1 = "${stripHash theme.bright.red}";
+            bright2 = "${stripHash theme.bright.green}";
+            bright3 = "${stripHash theme.bright.yellow}";
+            bright4 = "${stripHash theme.bright.blue}";
+            bright5 = "${stripHash theme.bright.blue}";
+            bright6 = "${stripHash theme.bright.aqua}";
+            bright7 = "${stripHash theme.bright.gray}"; #originally theme.foreground
           };
         };
       };
@@ -311,7 +297,7 @@ in
           {
             terminal = "${pkgs.foot}/bin/foot";
             fonts = {
-              names = [ "FiraCode Nerd Font" ];
+              names = [ "Roboto Nerd Font" ];
               size = 10.0;
             };
 
@@ -474,6 +460,7 @@ in
                 "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_SINK@ 1%+";
                 "XF86AudioMicMute" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
                 "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+                "Shift+XF86AudioMute" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
                 "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1%-";
                 "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl s 1%+";
 

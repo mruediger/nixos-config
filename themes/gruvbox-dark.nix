@@ -11,6 +11,7 @@
     purple = "#b16286";
     aqua   = "#689d6a";
     gray   = "#a89984";
+    orange = "#d65d0e";
   };
 
   bright = {
@@ -22,5 +23,6 @@
     purple = "#d3869b";
     aqua   = "#8ec07c";
     gray   = "#928374";
+    orange = "#fe8019";
   };
 }

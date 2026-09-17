@@ -10,6 +10,7 @@
     packages = with pkgs; [
       nerd-fonts.iosevka
       nerd-fonts.fira-code
+      nerd-fonts.roboto-mono
       cantarell-fonts
       font-awesome
       inconsolata
@@ -28,7 +29,7 @@
       defaultFonts = {
         serif     = [ "Noto Serif" "Noto Color Emoji" ];
         sansSerif = [ "Roboto" "Noto Color Emoji" ];
-        monospace = [ "FiraCode Nerd Font" "Noto Color Emoji" ];
+        monospace = [ "FiraCode" "Noto Color Emoji" ];
         emoji     = [ "Noto Color Emoji" ];
       };
       antialias = true;
