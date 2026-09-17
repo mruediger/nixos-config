@@ -24,7 +24,7 @@
     ({ ... }: {
       programs.password-store = {
         enable = true;
-        package = pkgs.pass.override { waylandSupport = true; };
+        package = pkgs.pass.override { waylandSupport = true; dmenuSupport = true; };
         settings = { };
       };
 
