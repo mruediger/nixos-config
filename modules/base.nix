@@ -20,7 +20,6 @@
     sysstat
     mtr
     htop
-    mprime
     pciutils
     usbutils
   ];
