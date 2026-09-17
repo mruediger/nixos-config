@@ -13,6 +13,7 @@
     gnupg
     gopass
     gopass-jsonapi
+    ripasso-cursive
   ];
 
   programs.browserpass.enable = true;
