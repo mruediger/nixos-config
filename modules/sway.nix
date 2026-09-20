@@ -199,6 +199,11 @@ in
         #battery.warning:not(.charging) {
             background: ${theme.normal.red};
             color: ${theme.bright.white};
+        }
+
+        #battery.critical:not(.charging) {
+            background: ${theme.normal.red};
+            color: ${theme.bright.white};
             animation-name: blink;
             animation-duration: 0.5s;
             animation-timing-function: linear;
