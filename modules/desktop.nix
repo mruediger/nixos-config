@@ -10,6 +10,7 @@ let
         --add-flags "--ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer"
     '';
   });
+  user = import ../users/user.nix;
 in
 {
   environment.systemPackages = with pkgs; [
@@ -22,7 +23,6 @@ in
     zoom-us
     element-desktop
     koreader
-    thunderbird
     gimp
     onlyoffice-desktopeditors
     libreoffice
@@ -74,6 +74,47 @@ in
         "de"
         "en-US"
       ];
+    };
+  };
+
+  home-manager.users.bag = { config, ... }: {
+    accounts.email.accounts."mailbox.org" = {
+      primary = true;
+      address = user.primary.mail_provider.address;
+      userName = user.primary.mail_provider.userName;
+      realName = user.primary.mail_provider.realName;
+      flavor = "plain";
+
+      aliases = user.primary.mail_provider.aliases;
+
+      imap = {
+        host = "imap.mailbox.org";
+        port = 993;
+        tls.enable = true;
+      };
+
+      smtp = {
+        host = "smtp.mailbox.org";
+        port = 465;
+        tls.enable = true;
+      };
+
+      thunderbird = {
+        enable = true;
+        profiles = [ "default" ];
+      };
+    };
+
+    programs.thunderbird = {
+      enable = true;
+      profiles.default = {
+        isDefault = true;
+        settings = {
+          "mail.spellcheck.inline" = true;
+          "spellchecker.dictionary" = "en-US,de-DE";
+          "mailnews.start_page.enabled" = false;
+        };
+      };
     };
   };
 }
