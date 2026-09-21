@@ -6,6 +6,11 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    k8s-lab = {
+      url = "git+file:///home/bag/src/nixos/kubernetes-playground/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +31,7 @@
     ];
   };
 
-  outputs =  { self, nixpkgs, nixpkgs-unstable, emacs-overlay, home-manager, nixpkgs-hardware,  ... }@inputs:
+  outputs =  { self, nixpkgs, nixpkgs-unstable, emacs-overlay, home-manager, nixpkgs-hardware,  k8s-lab, ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -108,6 +113,9 @@
               nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
               ./josephine.nix
               ./modules/laptop.nix
+
+              k8s-lab.nixosModules.lab-host
+              { lab.uplink = "eno1"; }
             ];
           };
           farting-unicorn = nixpkgs.lib.nixosSystem {
@@ -119,6 +127,9 @@
               nixpkgs-hardware.nixosModules.common-cpu-amd-pstate
               ./farting-unicorn.nix
               ./modules/laptop.nix
+
+              k8s-lab.nixosModules.lab-host
+              { lab.uplink = "wlp1s0"; }
             ];
           };
         };

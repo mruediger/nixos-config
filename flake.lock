@@ -42,6 +42,26 @@
         "type": "github"
       }
     },
+    "k8s-lab": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789914627,
+        "narHash": "sha256-OUYkpeDU4TMhzjcy+OfqGnha3Jm4WZjz0jOidZk6bZ4=",
+        "ref": "refs/heads/main",
+        "rev": "2c52c11405d68f3cd524e828b75e717c7ad757a6",
+        "revCount": 3,
+        "type": "git",
+        "url": "file:///home/bag/src/nixos/kubernetes-playground/"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/bag/src/nixos/kubernetes-playground/"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1789344334,
@@ -122,6 +142,7 @@
       "inputs": {
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
+        "k8s-lab": "k8s-lab",
         "nixpkgs": "nixpkgs",
         "nixpkgs-hardware": "nixpkgs-hardware",
         "nixpkgs-unstable": "nixpkgs-unstable"
