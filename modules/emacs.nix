@@ -71,11 +71,7 @@
     hledger
     beancount_2
     fava
-    aspell
-    aspellDicts.en
-    aspellDicts.en-computers
-    aspellDicts.en-science
-    aspellDicts.de
+    (aspellWithDicts ( dicts: with dicts; [ en en-computers en-science de ]))
     multimarkdown
     (rWrapper.override { packages = with rPackages; [ ggplot2 ]; })
 
