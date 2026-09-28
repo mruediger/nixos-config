@@ -109,5 +109,30 @@
     devices {
       allow_mixed_block_sizes = 1
     }
-    '';
+  '';
+
+  hardware.amdgpu.opencl.enable = true;
+
+  services.ollama = {
+    enable = true;
+    package = pkgs.unstable.ollama-rocm;
+    rocmOverrideGfx = "11.0.0";
+    loadModels = [
+      "deepseek-r1:14b"
+      "deepseek-r1:32b"
+      "qwen3:14b"
+      "qwen3.8:latest"
+      "Phi-4:14b"
+    ];
+  };
+
+  # System-wide override for other ROCm tools (llama-cpp, PyTorch, ComfyUI, etc.)
+  environment.variables = {
+    HSA_OVERRIDE_GFX_VERSION = "11.0.0";
+  };
+
+  environment.systemPackages = with pkgs; [
+    rocmPackages.rocminfo
+    rocmPackages.rocm-smi
+  ];
 }
